@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  1 SEP 2019 22:02
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  2 SEP 2019 23:36
 entering extended mode
 **Sun-2016.tex
 (D:\graduationdissertation\Sun-2016.tex
@@ -2215,7 +2215,7 @@ Requested font "SimHei/ICU:script=latn;language=DFLT;mapping=tex-text;embolden=
 ]
 
 LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sl' undefined
-(Font)              using `EU1/TimesNewRoman(0)/m/n' instead on input line 22.
+(Font)              using `EU1/TimesNewRoman(0)/m/n' instead on input line 18.
 
 .................................................
 . fontspec info: "defining-font"
@@ -2227,7 +2227,7 @@ LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sl' undefined
 .................................................
 
 LaTeX Font Warning: Font shape `EU1/SimSun(0)/m/sl' undefined
-(Font)              using `EU1/SimSun(0)/m/n' instead on input line 22.
+(Font)              using `EU1/SimSun(0)/m/n' instead on input line 18.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2235,7 +2235,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2]
+[2] [3]
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -2244,7 +2244,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 . 
 . This font family consists of the following shapes:
 .................................................
- [3]) (D:\graduationdissertation\C2-CHAP2.tex [4]
+ [4]) (D:\graduationdissertation\C2-CHAP2.tex [5]
 第二章
 Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
 t;" at 14.4pt
@@ -2267,18 +2267,18 @@ Requested font "SimHei/ICU" at 12.05pt
 Requested font "SimHei/ICU:script=latn;language=DFLT;mapping=tex-text;embolden=
 4;" at 12.05pt
  -> C:/WINDOWS/Fonts/simhei.ttf
-[5
+[6
 
-] [6]
+] [7]
 File: fig/independentConstruction.pdf Graphic file (type QTm)
- <use  "fig/independentConstruction.pdf" > [7]
+ <use  "fig/independentConstruction.pdf" > [8]
 Requested font "pzdr" at 12.0pt
  -> pzdr
 File: fig/p2p.pdf Graphic file (type QTm)
  <use  "fig/p2p.pdf" >
-[8]
+[9]
 File: fig/centralized.pdf Graphic file (type QTm)
- <use  "fig/centralized.pdf" > [9]
+ <use  "fig/centralized.pdf" > [10]
 Package hyperref Info: bookmark level for unknown define defaults to 0 on input
  line 59.
 .................................................
@@ -2292,17 +2292,17 @@ Package hyperref Info: bookmark level for unknown define defaults to 0 on input
 Requested font "[SIMKAI.TTF]/ICU:script=latn;language=DFLT;mapping=tex-text;" a
 t 12.0pt
  -> C:/WINDOWS/Fonts/SIMKAI.TTF
- [10] [11]
+ [11] [12]
 File: fig/mix_zone.pdf Graphic file (type QTm)
  <use  "fig/mix_zone.pdf" >
-[12] [13]
+[13] [14]
 File: fig/Dummy.pdf Graphic file (type QTm)
- <use  "fig/Dummy.pdf" > [14]
+ <use  "fig/Dummy.pdf" > [15]
 File: fig/ubiquity.pdf Graphic file (type QTm)
  <use  "fig/ubiquity.pdf" >
 File: fig/congestion.pdf Graphic file (type QTm)
 
-<use  "fig/congestion.pdf" > [15] [16]
+<use  "fig/congestion.pdf" > [16] [17]
 Requested font "Times New Roman/ICU:script=latn;language=DFLT;mapping=tex-text;
 " at 10.95pt
  -> C:/WINDOWS/Fonts/times.ttf
@@ -2367,11 +2367,11 @@ LaTeX Warning: Command \nobreakspace invalid in math mode on input line 205.
 
 LaTeX Warning: Command \nobreakspace invalid in math mode on input line 205.
 
-[17]
+[18]
 File: fig/cloaking.pdf Graphic file (type QTm)
  <use  "fig/cloaking.pdf" >
 File: fig/GoldTower.pdf Graphic file (type QTm)
- <use  "fig/GoldTower.pdf" > [18] [19]
+ <use  "fig/GoldTower.pdf" > [19] [20]
 
 LaTeX Warning: Command \nobreakspace invalid in math mode on input line 234.
 
@@ -2417,13 +2417,13 @@ LaTeX Warning: Command \nobreakspace invalid in math mode on input line 244.
 LaTeX Warning: Command \nobreakspace invalid in math mode on input line 245.
 
 File: fig/PIR.pdf Graphic file (type QTm)
-<use  "fig/PIR.pdf" > [20] [21]) (D:\graduationdissertation\C3-CHAP3.tex
-[22]
+<use  "fig/PIR.pdf" > [21] [22]) (D:\graduationdissertation\C3-CHAP3.tex
+[23]
 第三章
 File: fig/KNN.pdf Graphic file (type QTm)
-<use  "fig/KNN.pdf" > [23
+<use  "fig/KNN.pdf" > [24
 
-] [24] [25] [26] [27] [28] [29] [30]
+] [25] [26] [27] [28] [29] [30] [31]
 Overfull \hbox (12.51343pt too wide) in paragraph at lines 138--139
 []\xeCJK@rm/m/sl/12 初 始 化 阶 段：| $\OML/cmm/m/it/12 n \OT1/cmr/m/n/12
  = \OML/cmm/m/it/12 pq$\xeCJK@rm/m/sl/12 ，| 其 中 $\OML/cmm/m/it/12 p; q$ \
@@ -2433,18 +2433,18 @@ xeCJK@rm/m/sl/12 为 大 素 数，| 选 取 $\OML/cmm/m/it/12 g \OMS/cmsy/m/n/
 ] 
  []
 
-[31]) (D:\graduationdissertation\C4-CHAP4.tex [32]
+[32]) (D:\graduationdissertation\C4-CHAP4.tex [33]
 第四章
-[33
+[34
 
-] [34] [35] [36] [37] [38] [39] [40] [41]
+] [35] [36] [37] [38] [39] [40] [41] [42]
 
 LaTeX Warning: Command \o invalid in math mode on input line 189.
 
 Missing character: There is no ø in font cmmi12!
 Missing character: There is no ， in font Times New Roman/ICU:script=latn;lang
 uage=DFLT;mapping=tex-text;!
-[42]
+[43]
 Overfull \hbox (38.89864pt too wide) in paragraph at lines 224--225
  []\xeCJK@rm/bx/n/12 频 率 安 全[] \EU1/TimesNewRoman(0)/m/sl/12 . \xeCJK@r
 m/m/sl/12 考 虑 这 样 一 种 情 况，| $\OML/cmm/m/it/12 P[]$ \xeCJK@rm/
@@ -2457,7 +2457,7 @@ m/m/it/12 c[]\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 i\OT1/cmr/m/n/12 )$\xeCJK@rm/m/s
 l/12 ，|
  []
 
-[43] [44]
+[44] [45]
 Overfull \hbox (26.91452pt too wide) in paragraph at lines 272--273
 \xeCJK@rm/m/sl/12 算 法 \EU1/TimesNewRoman(0)/m/sl/12 1\xeCJK@rm/m/sl/12 ，|
  设 $\OML/cmm/m/it/12 P[]$ \xeCJK@rm/m/sl/12 的 执 行 过 程 用 $[][]\OT1
@@ -2480,11 +2480,11 @@ P[]$\xeCJK@rm/m/sl/12 ，| $[][]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 SMIN\OT1/cmr/
 m/n/12 ) = []$\xeCJK@rm/m/sl/12 。|
  []
 
-[45]) (D:\graduationdissertation\C5-CHAP5.tex [46]
+[46]) (D:\graduationdissertation\C5-CHAP5.tex [47]
 第五章
-[47
+[48
 
-] [48] [49] [50] [51]
+] [49] [50] [51] [52]
 Overfull \hbox (25.7776pt too wide) in paragraph at lines 101--102
 \EU1/TimesNewRoman(0)/m/sl/12 Alice \xeCJK@rm/m/sl/12 将 加 密 后 的 类 �
 �� 表 外 包 给 $\OML/cmm/m/it/12 C[]$\xeCJK@rm/m/sl/12 。| 即 在 数 据
@@ -2506,20 +2506,20 @@ cmm/m/it/12 E[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 c[]\OT1/cmr/m/n/12 )\OML/cmm/m
 y/m/n/12 i$\EU1/TimesNewRoman(0)/m/sl/12 ,
  []
 
-[52]) (D:\graduationdissertation\C6-CHAP6.tex [53]
+[53]) (D:\graduationdissertation\C6-CHAP6.tex [54]
 第六章
-) [54
+) [55
 
-] (D:\graduationdissertation\Sun-2016.bbl [55
+] (D:\graduationdissertation\Sun-2016.bbl [56
 
 
-] [56] [57] [58]
+] [57] [58] [59]
 Underfull \hbox (badness 1152) in paragraph at lines 292--297
 []\EU1/TimesNewRoman(0)/m/sl/12 LI N, LI T, VENKATASUBRAMANIAN S. t-closeness: 
 Privacy beyond k-
  []
 
-[59] [60]) [61] (D:\graduationdissertation\D2-ACHNOWLEDGEMENT.tex
+[60] [61]) [62] (D:\graduationdissertation\D2-ACHNOWLEDGEMENT.tex
 Requested font "[SIMKAI.TTF]" at 12.0pt
  -> C:/WINDOWS/Fonts/SIMKAI.TTF
 Requested font "[SIMKAI.TTF]/ICU" at 12.0pt
@@ -2540,11 +2540,11 @@ Requested font "[SIMKAI.TTF]/ICU" at 12.0pt
 .................................................
 Requested font "[SIMKAI.TTF]/ICU:mapping=tex-text;" at 12.0pt
  -> C:/WINDOWS/Fonts/SIMKAI.TTF
- [62
+ [63
 
 
 ])
-[63] (D:\graduationdissertation\D3-MYACHIEVEMENTS.tex
+[64] (D:\graduationdissertation\D3-MYACHIEVEMENTS.tex
 Requested font "SimSun/I/ICU" at 14.05pt
  -> C:/WINDOWS/Fonts/simsun.ttc
 .................................................
@@ -2580,7 +2580,7 @@ Requested font "SimSun/ICU:script=latn;language=DFLT;mapping=tex-text;embolden=
 (D:\graduationdissertation\Sun-2016.ind)
 \tf@thm=\write10
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 231.
- [64
+ [65
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 231.
@@ -2597,12 +2597,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33203 strings out of 430478
- 623619 string characters out of 3191502
- 655692 words of memory out of 3000000
- 35624 multiletter control sequences out of 15000+200000
+ 33213 strings out of 430478
+ 623825 string characters out of 3191502
+ 655693 words of memory out of 3000000
+ 35634 multiletter control sequences out of 15000+200000
  45898 words of font info for 281 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  57i,12n,92p,1353b,802s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Sun-2016.pdf (76 pages).
+Output written on Sun-2016.pdf (77 pages).
