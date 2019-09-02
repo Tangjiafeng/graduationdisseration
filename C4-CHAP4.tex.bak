@@ -1,0 +1,280 @@
+\chapter{KNN中的隐私保护问题研究}
+
+\section{研究动机}
+\vspace{-0.2cm}
+云计算正在颠覆着传统企业对数据存储，访问以及处理的操作方法。作为一个新兴的计算模式，在成本效率、灵活性以及管理开销都优于之前进行本地处理的一些传统方法，因此云计算受到了众多企业的关注与追捧，亚马逊，微软等这些互联网大亨，也把云计算作为企业的一项核心业务。大部分情况下，企业更擅于将计算操作而不是数据本身委托给云，尽管云计算提供了巨大的优势，但由于隐私和安全问题，很多企业对云计算还是持慎重使用的态度，或者对具有具有高度敏感性的数据进行加密后再外包至云端。但是，当数据被加密，无论底层属于哪种加密方案，在数据未解密的情况下进行数据挖掘都是异常繁琐且效率低下的。除了上述所叙说的，还有其他的隐私安全问题被关注，例如：
+\begin{itemize}
+\item 假设保险公司将他们加密过的顾客数据及相关的数据挖掘任务外包给云。当公司代理想确定一个潜在客户的风险级别的时候，代理可以使用分类的方法去确定客户的风险级别。首先，代理需要生成一条包含顾客特定个人信息的查询请求数据$q$，例如，身份证号，婚姻状况，年龄，信用额度等信息。这些查询请求数据会发送至云端，云将会计算相应查询数据$q$ 的所属类标签。然而，由于查询请求$q$包含了顾客的一些敏感个人信息，为了保护顾客的个人信息的，查询请求$q$在发送至云端的时候也应该进行加密。
+\end{itemize}
+
+上述案例说明了在云端进行密文上的数据挖掘（DMED）的时候，当涉及到用户的敏感信息的时候，这些敏感信息也应该被加密。此外，云通过观察数据的访问模式，也可能获得实际数据项中一些有用或敏感信息，即使实际数据项可能是被加密过的\cite{di2012managing}\cite{williams2008building}。因此，云中密文上数据挖掘的隐私安全问题需要考虑到如下三点：
+\begin{itemize}
+\item 加密数据的保密性
+\item 用户查询记录的保密性
+\item 隐藏数据的访问模式
+\end{itemize}
+
+现存的数据挖掘隐私保护解决方案（数据微扰方案或者安全多方计算）并不能很好的解决DMED 问题。基于数据扰乱的方法不具有语义安全性，所以数据扰乱技术不能用于加密高度敏感的数据，另外，由于数据被扰乱了，因此不能获得精准的数据挖掘的结果。基于安全多方计算的方法假设数据是分布式的，不能对每个参与方进行加密。另外，许多中间计算需要依赖于未加密的数据。在本章，将会提出一个新的方法能够有效的解决云中密文上数据挖掘的问题。分类问题是数据挖掘中比较常见的一种任务，因此具体将会在分类问题上进行研究。由于每种分类问题都有各自的优势与弊端，在这里将着重选择k-近邻分类算法用于处理云计算环境中密文数据的分类。
+
+\section{问题定义}
+假设Alice拥有数据库$D$，$D$由$m$+1个属性以及$n$条记录（元组）$t_1,t_2,...,t_n$组成。设$t_{i,j}$表示元组$t_i$的第$j$个属性值。首先，Alice 对属性值进行加密，即计算$E_{pk}(t_{i,j})$，其中$1\leq i \leq n$，$1\leq j \leq m+1$，其中m+1列为类标签。这里假设底层的加密方案是语义安全的，用${D}'$ 表示加密数据库。假设将来Alice 也会将${D}'$ 的分类过程外包给云端。
+
+设Bob为得到授权的用户，Bob利用K-近邻分类算法，基于加密数据库${D}'$对输入记录$q$=$\langle q_1,q_2,...q_m \rangle$ 进行分类。我们称这一过程为云中密文数据上K- 近邻分类的隐私保护问题（PPKNNONED）。关于PPKNNONED 的形式化定义如下：
+\begin{center}
+PPKNNONED$({D}',q)$ $\rightarrow c_q$
+\end{center}
+其中$c_q$表示以加密数据库${D}'$和查询请求$q$作为输入，应用K-近邻分类算法，得到$q$所属的分类标签。
+
+\section{隐私需求}
+PPKNNONED协议是一个能够满足密文数据上语义安全的K-近邻分类器。在协议中，加密后的数据外包给云端，Alice无需参与计算，因此，没有信息透露给Alice。另外，协议满足下面的隐私需求：
+\begin{itemize}
+\item 云不能获取原始数据库（明文）D中的内容以及任何中间结果。
+\item 云不能获取Bob关于查询请求$q$的任何信息。
+\item Bob 除了分类标签$c_q$外不能获取其他任何信息。
+\item 数据访问模式，例如，查询$q$对应的$k$-近邻记录不应该被Bob以及云获取，防止任何的推理攻击。
+\end{itemize}
+在协议中，假设云能够获取到的中间结果要么是新生成的随机加密，要么就是随机数。因此，查询请求$q$对应的$k$个近邻以及所属的标签对云来说是保密的。另外，向云发送加密查询请求后，Bob本地无需涉及任何计算。因此，数据访问模式进一步的得到保护。
+
+\section{隐私保护原语}
+本节将介绍用于构造KNN协议的一些子协议且所有子协议都是构建在两方半可信的模型下。假设存在两个半可信方$P_1$和$P_2$，其中仅有$P_2$拥有Pailler私钥$sk$，公钥$pk$ 是公开的。子协议如下：
+\begin{itemize}
+\item 乘法安全(Secure multiplication,SM).协议考虑$P_1$以及输入$(E_{pk}(a),E_{pk}(b))$，输出$E_{pk}(a*b)$，并将结果返回给$P_2$，其中a和b对$P_1$,$P_2$是保密的，处理过程中$P_1$ 和$P_2$ 无法获知关于a 和b 的任何信息。
+\item 欧几里得距离平方安全(Secure squared euclidean distance ,SSED). 协议中$P_1$输入$(E_{pk}(X),E_{pk}(Y))$，安全计算向量X和Y之间欧几里得距离的平方。这里X和Y是m维的向量，其中$E_{pk}(X)=\langle E_{pk}(x_1),...,E_{pk}(x_m)\rangle$, $E_{pk}(Y)=\langle E_{pk}(y_1),...,E_{pk}(y_m)\rangle$。 输出值$E_{pk}({|X-Y|}^2)$ 仅$P_1$可见。
+\item 比特分解安全(Secure bit-decomposition,SBD).$P_1$输入$E_{pk}(z)$ ，$P_2$对$z$ 逐比特安全加密计算，其中$0\leq z \leq 2^l$。输出值$[z] = \langle E_{pk}(Z_1),...,E_{pk}(Z_l)\rangle$ 仅$P_1$可知。这里$z_1$和$z_l$分别为整数$z$ 的最高和最低有效位。
+\item 最小值安全(Secure minimum，SMIN). 在协议中，$P_1$ 持有私有输入($u'$,$v'$)，$P_2$持有$sk$，其中$u'=([u],E_{pk}(s_u))$,$v'=([v],E_{pk}(s_v))$。 这里$s_u$ 表示和$u$相关的隐私信息，同理$s_v$表示和$v$相关的隐私信息。最小值安全的目标是$P_1$和$P_2$共同对$u$ 和$v$之间最小的数进行逐比特加密计算，即输出值是$([min(u,v)])$。另外，他们计算$E_{pk}(s_{min}(u,v))$。在此协议期间，值$E_pk(s_{min}(u,v))$ 仅$P_1$可知，关于$u$,$v$,$s_u$以及$s_v$ 的任何信息，$P_1$ 和$P_2$ 都不可知。
+\item n个数之外的最小安全(Secure minimum out of n numbers).协议中,考虑$P_1$的n个加密向量($[d_1],...,[d_n]$)以及他们各自的加密信息,$P_2$的私钥$sk$。这里有$[d_i]=\langle E_{pk}(d_{i,1},...,E_{pk}(d_{i,l}))\rangle$,其中$d_{i,1}$和$d_{i,l}$ 分别为整数$d_i$,$1\leq i \leq n$的最高和最低有效位。$d_i$的保密信息由$s_{d_i}$计算得出。$P_1$和$P_2$ 共同计算$[min(d_1,...,d_n)]$。以及$E_{pk}(s_{min(d_1,...,d_n)})$。在协议最后时，输出$([min(d_1,...,d_n)])$，$E_{pk}(s_{min(d_1,...,d_n)})$仅$P_1$ 可知。在协议期间，关于$d_i$以及他们的保密信息没有泄露给$P_1$ 和$P_2$。
+\item Bit-OR安全( Secure Bit-OR,SBOR).$P_1$输入$(E_{pk}(o_1)$,$E_{pk}(o_2))$。$P_2$安全计算$E_{pk}(o_1 \vee o_2)$，其中$o_1$和$o_2$为二进制比特串。输出值$E_{pk}(o_1 \vee o_2)$ 仅$P_1$可知。
+\item 频率安全(Secure frequency).协议中，$P_1$输入$(\langle E_{pk}(c_1),...,E_{pk}(c_w)\rangle,\langle E_{pk}(c'_1)\\,...,E_{pk}(c'_k)\rangle)$，$P_2$在安全对集合$\langle c'_1,...,c'_k\rangle$中$c_j$ 出现的频率进行加密，用$f(c_j)$ 表示，其中$1\leq j\leq w$。在这里明确假设$c_j$是唯一的，$c'_i \in \{c_1,...,c_w\}$,$1 \leq i\leq k$。输出$(\langle E_{pk}(f(c_1)),...,E_{pk}(f(c_w))\rangle)$仅有$P_1$ 可知。协议中，$P_1$ 和$P_2$ 无法获知关于$c'_i,c_j$以及$f(c_j)$的任何信息，其中$1 \leq i\leq k$,$1\leq j \leq w$。
+\end{itemize}
+这里我将会提出一个新的解决方案，也可以说是一种比上述协议能够更有效实现的方案。主要会讨论“最小值安全”，“n个数之外的最小安全”以及“频率安全”细节上的一些问题，并针对他们中的每一个提出一个新的解决方案。
+\paragraph{最小值安全 SMIN} 此协议中，假设$P_1$的输入为$(u',v')$，$P_2$私钥为$sk$，其中$u'=([u],E_{pk}(s_u))$，$v'=([v],E_{pk}(s_v))$。这里$s_u$ 和$s_v$ 分别表示$u$和$v$ 对应的秘密消息。SMIN的主要目标是安全计算$min(u,v)$中各个比特位的加密值，用$[min(u,v)]$表示。这里$[u]=\langle E_{pk}(u_1),...,E_{pk}(u_1)\rangle$，$[v]=\langle E_{pk}(v_1),...,E_{pk}(v_l)\rangle$，其中$u_1$和$u_l$分别表示$u$的最高和最低有效比特位，同理$v_1$和$v_l$分别表示$v$ 的最高和最低有效比特位。另外，$P_1$和$P_2$取$u$和$v$两者的最小的一个，对保密信息进行加密，解密结果为$E_{pk}(s_{min(u,v)})$。 在SMIN 协议结束阶段，输出值$([min(u,v),E_{pk}(s_{min(u,v)})])$仅$P_1$可知。
+
+我们假设$0\leq u,v < 2^l$并提出一种新的SMIN协议。准确的说，新的SMIN 协议的主要思想是$P_1$通过投掷硬币，随机选择一个函数$F$，$F$可以是$u>v$或$u<v$，$P_2$不经意执行函数$F$。 由于函数$F$是随机选择的并且只有$P_1$可知，因此函数$F$的结果对$P_2$来说是不经意的。根据$F$的选择以及结果的比较，$P_1$ 可以在本地使用同态的性质计算$[min(u,v)]$以及$E_{pk}(s_{min(u,v)})$。
+
+
+算法\ref{alg:algorithm1}列出了SMIN协议的大体步骤。一开始，$P_1$最初随机选择函数$u>v$或$v>u$作为$F$。然后使用$SM$协议，$P_1$在$P_2$帮助下计算$E_{pk}(u_i*v_i)$, 其中$1\leq i\leq l$。 之后，$P_1$本地执行协议的以下几个关键步骤 。
+\begin{itemize}
+\item 一般情况下,对于任意给定的两个比特$o_1$和$o_2$,有性质$o_1 \oplus o_2=o_1+o_2-2(o_1 * o_2)$。根据此性质，对$u_i$和$v_i$
+    逐比特异或。$T_i = E_{pk}(u_i)*E_{pk}(v_i)*E_{pk}(u_i * v_i)^{N-2}$。
+
+\item 初始化$H_0=E_{pk}(0)$，如果$T$中存在$E_{pk}(1)$，保存第一次出现的$E_{pk}(1)$，计算加密向量$H$。$H$的其余部分通过$H_i=H^{r_i}_{i-1} * T_i$计算。注意，在$H$中出现的最多项是$E_{pk}(1)$,剩余的项为0或随机数的加密值。
+
+\item 之后，$P_1$计算${\phi}_i = E_{pk}(-1) * H_i $，在这里"-1"等价于${\mathbb{Z}}_N$下的"N-1"。根据上述的讨论，由于$H_i$最多出现一次等于$E_{pk}(1)$，因此，很清楚${\phi}_i = E_{pk}(0)$最多出现一次。另外，如果${\phi}_j = E_{pk}(0)$，那么索引$j$位于$u$和$v$ 之间第一个比特位不同位置处。
+\end{itemize}
+
+\begin{algorithm}[htbp]
+\small
+\caption{$SMIN(u',v')\rightarrow [min(u,v)],E_{pk}(s_{min(u,v)})$ (Part 1)}
+\label{alg:algorithm1}
+\begin{algorithmic}[1]
+    \State \textbf{Require:}$P_1$有$u'=([u],E_{pk}(s_u))$ 以及$v'=([v],E_{pk}(s_v)), 0 \leq u,v \leq2^l$,$P_2$ 有$sk$
+    \State $P_1:$\\
+    (a).\hspace{0.1cm} 随机选取函数$F$\\
+    (b).\hspace{0.1cm} \textbf{for} $i=1$ to $l$ \textbf{do}:\\
+    \hspace{1cm} $E_{pk}(u_i*v_i) \leftarrow SM(E_{pk}(u_i),E_{pk}(v_i))$\\
+    \hspace{1cm} $T_i \leftarrow E_{pk}(u_i\oplus v_i)$\\
+    \hspace{1cm} $H_i \leftarrow H^{r_i}_{i-1}*T_i;r_i \in_R \mathbb{Z}_N$ 且$H_0=E_{pk}(0)$\\
+    \hspace{1cm} $\Phi_i \leftarrow E_{pk}(-1)*H_i$\\
+    \hspace{1cm} \textbf{if} $F: u > v$ \textbf{then}:\\
+    \hspace{1.5cm} $W_i \leftarrow E_{pk}(u_i)*E_{pk}(u_i*v_i)^{N-1}$\\
+    \hspace{1.5cm} $\Gamma_i \leftarrow E_{pk}(v_i-u_i)*E_{pk}(\hat{r_i});\hat{r_i} \in_R \mathbb{Z}_N$\\
+    \hspace{1cm} \textbf{else}\\
+    \hspace{1.5cm} $W_i \leftarrow E_{pk}(v_i)*E_{pk}(u_i*v_i)^{N-1}$\\
+    \hspace{1.5cm} $\Gamma_i \leftarrow E_{pk}(u_i-v_i)*E_{pk}(\hat{r_i});\hat{r_i}\in_R\mathbb{Z}_N$\\
+    \hspace{0.9cm}$L_i \leftarrow W_i*\Phi^{r_i}_i;r'_i \in_R \mathbb{Z}_N$\\
+    (c).\hspace{0.1cm}\textbf{if} $F:u>v$\\
+     \hspace{1cm}$\delta \leftarrow E_{pk}(s_v-s_u)*E_pk(\bar{r})$\\
+     \hspace{0.6cm}\textbf{else}\\
+     \hspace{1cm} $\delta \leftarrow E_{pk}(s_u-s_v)*E_{pk}(\bar{r}),\bar{r} \in_R \mathbb{Z}_N$\\
+     (d).\hspace{0.1cm} $\Gamma'\leftarrow \pi_1(\Gamma)$,$L'\leftarrow \pi_2(L)$\\
+     (e).\hspace{0.1cm} 将$\delta,\Gamma'$以及$L'$发送给$P_2$。
+     \algstore{bkbreak}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[ht]
+\small
+\caption*{$SMIN(u',v')\rightarrow [min(u,v)],E_{pk}(s_{min(u,v)})$ (Part 2)}
+\begin{algorithmic}[1]
+\algrestore{bkbreak}
+      \State $P_2:$\\
+     (a).\hspace{0.1cm} 从$P_1$接收$\delta,\Gamma'$以及$L'$\\
+     (b).\hspace{0.1cm} 解密：$M_i \leftarrow D_{sk}(L'_i),1 \leq i \leq l$\\
+     (c).\hspace{0.1cm} \textbf{if}$ \ni j$使得$M_j=1$ \textbf{then}\\
+      \hspace{1cm} $\alpha \leftarrow 1$\\
+     \hspace{0.5cm} \textbf{else}\\
+      \hspace{1cm} $\alpha \leftarrow 0$\\
+     (d).\hspace{0.1cm} \textbf{if} $\alpha=0$ \textbf{then}\\
+     \hspace{1cm} $M'_i \leftarrow E_{pk}(0),1 \leq i \leq l$\\
+     \hspace{1cm} $\delta' \leftarrow E_{pk}(0)$\\
+     \hspace{0.5cm} \textbf{else}\\
+     \hspace{1cm} $M'_i \leftarrow \Gamma'_i * r^N$, 其中$r \in_R \mathbb{Z}_N,1 \leq i \leq l$\\
+     \hspace{1cm}  $\delta' \leftarrow \delta * r^N_\delta$,其中$r_\delta \in_R \mathbb{Z}_N$\\
+     \hspace{1cm} 将$M',E_{pk}(\alpha)$以及$\delta'$发送给$P_1$
+     \State $P_1$:\\
+     (a).\hspace{0.1cm} 从$P_2$接收$M',E_{pk}(\alpha)$以及$\delta'$\\
+     (b). \hspace{0.1cm} $\tilde{M} \leftarrow \pi^{-1}_1(M')$,$\theta \leftarrow \delta'*E_{pk}(\alpha)^{N-\bar{r}}$\\
+     (c). \hspace{0.1cm} $\lambda_i \leftarrow \tilde{M}_i * E_{pk}(\alpha)^{N-\hat{r_i}},1 \leq i \leq l$\\
+     (d).\hspace{0.1cm} \textbf{if} $F:u>v$ \textbf{then}:\\
+     \hspace{1cm} $E_{pk}(s_{min(u,v)}) \Leftarrow E_{pk}(s_u)*\theta$\\
+     \hspace{1cm} $E_{pk}(min(u,v)_i) \leftarrow E_{pk}(u_i)*\lambda_i,1 \leq i \leq l$\\
+     \hspace{0.6cm}\textbf{else}\\
+     \hspace{1cm} $E_{pk}(s_{min(u,v)}) \leftarrow E_{pk}(s_v)* \theta$\\
+     \hspace{1cm} $E_{pk}(min(u,v)_i) \leftarrow E_{pk}(v_i)*\lambda_i,1 \leq i \leq l$
+\end{algorithmic}
+\end{algorithm}
+
+现在，根据$F$,$P_1$构造两个加密向量$W$和$\Gamma$，其中$1 \leq i \leq l$:
+\begin{itemize}
+\item 当函数$F$为：$u>v$时，计算
+\begin{center}
+      $W_i=E_{pk}(u_i * (1-v_i))$\\
+      $\Gamma_i = E_{pk}(v_i-u_i)*E_{pk}(\hat{r_i})=E_{pk}(v_i-u_i+\hat{r_i})$
+\end{center}
+\item 当函数$F$为：$v>u$时，计算
+\begin{center}
+      $W_i=E_{pk}(v_i*(1-u_i))$\\
+      $\Gamma_i = E_{pk}(u_i-v_i)*E_{pk}(\hat{r_i})=E_{pk}(u_i-v_i+\hat{r_i})$
+\end{center}
+\end{itemize}
+$\hat{r_i}$为$\mathbb{Z}_N$中的一个随机数。根据观察，若函数$F$为$u>v$，当且仅当$u_i >v_i$时有$W_i=E_{pk}(1)$，反之则$W_i=E_{pk}(0)$。同理，当函数$F$为$v>u$，当且仅当$v_i >u_i$时有$W_i=E_{pk}(1)$,反之则$W_i=E_{pk}(0)$。 另外，依据$F$，随机选取$u_i$和$v_i$不同处，进行加密并存储$\Gamma_i$，用于后面的计算。
+
+$P_1$结合$\phi$和$w$计算$L$。更准确的说，$P_1$计算$L_i=W_i * \phi^{r'_i}_i$，$r'_i$为$\mathbb{Z}_N$中的随机数。观察可知，如果存在索引$j$，$\phi_j=E_{pk}(0)$，表示$u$和$v$比特位中出现的第一位。$W_j$ 存储相应的所需信息，即在加密形式中是$u_j >v_j$还是$v_j >u_j$。 另外，根据$F$，$P_1$计算$s_u$ 和$s_v$之间的随机差异的加密结果，并记录为$\delta$。特别的，若函数$F$为$u>v$,则$\delta = E_{pk}(s_v-s_u+\bar{r})$。否则$\delta=E_{pk}(s_u-s_v+\bar{r})$，其中$\bar{r} \in_R \mathbb{Z}_N$。
+
+
+$P_1$使用两个随机的排列函数$\pi_1$和$\pi_2$变更加密向量$\Gamma$和$L$，$P_1$计算$\Gamma'=\pi_1(\Gamma)$，$L'=\pi_2(L)$，并将结果连同$\delta$ 发送给$P_2$。$P_2$ 接收到结果后，解密$L'$分量，得到$M_i=D_sk(L'_i)$，$1\leq i \leq l$，同时检查索引$j$。也就是说，如果$M_j=1$，那么$P_2$设置$\alpha$为1，否则设置$P_2$为0。另外，$P_2$根据$\alpha$的值计算一个新的加密向量$M'$。 准确的说，如果$\alpha=0$，则$M'_i=E_pk(0)$，$1 \leq i \leq l$。 这里对于每个$i$，$E_pk(0)$是不同的。另一方面，当$\alpha=1$，$P_2$设置$M'_i$为$\Gamma'_i$的一个随机值，也就是说$M'_i = \Gamma'_i * r^N$，其中$r^N$来自于双随机化，对于$r\in_R \mathbb{Z}_N$，每个$i$应该有不同的$r$。此外，若$\alpha=0$，则$\delta'=E_{pk}(0)$。但是，当$\alpha=1$ 时，$P_2$设置$\delta'$为$\delta*r^N_\delta$，其中$r_\delta$是$\mathbb{Z}_N$中的随机数。随后，$P_2$ 将$M'$，$E_{pk}(\alpha)$以及$\delta'$发送给$P_1$。$P_1$接收到
+$M'$，$E_{pk}(\alpha)$以及$\delta'$后，计算$M'$的逆置换$\tilde{M}$，$\tilde{M}=\pi^-1_1(M')$。接着$P_1$执行以下的同态操作计算$min(u,v)$的第$i$比特位的加密结果，即$E_{pk}(min(u,v)_i)$，$1 \leq i \leq l$:
+\begin{itemize}
+\item  通过计算$\lambda_i=\tilde{M_i}*E_{pk}(\alpha)^{N-\hat{r_i}}$ 去除$\tilde{M_i}$的随机性。
+\item 如果函数$F:u>v$，计算$E_{pk}(min(u,v)_i)=E_{pk}(u_i)*\lambda_i=E_{pk}(u_i+\alpha*(v_i-u_i))$。 否则，计算$E_{pk}(min(u,v)_i)=E_{pk}(v_i)*\lambda_i=E_{pk}(v_i+\alpha*(u_i-v_i))$。
+
+\end{itemize}
+另外，根据$F$,$P_1$也可以根据以下步骤计算$E_{pk}=(s_{min(u,v)})$。如果$F:u>v$，$P_1$计算$E_{pk}(s_{min(u,v)})=E_{pk}(s_u)*\theta$，其中$\theta = \delta'*E_{pk}(\alpha)^(N-\bar{r})$。否则，计算$E_{pk}(s_{min(u,v)})=E_{pk}(s_v)*\theta$。
+
+在SMIN协议中，主要观察点是，如果函数$F:u>v$，则总有$min(u,v)_i=(1-\alpha)*u_i+\alpha*u_i,1 \leq i \leq l$。 另一方面，如果函数$F:v>u$，则总有$min(u,v)_i=\alpha * u_i+(1-\alpha)*v_i$。相同的结论可以用于描述$s_{min(u,v)}$。在这里强调，使用类似的公式也可以设计一个SMAX协议，用来计算$[max(u,v)]$和$E_{pk}(s_{max(u,v)})$。同样，可以将$u$和$v$的多个秘密作为SMIN和SMAX的输入(以加密的形式)。例如，设$s^1_u$和$s^2_u$分别为$u$和$v$相关联的秘密信息。则SMIN 协议将$([u],E_{pk}(s^1_u),E_{pk}(s^2_u))$以及$([v],E_{pk}(s^1_v),E_{pk}(s^2_v))$作为$P_1$的输入，并得到输出$[min(u,v)],E_{pk}(s^1_{min(u,v)})$以及$E_{pk}(s^2_{min(u,v)})$。
+
+\begin{table}[htbp]
+\centering  % 表居中
+$P_1$选择函数$F:v>u$,其中$u=55,v=58$
+\begin{tabular}{ccccccccccccc}  % {lccc} 表示各列元素对齐方式，left-l,right-r,center-c
+\hline
+ $[u]$&$[v]$&$W_i$&$\Gamma_i$&$G_i$&$H_i$&$\Phi_i$&$L_i$&$\Gamma_{i'}$&$L'_i$&$M_i$&$\lambda_i$&$min_i$\\ \hline  % \hline 在此行下面画一横线
+1 &1 &0 &$r$ &0 &0 &-1 &$r$ &$1+r$ &$r$ &$r$ &0 &1\\        % \\ 表示重新开始一行
+1 &1 &0 &$r$ &0 &0 &-1 &$r$ &$r$ &$r$ &$r$ &0 &1\\        % & 表示列的分隔线
+0 &1 &1 &$-1+r$ &1 &1 &0 &1 &$1+r$ &$r$ &$r$ &-1 &0\\
+1 &0 &0 &$1+r$ &1 &$r$ &$r$ &$r$ &$-1+r$ &$r$ &$r$ &1 &1\\
+1 &1 &0 &$r$ &0 &$r$ &$r$ &$r$ &$r$ &1 &1 &0 &1\\
+1 &0 &0 &$1+r$ &1 &$r$ &$r$ &$r$ &$r$ &$r$ &$r$ &1 &1\\ \hline
+\end{tabular}\\
+\caption{ SMIN协议中间结果}\label{TABLE1}
+除了$M_i$列，其他所有的列都是加密形式。另外$r \in_R \mathbb{Z}_N$,每行每列不同
+\end{table}
+
+例2. 简单起见，设$u=55,v=58,l=6$，$s_u$，$s_v$分别为$u$和$v$相关联的秘密。假设$P_1$ 持有$([55],E_pk(s_u))$和$([58],E_pk(s_v))$。另外，我们假设$P_1$ 考虑如下的随机置换函数。不失一般性，设$P_1$选择函数$F$为$v>u$。基于SMIN协议的各种中间结果如表1所示，根据表\ref{TABLE1}的内容，我们可以观察到：
+\begin{table}[H]
+\centering  % 表居中
+\begin{tabular}{cccccccc}  % {lccc} 表示各列元素对齐方式，left-l,right-r,center-c
+\hline
+i &=&1 &2&3&4&5&6\\ \hline  % \hline 在此行下面画一横线
+ & & $\downarrow$& $\downarrow$&$\downarrow$ &$\downarrow$ &$\downarrow$ & $\downarrow$\\         % \\ 表示重新开始一行
+$\pi_1(i)$ &= &6 &5 &4 &3 &2 &1\\        % & 表示列的分隔线
+$\pi_2(i)$ &= &2 &1 &5 &6 &3 &4\\ \hline
+\end{tabular}
+\end{table}
+\begin{itemize}
+
+\item $H$中最多的意向为$E_{pk}(1)$，即$H_3$。剩余的项为0 的加密值或者为$\mathbb{Z}_N$中一个随机数的加密值。
+
+\item $u$和$v$比特位中第一次出现不同的位置为索引$j=3$ 处。
+\item 由于$H_3$等于$E_{pk}(1)$则${\o}_3=E_{pk}(0)$，同样由于$M_5=1$，则$P_2$设置$\alpha$为1。
+\item $E_{pk}(s_{min(u,v)})=E_{pk}(\alpha * s_u + (1-\alpha)*s_v)=E_{pk}(s_u)$。
+\end{itemize}
+当然，只有$P_1$知道$[min(u,v)]=[u]=[55]$以及$E_{pk}(s_{min(u,v)})=E_{pk}(s_u)$。
+\paragraph{n数中的最小安全值}.$P_1$连同加密值考虑私有输入$([d_1],...,[d_2])$，其中$0\leq d_i \leq 2^l$，$[d_i]=\langle E_[pk](d_{i,1})\rangle,...,E_{pk}(d_(i,l)),1\leq i \leq n$。$P_2$考虑$sk$。此协议的主要目标是在不向$P_1$和$P_2$揭露任何有关$d'_i$的信息同时，计算$[min(d_1,...,d_n)=[d_{min}]$。另外，计算和目标最小值对应的信息加密值，用$E_{pk}(s_{d_{min}})$表示。这里利用SMIN协议作为构建块，构建一个新的$SMIN_n$协议，此协议为一个迭代方式，以分层的方式计算所需的输出。在每一次迭代过程中，计算两两之间的最小值以及秘密对应的最小值，并将结果作为下一次迭代的输入。因此，将会以自底向上的方式生成一个二叉查询树。在结束阶段，仅有$P_1$知道最终的结果$[d_{min}]$以及$E_{pk}(s_{d_{min}})$。
+
+算法\ref{alg:algorithm2}描述了$SMIN_n$中涉及一些步骤。首先，$P_1$将$[d_i]$ 以及$E_{pk}(s_{d_i})$分别分配给临时向量$[d'_i]$和变量$s'_i$，$1 \leq i \leq n$。另外，他/她创建一个全局变量$num$，并初始化至n，其中$num$代表每轮迭代中向量的个数。由于$SMIN_n$在二叉查找树中以自底向上的方式执行的，因此我们有$\lceil log_2n\rceil$次迭代，每次迭代中，向量的个数都不相同。在第一轮迭代中($i=1$)，$P_1$同输入$(([d'_{2j-1}],s'_{2j-1}),([d'_{2j}],s'_{2j}))$，$P_2$同SMIN协议中涉及的$sk$，$1 \leq j \leq \lfloor \frac{num}{2} \rfloor$。在第一次迭代的末尾，仅有$P_1$知道$[min(d'_{2j-1},d'_{2j})]$以及$s'_{min(d'_{2j-1},d'_{2j})}$，$1 \leq j\leq \lfloor \frac{num}{2} \rfloor$。 其中，$P_2$不会得到任何信息。另外，$P_1$分别存储$[d'_{2j-1}]$中的结果值$[min(d'_{2j-1},d'_{2j})]$，$s'_{min(d'_{2j-1},d'_{2j})}$以及$s'_{2j-1}$。另外，$P_1$分别更新$[d'_{2j}]$的结果值，$s'_{2j}$为0,$num$为$\lceil \frac{num}{2}\rceil$。
+\begin{algorithm}[htbp]
+\small
+\caption{$SMIN_n(([d_1],E_{pk}(s_{d_1})),...,([d_n],E_{pk}(s_{d_n})))\rightarrow ([d_min],E_{pk}(s_{d_{min}}))$}
+\label{alg:algorithm2}
+\begin{algorithmic}[1]
+   \State \textbf{Require:}$P_1$有$(([d_1],E_{pk}(s_{d_1})),...,([d_n],E_{pk}(s_{d_n})))$, $P_2$ 有$sk$.\\
+   \State $P_1:$\\
+   \hspace{0.5cm}(a).$[d'_i] \leftarrow[d_i]$且$s'_i \leftarrow E_{pk}(s_{d_i}),1 \leq i \leq n$\\
+   \hspace{0.5cm}(b).$num \leftarrow n$
+   \State \textbf{for} $i=1 to \lceil log_2n\rceil$:\\
+   \hspace{0.5cm}(a).\textbf{for} $1\leq j \leq \lfloor\frac{num}{2}\rfloor$:\\
+   \hspace{1cm} \textbf{if} i=1 \textbf{then}:\\
+   \hspace{1.5cm} $\bullet([d'_{2j-1}],s'_{2j-1})\leftarrow SMIN(x,y)$,其中$x=([d'_{2j-1}],s'_{2j-1})$且\\
+   \hspace{1.8cm} $y=([d'_{2j}],s'_{2j})$\\
+   \hspace{1.6cm}$\bullet[d'_{2ij-1}]\leftarrow 0$且$s'_{2ij-1} \leftarrow 0$\\
+   \hspace{1cm} \textbf{else}\\
+   \hspace{1.7cm}$\bullet([d'_{2i(j-1)+1}],s'_{2i(j-1)+1})\leftarrow SMIN(x,y)$其中\\
+   \hspace{2cm}$x=([d'_{2i(j-1)+1}],s'_{2i(j-1)+1})$ 且$y=([d'_{2ij-1}],s'_{2ij-1})$\\
+   \hspace{1.5cm} $\bullet[d'_{2ij-1}]\leftarrow 0$ 且$s'_{2ij-1}\leftarrow 0$\\
+   \hspace{0.5cm}(b).$num \leftarrow \lceil\frac{num}{2}\rceil$
+   \State $P_1:[d'_1]$且$E_{pk}(s_{s_min}) \leftarrow s'_1$
+\end{algorithmic}
+\end{algorithm}
+
+
+在第$i$次迭代中$(2 \leq i \leq \lceil log_2n \rceil)$，协议SMIN仅考虑非零向量(连同相同的加密信息)。例如，在第二次迭代中(即$i=2$)，仅考虑$([d'_1]，s'_1),([d'_3],s'_3)$等。在每轮迭代中，输出值仅$P_1$可知，并将$num$更新为$\lceil \frac{num}{2} \rceil$。 在$SMIN_n$协议末尾阶段，$P_1$将分配全局最小值的最终加密二进制向量分配给$[d_{min}$，即$[min(d_1,...,d_n)]$。同样，$P_1$将$s'_1$分配给$E_{pk}(s_{d_{min}})$。
+例3. 假设$P_1$持有$\langle [d_1],...,[d_6]\rangle (n=6)$。 简单起见，这里假设没有和$d_i$相关联的秘密。然后基于$SMIN_n$协议，通过二叉执行树计算$[min(d_1,...,d_6)]$，结果如图一所示，注意，这里初始化$[d'_i]=[d_i]$。
+
+\paragraph{频率安全}.考虑这样一种情况，$P_1$持有输入$(\langle E_{pk}(c_1),...,E_{pk}(c_w) \rangle,\langle E_{pk}(c'_1),...,E_{pk}(c'_k)\rangle)$，$p_2$持有密钥$sk$。协议SF的目标是安全的计算$E_{pk}(f(c_j))$，$1 \leq j \leq w$。这里$f(c_j)$表示元素$c_j$在列表$\langle c'_1,...,c'_k\rangle$出现的次数，即频率。这里假设$c'_i \in {c_1,...,c_w}$，$1 \leq i \leq k$。
+
+输出值$\langle E_{pk}(f(c_1)),...,E_{pk}(f(c_w))\rangle$仅$P_1$可知。在SF 协议期间，$P_1$和$P_2$既没有揭露$c'_i$也没有揭露$c_j$，同样，$P_1$和$P_2$ 也不知道$f(c_j)$，其中$1 \leq i k$，$1 \leq j \leq w$。
+
+\begin{algorithm}[ht]
+\small
+\caption{$SF(\Lambda,\Lambda') \rightarrow \langle E_{pk}(c_1),...,E_{pk}(f(c_w))\rangle$}
+\label{alg:algorithm3}
+\begin{algorithmic}[1]
+   \State \textbf{Require:}$P_1$有$\Lambda=\langle E_{pk}(c_1),...,E_{pk}(c_w)\rangle,\Lambda'=\langle E_{pk}(c'_1),...,E_{pk}(c'_k)\rangle$且$\langle \pi_1 ,..., \pi_k \rangle$,$P_2$有$sk$
+   \State $P_1:$\\
+   (a).\hspace{0.1cm}\textbf{for} $i=1$ to $k$ \textbf{do}:\\
+   \hspace{1cm}$T_i \leftarrow E_{pk}(c'_i)^{N-1}$\\
+   \hspace{1cm}\textbf{for} $j=1$ to $w$ \textbf{do}:\\
+   \hspace{1.5cm}$S_{i,j}\leftarrow E_{pk}(c_j)*T_i$\\
+   \hspace{1.5cm}$S'_{i,j}\leftarrow S^{r_{i,j}}_{i,j}$,其中$r_{i,j}\in_R \mathbb{Z}_N$\\
+   \hspace{1cm}$Z_i \leftarrow \pi_i(S'_i)$\\
+   (b).将$Z$发送给$P_2$。
+   \State $P_2$:\\
+   (a).\hspace{0.1cm}从$P_1$端接收$Z$\\
+   (b).\hspace{0.1cm} \textbf{for}$i=1$ to $k$ \textbf{do}:\\
+   \hspace{0.8cm}\textbf{for}$j=1$ to $w$ \textbf{do}:\\
+   \hspace{1.1cm}\textbf{if} $D_{sk}(Z_{i,j})=0$ \textbf{then} $u_{i,j} \leftarrow 1$\\
+   \hspace{1.1cm}\textbf{else} $u_{i,j} \leftarrow 0$\\
+   \hspace{1.1cm} $U_{i,j} \leftarrow E_{pk}(u_{i,j})$\\
+   (c).\hspace{0.1cm}将$U$发送给$P_1$
+   \State $P_1$:\\
+   (a).\hspace{0.1cm}从$P_2$接收$U$\\
+   (b).\hspace{0.1cm}$V_i \leftarrow \pi_i^{-1}(U_i),1 \leq i \leq k$\\
+   (c).\hspace{0.1cm}$E_{pk}(f(c_j)) \leftarrow \prod^k_{i=1}V_{i,j},1 \leq j \leq w$
+\end{algorithmic}
+\end{algorithm}
+
+算法\ref{alg:algorithm3}描述了SF协议涉及的整个步骤。开始阶段，$P_1$计算一个加密向量$S_i$，有$S_{i,j}=E_{pk}(c_j - c'_j)$，$1 \leq j \leq w$。其次，$P_1$ 随机化$S_i$的分量得到$S'_{i,j}=E_{pk}(r_{i,j}*(c_j -c'_i))$，其中$r_{i,j}$为$\mathbb{Z}_n$中的一个随机数。之后，$P_1$使用一个随机排列函数$\pi_i$(随机函数$\pi_i$仅$P_1$可知) 随机排列$S'_i$ 的分量。输出值$Z_i\leftarrow\pi_i(S'_i)$值发送给$P_2$。$P_2$ 接收到输出值后，解密$Z_i$的分量，计算向量$u_i$并执行以下步骤：
+\begin{itemize}
+\item 如果$D_{sk(Z_{i,j})}=0$，则设置$u_{i,j}=1$，否则$u_{i,j}=0$。
+\item 通过观察，由于$c'_i \in {c_1,...,c_w}$，则在向量$Z_i$中肯定有一个值为0的加密值，剩下的项为随机数加密值。进一步的表明$Z_i$ 的解密值确切有一个为0，其余为随机数。更精确有，若$u_{i,j}=1$则$c'_i = c_{\pi^{-1}(j)}$。
+\item 计算$U_{i,j}=E_{pk}(u_{i,j})$并发送给$P_1$，其中$1 \leq i \leq k$，$1 \leq j \leq w$。
+
+\end{itemize}
+再后，$P_1$在$u_i$上执行行的逆排列，得到$V_i=\pi^{-1}_i(U_i)$，$1 \leq i \leq k$。最终，$P_1$计算$E_{pk}(c_j)=\prod_{k}^{i=1}V_{i,j}$，$1 \leq j \leq w $。
+
+在第三章节中所有协议的输出都是以密文的形式输出的，并且只有$P_1$可知，另外，$P_1$或得的中间结果要么是随机数要么是伪随机数。
+第三章节提及的各种协议中，SMIN协议最为复杂，因此本节将在标准假设下对SMIN协议进行安全性分析。当然相同的方法可用于分析在半可信模型下其他协议的安全性。
+
+\section{证明SMIN安全性}
+通过执行SMIN证明SMIN在计算上是不可区分的，从而证明SMIN协议在半可信模型下是安全的。
+
+执行过程通常包括消息的转换，以及来自这些消息的计算信息。因此，根据算法1，设$P_2$的执行过程用$\prod_{P_2}(SMIN)$表示，由${\langle \delta,s+\bar{r} mod N\rangle,\langle \Gamma'_{i,\mu_i + \hat{r_i} mod N}\rangle,\langle L'_i,\alpha \rangle}$给出。$s+\bar{r}mod N$和$\mu_i + \hat{r_i}$分别为$\delta$和$\Gamma'_i$的解密结果，其中$1 \leq i \leq l$。模运算隐含在解密函数中。另外，$P_2$接收来自于$P_1$的$L'$，$\alpha$表示$L'$的计算比较结果。不是一般性，假设$P_2$的模拟值为${\prod^S}_{P_2}(SMIN)$，通过${\langle \delta^*,r^* \rangle,\langle s'_{1,i},s'_{2,i}\rangle,\langle s'_{3,i},\alpha'\rangle| 1 \leq i \leq l}$计算。这里$\delta*,s'_{1,i}$以及$s'_{3,i}$是通过$\mathbb{Z}_{N^2}$随机生成的，$r*,s'_{2,i}$来自于$\mathbb{Z}_N$的随机生成数。另外，$\alpha'$表示随机比特位。由于$E_{pk}$为语义安全加密方案，结果密文长度少于$N^2$，因此$\delta$在$\delta^*$是计算不可区分的。同样，$\Gamma'_i$和$L'_i$分别在$s'_{1,i}$和$s'_{3,i}$上是计算不可区分的。另外作为$\mathbb{Z}_N$的随机生成数$\bar{r}$和$\hat{r}_i$，$s+\bar{r}mod N$ 和$\mu_i + \hat{r}_i mod N$分别在$r^*$和$s'_2$上计算不可区分。而且，由于函数是$P_1$随机选择的（算法1的第一步），$\alpha$为0或1 是等概率的。因此，$\alpha$在$\alpha'$上计算不可区分。结合这些所有的特性，可以总结出$\prod_{P_2}(SMIN)$在${\prod ^S}_{P_2}(SMIN)$上市计算不可区分的。这就意味着在执行SMIN协议的时候，$P_2$不需要知道任何关于$u,v,s_u,s_v$的信息以及实际的比较结果。直观的来说，在执行SMIN协议期间，$P_2$的信息要么是随机的要么是伪随机产生的，一次这些信息没有披露任何有关$u,v,s_u$以及$s_v$的相关信息。另外，$F$仅$P_1$可知，实际的比较结果对$P_2$是隐藏的。
+
+另一方面，用$\prod_{P_1}(SMIN)$表示执行$P_1$，$\prod_{P_1}(SMIN)={M'_i,E_pk(\alpha),\delta'|1 \leq \leq l}$。$M'_i$和$\delta'$是接收于$P_2$的加密结果值。设$P_1$的模拟结果由$\prod^S_{P_1}(SMIN)$表示，$\prod^S_{P_1}(SMIN)={s'_{4,i},b',b''|1 \leq i \leq l}$。
+值$s'_{4,i},b'$以及$b''$为$\mathbb{Z}_{N^2}$的随机生成数。由于$E_{pk}$结果密文长度少于$N^2$,属于语义安全加密方案，这意味着，$M'_i,E_{pk}(\alpha)$以及$\delta'$分别在$s'_{4,i},b'$以及$b''$上是计算不可区分的。因此，$\prod_{P_1}(SMIN)$在$\prod^S_{P_1}(SMIN)$上是计算不可区分的。作为结果，$P_1$不可能知道任何有关$u,v,s_u,s_v$以及在执行SMIN协议期间的比较结果值信息。综合所有，可以发现SMIN协议在半可信模型下是安全的。
+
+\section{本章小结}
+本章着重介绍一种能够满足加密数据上语义安全的k近邻分类器——PPKNNONED方案。并介绍了协议中涉及到的一些子协议，接着对子协议的安全性进行了相关的介绍，并给出了相关的算法步骤。最后对子协议——最小值安全协议进行了安全性证明。
+
+

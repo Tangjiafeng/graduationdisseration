@@ -1,0 +1,190 @@
+\chapter{PPkNNONED方案}
+\vspace{-0.2cm}
+这一章节将介绍新的$k-$NN密文上的隐私保护方案，在接下来的篇幅中将以PPKNNONED表示$k-$NN密文上的隐私保护方案。在第三章中以及粗略的对PPKNNONED进行了介绍，本章将在第三章介绍的基础上进一步的进行深入扩展。正如之前所提到的，我们假设Alice's的数据库包含n条记录$D=\langle t_1,...,t_n\rangle$以及m+1个属性，其中$t_{i,j}$表示记录$t_{i,j}$的第$j$个属性值。初始化阶段，Alice对他的数据库的属性加密，即计算$E_{pk}(t_{i,j}),1 \leq i \leq n,1 \leq j \leq m+1$，其中第(m+1)列包含类标签，用$D'$表示加密数据库。假设在将来的分类处理中Alice's也将数据库$D'$外包给云。不失一般性，可以假设所有的属性值以及他们的欧几里得距离处于区间$[0,2^l)$中。另外，设$w$表示在记录集合$D$中唯一的类标签数量。
+
+在问题设定当中，我们假设存在两个非合谋的半可信云服务提供商，分别用$C_1$和$C_2$表示，他们一起形成一个联合云。在这个设定下，Alice将他加密的数据库$D’$ 外包给$C_1$，并将私钥$sk$
+外包给$C_2$。这里数据库拥有着Alice有可能用他自己的私有服务器去取代$C_2$。 但是，如果Alice拥有一个私有服务器，我们可以认为Alice就没有必要将数据外包出去。使用$C_2$的主要目的由以下两个原因。(A) 收到计算资源以及专业技术的限制，Alice的最佳选择就是将数据的管理以及操作任务外包给云来做。例如，Alice也许想访问他的数据并且使用智能手机或其他任何受计算资源限制的终端设备分析出结果。(B) 假设Bob想从Alice那里维持他的输入查询以及私人访问模式。在这个例子当中，如果Alice使用一个私有服务器，那么他就不得不通过$C_2$执行计算假设，在这得目的就是否定将加密数据外包给$C_1$。
+
+通常Alice使用私有服务器还是云服务提供商，实际上依赖于他的资源限制。特别的，在问题设定中，我们宁愿使用$C_2$，避免出现上述提及的问题。在我们的方案中，Alice将加密数据外包给云后，将来不需要参加任何计算。
+
+PPKNNONED方案的主要目标是根据数据库$D'$在隐私保护的前提下对用户的查询记录进行分类。考虑到一个授权用户Bob想在$C_1$中基于$D'$对他的查询记录$q=\langle q_1,...,q_m\rangle$进行分类。PPKNNONED方案主要包含以下两个步骤：
+\begin{itemize}
+\item 阶段1—— K近邻安全检索(SRKNN). 在这一过程中，Bob首先以密文的形式发送他的查询请求给$C_1$。之后，$C_1$和$C_2$参与一系列的子协议对输入查询$q$安全检索类标签相对应的K近邻。在这一步的最后，K近邻的加密标签仅$C_1$ 可知。
+\item 阶段2——多数类的安全计算(SCMC).就步骤一，$C_1$和$C_2$ 计算在查询q的k近邻中类标签的多数。在这一步的结尾，仅Bob 知道和他查询记录q所对应的类标签。
+\end{itemize}
+PPKNNONED方案涉及的主要步骤由算法4给出，详细介绍PPKNNONED 方案中的每个阶段。
+\section{K近邻安全检索}
+在这一步骤中，Bob首先加密查询$q$属性，也就是说，计算$E_{pk}(q)=\langle E_{pk}(q_1),...,E_{pk}(q_m)\rangle$并将$E_{pk}(q)$发送给$C_1$。阶段1所涉及的主要步骤由算法4的步骤1到3所描述。接受$E_{pk}(q)$时，$C_1$私有输入$(E_{pk}(q),E_{pk}(t_i))$，$C_2$私钥$sk$共同参与到SSED协议。这里，$E_{pk}(t_i)=\langle E_{pk}(t_{i,1}),...,E_{pk}(t_{i,m})\rangle,1 \leq i \leq n$。输出为$q$和$t_i$之间欧几里得距离的平方，用$E_{pk}(d_i)$ 表示，即$d_i =|q-t_i|^2$。正如前面所提到的，$E_pk(d_i),1 \leq i \leq n$ 仅$C_1$知道。我们强调加密向量间的精准欧几里得距离由于涉及到平方根，因此计算是很难完成的。但是，在我们的问题中，由于保留了之间的相对顺序，因此能够计算出欧几里得距离平方。之后使用SBD协议，$C_1$输入$E_{pk}(d_i)$以及$C_2$安全的计算出$d_i$的各个比特的加密值。在这里，输出值$[d_i]=\langle E_{pk}(d_{i,1}),...,E_{pk}(d_{i,1})\rangle$只有$C_1$可知，其中$d_{i,1}$和$d_{i,l},1 \leq i \leq n$分别为$d_i$的最低和最高有效位。
+
+在这之后，$C_1$和$C_2$以迭代的方式计算查询$q$相对应的k个近邻的类标签。具体的说，在第一轮迭代过程中，他们计算$E_{pk}(c'_1)$，第二轮迭代时计算$E_{pk}(c'_2)$，依此类推下去。这里$c'_s$表示查询$q$的第$s$个近邻的类标签，$1 \leq s \leq k$。在第$k$轮的迭代过程中，仅有$C_1$知道$\langle E_{pk}(c'_1),...,E_{pk}(c'_k)\rangle$。 首先考虑第一次迭代。$C_1$和$C_2$共同计算$d_1,...,d_n$中最小值的个体比特位的加密值，并使用$SMIN_N$协议加密位置以及$d_{min}$相对应的类标签，也就是$C_1$输入$(\theta_1,...,\theta_2)$同$C_2$的密钥$sk$计算$([d_{min}],E_{pk}(I)),E_{pk}(c')$，其中$\theta_i=([d_i],E_{pk}(I_{t_i}),E_{pk}(t_{i,m+1})),1 \leq i \leq n$。这里$d_{min}$表示$d_1,...,d_n$中最小的值；$I_{t_i}$以及$t_{i,m+1}$分别表示唯一标识符以及数据记录$t_i$ 相对应的类标签。具体的说，$(I_{t_i},t_{i,m+1})$是和$t_i$相关的秘密信息。简单期间，假设$I_{t_i}=i$。在输出阶段，$I$和$c'$表示索引值以及$d_{min}$对应的类标签。输出值$([d_{min}],E_{pk}(I),E_{pk}(c'))$只有$C_1$可知。$C_1$ 在本地执行以下操作：
+\begin{itemize}
+\item 分配$E_{pk}(c')$给$E_{pk}(c'_1)$。根据SMIN协议，$c'$等价于和$d_{min}$对应的数据记录的类标签。因此，$q$的大部分近邻的类标签都是一样的。
+\item 计算$I$和$i$区别的加密值，其中$1 \leq i \leq n$。 即，$C_1$计算$\tau_i = E_{pk}(i)*E_{pk}(I)^{N-1}=E_{pk}(i-I),1 \leq i \leq n$。
+\item 随机化$\tau_i$得到$\tau'_i = \tau^{r_i}_i = E_{pk}(r_i *(i-1))$，其中$r_i$为$\mathbb{Z}_N$中的随机数。$\tau'_i,1 \leq i \leq n$是0或者随机数的加密结果值。另外值得注意的是在$\tau'$中恰好有一项是0的加密结果值(当且仅当$i=I$)，剩下的为随机数的加密结果值。使用随机置换函数$\pi$($\pi$仅$C_1$可知)排列$\tau'$得到$\beta=\pi(\tau')$并发送给$C_2$。
+\end{itemize}
+在收到$\beta$后，$C_2$解密其中的固定组件得到$\beta'_i = D_{sk}(\beta_i),1 \leq i \leq n$。之后，$C_2$计算一个加密向量$U'$的长度$n$，如果$\beta'_i=0$ 则计算$U'_i = E_{pk}(1)$，否则等于$E_{pk}(0)$。由于在$\tau'$ 中有一项为0 的加密值，这进一步说明了，$U'$中确切有一项为1的加密值，剩下的为0的加密结果值。需要特别注意的是，如果$\beta'_k=0$，则$\pi^{-1}(k)$是$d_{min}$对应的数据记录的索引值。之后$C_2$将$U'$发送给$C_1$，接收到$U'$后，$C_1$执行逆置换，有$V=\pi^{-1}(U')$。在$V$中确切有一项是$E_{pk}(1)$。剩余的为0的加密结果值。另外，如果$V_i=E_{pk}(1)$，则$t_i$是最接近于$q$的元组。但是，$C_1$和$C_2$不知道$V$中的哪一项和$E_{pk}(1)$相对应。
+
+最终，$C_1$根据以下原因更新距离向量：
+\begin{itemize}
+\item 值得注意的是，在进一步的计算中距查询$q$的第一个近元组应该会被排除在外。但是，由于$C_1$不知道记录对应的$E_{pk}(c'_1)$，我们需要在下一轮迭代的时候消除再次选择这个记录的可能性。为此，$C_1$放弃更新对应$E_{pk}(c'_1)$距离到最小值，即$2^l-1$。更具体的，$C_1$在$C_2$的帮助下使用SBOR协议更新距离向量，$E_{pk}(d_{i,\gamma})=SBOR(V_i,E_{pk}(d_{i,\gamma}))$，
+    $1 \leq i \leq n, 1 \leq \gamma \leq l$。当$V_i=E_{pk}(1)$时，对应的距离向量$d_i$是设置的最小值。即在这里例子下，有$[d_i]=\langle E_{pk}(1),...,E_{pk}(1)\rangle$。另一方面，当$V_i=E_{pk}(0)$时，OR操作不会影响相应的加密距离向量。
+
+\end{itemize}
+上述的过程将会进行k轮迭代，在每轮迭代$[d_i]$对应的当前选择标签设置为最小值。但是，$C_1$和$C_2$不知道哪个$[d_i]$被更新了。在第s轮迭代，$E_{pk}(c'_s)$仅$C_1$可知。在第一阶段结束时，$C_1$有查询$q$的k个近邻的加密标签列表$E_{pk}(c'_1),...,E_{pk}(c'_k)$。
+
+\section{多数类的安全计算}
+不失一般性，假设Alice's数据集D包含$w$个不重复的类标签$c=\langle c_1,...,c_w\rangle$。Alice将加密后的类列表外包给$C_1$。即在数据的外包阶段，Alice将$\langle E_{pk}(c_1),...,E_{pk}(c_w)\rangle$ 以及加密数据库外包给$C_1$。为了安全起见，Alice也许会在列表中添加一些假的分类来保护一定数量的类标签，即$w$来自于$C_1$和$C_2$。但是，为了简单起见，我们假设Alice不在列表中添加任何的假分类。
+
+第二阶段期间，$C_1$同私有输入$\Lambda = \langle E_{pk}(c_1),...,E_{pk}(c_w)\rangle$、$\Lambda'=\langle E_{pk}(c'_1),...,E_{pk}(c'_k)\rangle$,以及$C_2$的密钥$sk$ 安全计算$E_{pk}(c_q)$。这里$c_q$表示$c'_1,...,c'_k$中的多数类标签。在第二阶段末尾，仅Bob知道类标签$c_q$。
+
+\begin{algorithm}[!htb]
+\small
+\caption{$SCMC_k(E_{pk}(c'_1),...,E_{pk}(c'_k))\rightarrow c_q$}
+\label{alg:algorithm5}
+\begin{algorithmic}[1]
+    \STATE \textbf{Require:}$\langle E_{pk}(c_1),...,E_{pk}(c_w)\rangle,\langle E_{pk}(c'_1),...,E_{pk}(c'_k)\rangle$仅$C_1$可知\\
+    \hspace{1.5cm} $sk$仅$C_2$可知
+    \STATE $C_1$和$C_2$：\\
+    (a).\hspace{0.1cm}$\langle E_{pk}(f(c_1)),...,E_{pk}(f(c_w)) \leftarrow SF(\Lambda,\Lambda')\rangle$,其中$\Lambda=\langle E_{pk}(c_1),...,E_{pk}(c_w)\rangle$\\
+    \hspace{0.6cm}$\Lambda'=\langle E_{pk}(c'_1),...,E_{pk}(c'_k)\rangle$\\
+    (b).\hspace{0.1cm}\textbf{for} $i=1$ to $w$  \textbf{do}:\\
+    \hspace{1cm}$[f(c_i)] \leftarrow SBD(E_{pk}(f(c_i)))$\\
+    \hspace{0.6cm} \textbf{end for}\\
+    (c).\hspace{0.1cm} $([f_{max}],E_{pk}(c_q) \leftarrow SMAX_w(\psi_1,...,\psi_w))$,其中\\
+    \hspace{0.6cm} $\psi_i=([f(c_i)],E_{pk}(c_i)),1 \leq i \leq w$
+    \STATE $C_1$:\\
+     (a).\hspace{0.2cm}$\gamma_q \leftarrow E_{pk}(c_q)*E_{pk}(r_q)$,其中$r_q \in_R \mathbb{Z}_N$\\
+     (b).\hspace{0.1cm} 将$\gamma_q$发送给$C_2$，$r_q$发送给Bob
+    \STATE $C_2$:\\
+     (a).\hspace{0.1cm} 从$C_1$接收$\gamma_q$\\
+     (b).\hspace{0.1cm} $\gamma'_q \leftarrow D_{sk}(\gamma_q)$; 将$\gamma'_q$发送给Bob
+    \STATE Bob:\\
+     (a).\hspace{0.1cm} 从$C_1$接收$r_q$,$C_2$接收$\gamma'_q$\\
+     (b).\hspace{0.1cm} $c_q \leftarrow \gamma'_q -r_q mod N$
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}[!htb]
+\small
+\caption{$SMIN(u',v')\rightarrow [min(u,v)],E_{pk}(s_{min(u,v)})$}
+\label{alg:algorithm1}
+\begin{algorithmic}[2]
+    \STATE \textbf{Require:}$P_1$有$u'=([u],E_{pk}(s_u))$ 以及$v'=([v],E_{pk}(s_v)), 0 \leq u,v \leq2^l$,$P_2$有$sk$
+    \STATE $P_1:$\\
+    (a).\hspace{0.1cm} 随机选取函数$F$\\
+    (b).\hspace{0.1cm} \textbf{for} $i=1$ to $l$ \textbf{do}:\\
+    \hspace{1cm} $E_{pk}(u_i*v_i) \leftarrow SM(E_{pk}(u_i),E_{pk}(v_i))$\\
+    \hspace{1cm} $T_i \leftarrow E_{pk}(u_i\oplus v_i)$\\
+    \hspace{1cm} $H_i \leftarrow H^{r_i}_{i-1}*T_i;r_i \in_R \mathbb{Z}_N$ 且$H_0=E_{pk}(0)$\\
+    \hspace{1cm} $\Phi_i \leftarrow E_{pk}(-1)*H_i$\\
+    \hspace{1cm} \textbf{if} $F: u > v$ \textbf{then}:\\
+    \hspace{1.5cm} $W_i \leftarrow E_{pk}(u_i)*E_{pk}(u_i*v_i)^{N-1}$\\
+    \hspace{1.5cm} $\Gamma_i \leftarrow E_{pk}(v_i-u_i)*E_{pk}(\hat{r_i});\hat{r_i} \in_R \mathbb{Z}_N$\\
+    \hspace{1cm} \textbf{else}\\
+    \hspace{1.5cm} $W_i \leftarrow E_{pk}(v_i)*E_{pk}(u_i*v_i)^{N-1}$\\
+    \hspace{1.5cm} $\Gamma_i \leftarrow E_{pk}(y_i-v_i)*E_{pk}(\hat{r_i});\hat{r_i}\in_R\mathbb{Z}_N$\\
+    \hspace{0.9cm}$L_i \leftarrow W_i*\Phi^{r_i}_i;r'_i \in_R \mathbb{Z}_N$\\
+    (c).\hspace{0.1cm}\textbf{if} $F:u>v$\\
+     \hspace{1cm}$\delta \leftarrow E_{pk}(s_v-s_u)*E_pk(\bar{r})$\\
+     \hspace{0.6cm}\textbf{else}\\
+     \hspace{1cm} $\delta \leftarrow E_{pk}(s_u-s_v)*E_{pk}(\bar{r}),\bar{r} \in_R \mathbb{Z}_N$\\
+     (d).\hspace{0.1cm} $\Gamma'\leftarrow \pi_1(\Gamma)$,$L'\leftarrow \pi_2(L)$\\
+     (e).\hspace{0.1cm} 将$\delta,\Gamma'$以及$L'$发送给$P_2$。
+     \STATE $P_2:$\\
+     (a).\hspace{0.1cm} 从$P_1$接收$\delta,\Gamma'$以及$L'$\\
+     (b).\hspace{0.1cm} 解密：$M_i \leftarrow D_{sk}(L'_i),1 \leq i \leq l$\\
+     (c).\hspace{0.1cm} \textbf{if}$ \ni j$使得$M_j=1$ \textbf{then}\\
+      \hspace{1cm} $\alpha \leftarrow 1$\\
+     \hspace{0.5cm} \textbf{else}\\
+      \hspace{1cm} $\alpha \leftarrow 0$\\
+     (d).\hspace{0.1cm} \textbf{if} $\alpha=0$ \textbf{then}\\
+     \hspace{1cm} $M'_i \leftarrow E_{pk}(0),1 \leq i \leq l$\\
+     \hspace{1cm} $\delta' \leftarrow E_{pk}(0)$\\
+     \hspace{0.5cm} \textbf{else}\\
+     \hspace{1cm} $M'_i \leftarrow \Gamma'_i * r^N$,其中$r \in_R \mathbb{Z}_N,1 \leq i \leq l$\\
+     \hspace{1cm}  $\delta' \leftarrow \delta * r^N_\delta$,其中$r_\delta \in_R \mathbb{Z}_N$\\
+     \hspace{1cm} 将$M',E_{pk}(\alpha)$以及$\delta'$发送给$P_1$
+     \STATE $P_1$:\\
+     (a).\hspace{0.1cm} 从$P_2$接收$M',E_{pk}(\alpha)$以及$\delta'$\\
+     (b). \hspace{0.1cm} $\tilde{M} \leftarrow \pi^{-1}_1(M')$,$\theta \leftarrow \delta'*E_{pk}(\alpha)^{N-\bar{r}}$\\
+     (c). \hspace{0.1cm} $\lambda_i \leftarrow \tilde{M}_i * E_{pk}(\alpha)^{N-\hat{r_i}},1 \leq i \leq l$\\
+     (d).\hspace{0.1cm} \textbf{if} $F:u>v$ \textbf{then}:\\
+     \hspace{1cm} $E_{pk}(s_{min(u,v)}) \Leftarrow E_{pk}(s_u)*\theta$\\
+     \hspace{1cm} $E_{pk}(min(u,v)_i) \leftarrow E_{pk}(u_i)*\lambda_i,1 \leq i \leq l$\\
+     \hspace{0.6cm}\textbf{else}\\
+     \hspace{1cm} $E_{pk}(s_{min(u,v)}) \leftarrow E_{pk}(s_v)* \theta$\\
+     \hspace{1cm} $E_{pk}(min(u,v)_i) \leftarrow E_{pk}(v_i)*\lambda_i,1 \leq i \leq l$
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{table}[H]
+\centering  % 表居中
+\caption{eee}\label{TABLE1}
+$P_1$选择函数$F:v>u$,其中$u=55,v=58$
+\begin{tabular}{ccccccccccccc}  % {lccc} 表示各列元素对齐方式，left-l,right-r,center-c
+\hline
+ $[u]$&$[v]$&$W_i$&$\Gamma_i$&$G_i$&$H_i$&$\Phi_i$&$L_i$&$\Gamma_{i'}$&$L'_i$&$M_i$&$\lambda_i$&$min_i$\\ \hline  % \hline 在此行下面画一横线
+1 &1 &0 &$r$ &0 &0 &-1 &$r$ &$1+r$ &$r$ &$r$ &0 &1\\        % \\ 表示重新开始一行
+1 &1 &0 &$r$ &0 &0 &-1 &$r$ &$r$ &$r$ &$r$ &0 &1\\        % & 表示列的分隔线
+0 &1 &1 &$-1+r$ &1 &1 &0 &1 &$1+r$ &$r$ &$r$ &-1 &0\\
+1 &0 &0 &$1+r$ &1 &$r$ &$r$ &$r$ &$-1+r$ &$r$ &$r$ &1 &1\\
+1 &1 &0 &$r$ &0 &$r$ &$r$ &$r$ &$r$ &1 &1 &0 &1\\
+1 &0 &0 &$1+r$ &1 &$r$ &$r$ &$r$ &$r$ &$r$ &$r$ &1 &1\\ \hline
+\end{tabular}\\
+除了$M_i$列，其他所有的列都是加密形式。另外$r \in_R \mathbb{Z}_N$,每行每列不同
+\end{table}
+
+
+\begin{table}[H]
+\centering  % 表居中
+\begin{tabular}{cccccccc}  % {lccc} 表示各列元素对齐方式，left-l,right-r,center-c
+\hline
+i &=&1 &2&3&4&5&6\\ \hline  % \hline 在此行下面画一横线
+ & & $\downarrow$& $\downarrow$&$\downarrow$ &$\downarrow$ &$\downarrow$ & $\downarrow$\\         % \\ 表示重新开始一行
+$\pi_1(i)$ &= &6 &5 &4 &3 &2 &1\\        % & 表示列的分隔线
+$\pi_2(i)$ &= &2 &1 &5 &6 &3 &4\\ \hline
+\end{tabular}
+\end{table}
+
+\begin{algorithm}[!htb]
+\small
+\caption{$SMIN_n(([d_1],E_{pk}(s_{d_1})),...,([d_n],E_{pk}(s_{d_n})))\rightarrow ([d_min],E_{pk}(s_{d_{min}}))$}
+\label{alg:algorithm2}
+\begin{algorithmic}[1]
+   \STATE \textbf{Require:}$P_1$有$(([d_1],E_{pk}(s_{d_1})),...,([d_n],E_{pk}(s_{d_n})))$, $P_2$ 有$sk$.\\
+   \STATE $P_1:$\\
+   \hspace{0.5cm}(a).$[d'_i] \leftarrow[d_i]$且$s'_i \leftarrow E_{pk}(s_{d_i}),1 \leq i \leq n$\\
+   \hspace{0.5cm}(b).$num \leftarrow n$
+   \STATE \textbf{for} $i=1 to \lceil log_2n\rceil$:\\
+   \hspace{0.5cm}(a).\textbf{for} $1\leq j \leq \lfloor\frac{num}{2}\rfloor$:\\
+   \hspace{1cm} \textbf{if} i=1 \textbf{then}:\\
+   \hspace{1.5cm} $\bullet([d'_{2j-1}],s'_{2j-1})\leftarrow SMIN(x,y)$,其中$x=([d'_{2j-1}],s'_{2j-1})$且\\
+   \hspace{1.8cm} $y=([d'_{2j}],s'_{2j})$\\
+   \hspace{1.6cm}$\bullet[d'_{2ij-1}]\leftarrow 0$且$s'_{2ij-1} \leftarrow 0$\\
+   \hspace{1cm} \textbf{else}\\
+   \hspace{1.7cm}$\bullet([d'_{2i(j-1)+1}],s'_{2i(j-1)+1})\leftarrow SMIN(x,y)$其中\\
+   \hspace{2cm}$x=([d'_{2i(j-1)+1}],s'_{2i(j-1)+1})$且$y=([d'_{2ij-1}],s'_{2ij-1})$\\
+   \hspace{1.5cm} $\bullet[d'_{2ij-1}]\leftarrow 0$且$s'_{2ij-1}\leftarrow 0$\\
+   \hspace{0.5cm}(b).$num \leftarrow \lceil\frac{num}{2}\rceil$
+   \STATE $P_1:[d'_1]$且$E_{pk}(s_{s_min}) \leftarrow s'_1$
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}[!htb]
+\small
+\caption{$SF(\Lambda,\Lambda') \rightarrow \langle E_{pk}(c_1),...,E_{pk}(f(c_w))\rangle$}
+\label{alg:algorithm3}
+\begin{algorithmic}[1]
+   \STATE \textbf{Require:}$P_1$有$\Lambda=\langle E_{pk}(c_1),...,E_{pk}(c_w)\rangle,\Lambda'=\langle E_{pk}(c'_1),...,E_{pk}(c'_k)\rangle$且$\langle \pi_1 ,..., \pi_k \rangle$,$P_2$有$sk\emph{}$
+\end{algorithmic}
+\end{algorithm}
+算法5描述了阶段2设计的步骤。首先，$C_1$和$C_2$使用k个邻近集合作为输入共同对每个类标签出现的频率进行加密。即，他们使用$(\Lambda,\Lambda')$计算$E_{pk}(f(c_i)),1 \leq i \leq w$ 作为SF 协议的输入。输出值$\langle E_{pk}(f(c_1)),...,E_{pk}(f(c_w))\rangle$仅$C_1$可知。之后$C_1$的$E_{pk}(f(c_i))$以及$C_2$的$sk$参与安全比特分解协议，从而来计算$[f(c_i)]$，也就是说，对$f(c_i), 1 \leq i \leq w$ 的各个为进行矢量加密。之后，$C_1$和$C_2$共同参与$SMAX_w$协议。简略的，$SMAX_w$ 利用SMAX的子规则以迭代的方式最终计算$([f_{max}],E_{pk}(c_q))$。这里$[f_{max}]=[max(f(c_1),...,f(c_w))]$ ,$c_q$表示$\Lambda'$ 之外的多数类。结束时，输出值$([f_{max}],E_{pk}(c_q))$仅$C_1$可知。这步之后，$C_1$计算$\gamma_q=E_{pk}(c_q+r_q)$，其中$r_q$是$\mathbb{Z}_N$中的随机数，仅$C_1$可知。接着$C_1$将$\gamma_q$发送给$C_2$，$r_q$发送给Bob。$C_2$收到$\gamma_q$ 后，解密得到随机多数类标签$\gamma'_q=D_{sk}(\gamma_q)$并发送给Bob。最终，在从$C_1$接收到$r_q$，从$C_2$收到$\gamma'_q$后，Bob计算$q$对应的输出类标签$c_q=\gamma'_q-r_q mod N$。
+
+\section{复杂性分析}
+阶段1的计算复杂度主要来自于加密和求幂，复杂度为$O(n*(l+m+k*l*log_2n))$。另一方面，阶段2的计算复杂度同样来自于加密和求幂，复杂度为$O(w*(l+k+l*log_2w))$。一般情况下，当$w << n$，则阶段1的计算复杂度应该明显高于阶段2。在下面的实验结果分析中将进一步得到验证。
+
+\section{实验结果分析}
+本节，将在不同的参数下以讨论PPKNNONED方案的性能。

@@ -1,0 +1,50 @@
+\newpage
+\vspace{-1cm}
+\chapter*{\zihao{-2}\heiti{ABSTRACT}}
+\vspace{-0.5cm}
+The popularity of intelligent terminals to promote the mobile Internet into a highly developed era. To provide a great convenience to the human basic necessities of life is increasingly perfect GPS positioning technology, wireless communication, transportation, education, medical services and now the public life and is closely related to all cannot do without the intelligent terminal, wireless communication technology support. Location based services (Location-Based; Service LBS) is a combination of geographic location and mobile Internet, is one of the more dazzling mode of the moment of information age. Using LBS, the user can get the current location of the interest points (restaurants, KTV, theater...), but also exposed some of the privacy issues. Users and LBS service providers to query service, the first need to get to their current location through the GPS, and then through the base station will be sent to the LBS service provider. Due to the location of the user may reveal some sensitive personal information, and the user's current location completely exposed in front of the LBS service provider, so the location privacy poses a threat to the user's position, how to protect the privacy of users, and to protect the privacy of users can also provide users with the corresponding location service is a hot topic in the current research the.
+
+Main contributions of this paper are as follows:
+\begin{itemize}
+  \item \textbf{Distributed Big Trajectory Data Analysis Framework} ~~Proposed a distributed framework for massive trajectory processing. We split the general trajectory process into three phrases: noise filtering, map matching and feature extraction, then present the Map-Reduce compute paradigm for each of them. RouteFit algorithm is implemented for map matching in our work.
+  \item \textbf{Clustering-based Region of Interest Discovery} ~~Using density-based clustering algorithms to discover Point of Interest or Region of Interest in location data. Pick-up DBScan algorithm is developed in this paper to generate pick-up clustering from the pick-up points in trajectory data.Then, a candidate set of taxi pick-up POI, which will be the recommendation items, is generated using the clustering results.
+  \item \textbf{Pick-up Point Recommendation and Waiting Time Prediction} ~~We introduce the location-based service for travel optimization using large-scale taxi trajectories. Taxi pick-up points recommendation and waiting-time prediction system aims to recommend efficient locations for taxi hailing and give precise waiting-time prediction for passengers. The offline part re-builds the traffic prediction models using recent data periodically. Firstly, in the preprocessing module, we filter the raw GPS data with noise and errors. Then, the road segments are clustered into groups to reflect different traffic situations and generate ST-unit as modeling granularity. Finally, we build regression models and Poisson process models and then choose the best models for each ST-unit by evaluating sampled test set. The online part processes queries and gives real time pick-up points recommendations taking advantage of spatial indexing and web service techniques. Finally, we implement the prototype system to provide taxi pick-up points recommendation based on Shanghai taxi trajectory data.
+\end{itemize}
+
+\hspace{-0.5cm}
+{\sihao{\textbf{Keywords:}}} \textit{Mobile Recommendation;\, Location-based service;\, Trajectory mining.
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
