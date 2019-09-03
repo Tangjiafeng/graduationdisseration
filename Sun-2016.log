@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  2 SEP 2019 23:36
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  3 SEP 2019 14:46
 entering extended mode
 **Sun-2016.tex
 (D:\graduationdissertation\Sun-2016.tex
@@ -2213,9 +2213,12 @@ Requested font "SimHei/ICU:script=latn;language=DFLT;mapping=tex-text;embolden=
 [1
 
 ]
+Requested font "pzdr" at 12.0pt
+ -> pzdr
+
 
 LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sl' undefined
-(Font)              using `EU1/TimesNewRoman(0)/m/n' instead on input line 18.
+(Font)              using `EU1/TimesNewRoman(0)/m/n' instead on input line 16.
 
 .................................................
 . fontspec info: "defining-font"
@@ -2227,7 +2230,7 @@ LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sl' undefined
 .................................................
 
 LaTeX Font Warning: Font shape `EU1/SimSun(0)/m/sl' undefined
-(Font)              using `EU1/SimSun(0)/m/n' instead on input line 18.
+(Font)              using `EU1/SimSun(0)/m/n' instead on input line 16.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2235,16 +2238,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2] [3]
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'SimSun(0)' created for font 'SimSun' with options
-. [Ligatures=TeX,BoldFont={SimHei},ItalicFont={[SIMKAI.TTF]}].
-. 
-. This font family consists of the following shapes:
-.................................................
- [4]) (D:\graduationdissertation\C2-CHAP2.tex [5]
+[2] [3] [4]) (D:\graduationdissertation\C2-CHAP2.tex [5]
 第二章
 Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
 t;" at 14.4pt
@@ -2267,13 +2261,19 @@ Requested font "SimHei/ICU" at 12.05pt
 Requested font "SimHei/ICU:script=latn;language=DFLT;mapping=tex-text;embolden=
 4;" at 12.05pt
  -> C:/WINDOWS/Fonts/simhei.ttf
+.................................................
+. fontspec info: "defining-font"
+. 
+. Font family 'SimSun(0)' created for font 'SimSun' with options
+. [Ligatures=TeX,BoldFont={SimHei},ItalicFont={[SIMKAI.TTF]}].
+. 
+. This font family consists of the following shapes:
+.................................................
 [6
 
 ] [7]
 File: fig/independentConstruction.pdf Graphic file (type QTm)
  <use  "fig/independentConstruction.pdf" > [8]
-Requested font "pzdr" at 12.0pt
- -> pzdr
 File: fig/p2p.pdf Graphic file (type QTm)
  <use  "fig/p2p.pdf" >
 [9]
@@ -2599,7 +2599,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  33213 strings out of 430478
  623825 string characters out of 3191502
- 655693 words of memory out of 3000000
+ 655692 words of memory out of 3000000
  35634 multiletter control sequences out of 15000+200000
  45898 words of font info for 281 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
