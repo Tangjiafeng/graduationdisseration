@@ -6,37 +6,32 @@
 \BOOKMARK [0][-]{chapter.2}{预备知识与概念}{}% 6
 \BOOKMARK [1][-]{section.2.1}{有限域基础理论}{chapter.2}% 7
 \BOOKMARK [1][-]{section.2.2}{编码基础知识}{chapter.2}% 8
-\BOOKMARK [2][-]{subsection.2.2.1}{汉明重量与汉明距离}{section.2.2}% 9
-\BOOKMARK [2][-]{subsection.2.2.2}{线性码}{section.2.2}% 10
-\BOOKMARK [2][-]{subsection.2.2.3}{生成矩阵与校验矩阵}{section.2.2}% 11
-\BOOKMARK [2][-]{subsection.2.2.4}{解码算法}{section.2.2}% 12
-\BOOKMARK [1][-]{section.2.3}{常见码的性质}{chapter.2}% 13
-\BOOKMARK [2][-]{subsection.2.3.1}{GRS 码}{section.2.3}% 14
-\BOOKMARK [2][-]{subsection.2.3.2}{Goppa 码}{section.2.3}% 15
-\BOOKMARK [2][-]{subsection.2.3.3}{Gabidulin 码}{section.2.3}% 16
-\BOOKMARK [1][-]{section.2.4}{本章小结}{chapter.2}% 17
-\BOOKMARK [0][-]{chapter.3}{隐私保护中的基础知识}{}% 18
-\BOOKMARK [1][-]{section.3.1}{K近邻问题}{chapter.3}% 19
-\BOOKMARK [1][-]{section.3.2}{密码学基础}{chapter.3}% 20
-\BOOKMARK [2][-]{subsection.3.2.1}{参与者与攻击者}{section.3.2}% 21
-\BOOKMARK [2][-]{subsection.3.2.2}{攻击类型}{section.3.2}% 22
-\BOOKMARK [1][-]{section.3.3}{语义安全}{chapter.3}% 23
-\BOOKMARK [1][-]{section.3.4}{同态加密}{chapter.3}% 24
-\BOOKMARK [1][-]{section.3.5}{Paillier公钥加密}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.6}{本章小结}{chapter.3}% 26
-\BOOKMARK [0][-]{chapter.4}{KNN中的隐私保护问题研究}{}% 27
-\BOOKMARK [1][-]{section.4.1}{研究动机}{chapter.4}% 28
-\BOOKMARK [1][-]{section.4.2}{问题定义}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.3}{隐私需求}{chapter.4}% 30
-\BOOKMARK [1][-]{section.4.4}{隐私保护原语}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.5}{证明SMIN安全性}{chapter.4}% 32
-\BOOKMARK [1][-]{section.4.6}{本章小结}{chapter.4}% 33
-\BOOKMARK [0][-]{chapter.5}{PPkNNONED方案}{}% 34
-\BOOKMARK [1][-]{section.5.1}{K近邻安全检索}{chapter.5}% 35
-\BOOKMARK [1][-]{section.5.2}{多数类的安全计算}{chapter.5}% 36
-\BOOKMARK [1][-]{section.5.3}{复杂性分析}{chapter.5}% 37
-\BOOKMARK [1][-]{section.5.4}{本章小结}{chapter.5}% 38
-\BOOKMARK [0][-]{chapter.6}{总结与展望}{}% 39
-\BOOKMARK [0][-]{chapter.6}{参考文献}{}% 40
-\BOOKMARK [0][-]{section*.26}{致谢}{}% 41
-\BOOKMARK [0][-]{section*.28}{发表论文和科研情况}{}% 42
+\BOOKMARK [1][-]{section.2.3}{常见码的构造}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.3.1}{GRS 码}{section.2.3}% 10
+\BOOKMARK [2][-]{subsection.2.3.2}{Goppa 码}{section.2.3}% 11
+\BOOKMARK [1][-]{section.2.4}{本章小结}{chapter.2}% 12
+\BOOKMARK [0][-]{chapter.3}{经典方案介绍}{}% 13
+\BOOKMARK [1][-]{section.3.1}{K近邻问题}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.2}{密码学基础}{chapter.3}% 15
+\BOOKMARK [2][-]{subsection.3.2.1}{参与者与攻击者}{section.3.2}% 16
+\BOOKMARK [2][-]{subsection.3.2.2}{攻击类型}{section.3.2}% 17
+\BOOKMARK [1][-]{section.3.3}{语义安全}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.4}{同态加密}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.5}{Paillier公钥加密}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.6}{本章小结}{chapter.3}% 21
+\BOOKMARK [0][-]{chapter.4}{KNN中的隐私保护问题研究}{}% 22
+\BOOKMARK [1][-]{section.4.1}{研究动机}{chapter.4}% 23
+\BOOKMARK [1][-]{section.4.2}{问题定义}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.3}{隐私需求}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.4}{隐私保护原语}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.5}{证明SMIN安全性}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.6}{本章小结}{chapter.4}% 28
+\BOOKMARK [0][-]{chapter.5}{PPkNNONED方案}{}% 29
+\BOOKMARK [1][-]{section.5.1}{K近邻安全检索}{chapter.5}% 30
+\BOOKMARK [1][-]{section.5.2}{多数类的安全计算}{chapter.5}% 31
+\BOOKMARK [1][-]{section.5.3}{复杂性分析}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.4}{本章小结}{chapter.5}% 33
+\BOOKMARK [0][-]{chapter.6}{总结与展望}{}% 34
+\BOOKMARK [0][-]{chapter.6}{参考文献}{}% 35
+\BOOKMARK [0][-]{section*.26}{致谢}{}% 36
+\BOOKMARK [0][-]{section*.28}{发表论文和科研情况}{}% 37

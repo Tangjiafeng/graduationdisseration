@@ -3,3 +3,10 @@
 \contentsline {define}{{定义}{2.1.{3}}{不可约多项式}}{6}{thm2.2.1.3}
 \contentsline {define}{{定义}{2.1.{4}}{极小多项式}}{6}{thm2.2.1.4}
 \contentsline {define}{{定义}{2.1.{5}}{本原多项式}}{7}{thm2.2.1.5}
+\contentsline {define}{{定义}{2.2.{1}}{汉明重量与汉明距离}}{7}{thm2.2.2.1}
+\contentsline {define}{{定义}{2.2.{2}}{线性码}}{7}{thm2.2.2.2}
+\contentsline {define}{{定义}{2.2.{3}}{生成矩阵与校验矩阵}}{7}{thm2.2.2.3}
+\contentsline {define}{{定义}{2.2.{4}}{解码算法}}{7}{thm2.2.2.4}
+\contentsline {define}{{定义}{2.3.{1}}{循环码}}{8}{thm2.2.3.1}
+\contentsline {define}{{定义}{2.3.{2}}{BCH码}}{8}{thm2.2.3.2}
+\contentsline {define}{{定义}{2.3.{3}}{RS码}}{9}{thm2.2.3.3}

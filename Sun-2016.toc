@@ -6,53 +6,48 @@
 \contentsline {chapter}{\numberline {第二章\hspace {0.3em}}预备知识与概念}{6}{chapter.2}
 \contentsline {section}{\numberline {2.1}有限域基础理论}{6}{section.2.1}
 \contentsline {section}{\numberline {2.2}编码基础知识}{7}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}汉明重量与汉明距离}{7}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}线性码}{7}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}生成矩阵与校验矩阵}{7}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}解码算法}{7}{subsection.2.2.4}
-\contentsline {section}{\numberline {2.3}常见码的性质}{7}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}GRS 码}{7}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Goppa 码}{7}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Gabidulin 码}{7}{subsection.2.3.3}
-\contentsline {section}{\numberline {2.4}本章小结}{7}{section.2.4}
-\contentsline {chapter}{\numberline {第三章\hspace {0.3em}}隐私保护中的基础知识}{8}{chapter.3}
-\contentsline {section}{\numberline {3.1}K近邻问题}{8}{section.3.1}
-\contentsline {section}{\numberline {3.2}密码学基础}{9}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}参与者与攻击者}{10}{subsection.3.2.1}
-\contentsline {paragraph}{参与者}{10}{section*.8}
-\contentsline {subparagraph}{诚实的参与者}{10}{section*.9}
-\contentsline {subparagraph}{半可信的参与者}{10}{section*.10}
-\contentsline {subparagraph}{恶意的参与者}{10}{section*.11}
-\contentsline {paragraph}{攻击者}{10}{section*.12}
-\contentsline {subparagraph}{被动攻击者}{10}{section*.13}
-\contentsline {subparagraph}{主动攻击者}{10}{section*.14}
-\contentsline {subsection}{\numberline {3.2.2}攻击类型}{10}{subsection.3.2.2}
-\contentsline {paragraph}{唯密文攻击}{11}{section*.15}
-\contentsline {paragraph}{已知明文攻击}{11}{section*.16}
-\contentsline {paragraph}{选择明文攻击}{11}{section*.17}
-\contentsline {paragraph}{选择密文攻击}{11}{section*.18}
-\contentsline {paragraph}{选择文本攻击}{11}{section*.19}
-\contentsline {section}{\numberline {3.3}语义安全}{11}{section.3.3}
-\contentsline {section}{\numberline {3.4}同态加密}{13}{section.3.4}
-\contentsline {section}{\numberline {3.5}Paillier公钥加密}{16}{section.3.5}
-\contentsline {section}{\numberline {3.6}本章小结}{17}{section.3.6}
-\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}KNN中的隐私保护问题研究}{18}{chapter.4}
-\contentsline {section}{\numberline {4.1}研究动机}{18}{section.4.1}
-\contentsline {section}{\numberline {4.2}问题定义}{19}{section.4.2}
-\contentsline {section}{\numberline {4.3}隐私需求}{20}{section.4.3}
-\contentsline {section}{\numberline {4.4}隐私保护原语}{20}{section.4.4}
-\contentsline {paragraph}{最小值安全 SMIN}{22}{section*.20}
-\contentsline {paragraph}{n数中的最小安全值}{27}{section*.23}
-\contentsline {paragraph}{频率安全}{28}{section*.24}
-\contentsline {section}{\numberline {4.5}证明SMIN安全性}{30}{section.4.5}
-\contentsline {section}{\numberline {4.6}本章小结}{31}{section.4.6}
-\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}PPkNNONED方案}{32}{chapter.5}
-\contentsline {section}{\numberline {5.1}K近邻安全检索}{35}{section.5.1}
-\contentsline {section}{\numberline {5.2}多数类的安全计算}{37}{section.5.2}
-\contentsline {section}{\numberline {5.3}复杂性分析}{38}{section.5.3}
-\contentsline {section}{\numberline {5.4}本章小结}{38}{section.5.4}
-\contentsline {chapter}{\numberline {第六章\hspace {0.3em}}总结与展望}{39}{chapter.6}
-\contentsline {chapter}{参考文献}{40}{chapter.6}
-\contentsline {chapter}{致谢}{47}{section*.26}
-\contentsline {chapter}{发表论文和科研情况}{49}{section*.28}
+\contentsline {section}{\numberline {2.3}常见码的构造}{8}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}GRS 码}{8}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Goppa 码}{9}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}本章小结}{9}{section.2.4}
+\contentsline {chapter}{\numberline {第三章\hspace {0.3em}}经典方案介绍}{10}{chapter.3}
+\contentsline {section}{\numberline {3.1}K近邻问题}{10}{section.3.1}
+\contentsline {section}{\numberline {3.2}密码学基础}{11}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}参与者与攻击者}{12}{subsection.3.2.1}
+\contentsline {paragraph}{参与者}{12}{section*.8}
+\contentsline {subparagraph}{诚实的参与者}{12}{section*.9}
+\contentsline {subparagraph}{半可信的参与者}{12}{section*.10}
+\contentsline {subparagraph}{恶意的参与者}{12}{section*.11}
+\contentsline {paragraph}{攻击者}{12}{section*.12}
+\contentsline {subparagraph}{被动攻击者}{12}{section*.13}
+\contentsline {subparagraph}{主动攻击者}{12}{section*.14}
+\contentsline {subsection}{\numberline {3.2.2}攻击类型}{12}{subsection.3.2.2}
+\contentsline {paragraph}{唯密文攻击}{13}{section*.15}
+\contentsline {paragraph}{已知明文攻击}{13}{section*.16}
+\contentsline {paragraph}{选择明文攻击}{13}{section*.17}
+\contentsline {paragraph}{选择密文攻击}{13}{section*.18}
+\contentsline {paragraph}{选择文本攻击}{13}{section*.19}
+\contentsline {section}{\numberline {3.3}语义安全}{13}{section.3.3}
+\contentsline {section}{\numberline {3.4}同态加密}{15}{section.3.4}
+\contentsline {section}{\numberline {3.5}Paillier公钥加密}{18}{section.3.5}
+\contentsline {section}{\numberline {3.6}本章小结}{19}{section.3.6}
+\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}KNN中的隐私保护问题研究}{20}{chapter.4}
+\contentsline {section}{\numberline {4.1}研究动机}{20}{section.4.1}
+\contentsline {section}{\numberline {4.2}问题定义}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}隐私需求}{22}{section.4.3}
+\contentsline {section}{\numberline {4.4}隐私保护原语}{22}{section.4.4}
+\contentsline {paragraph}{最小值安全 SMIN}{24}{section*.20}
+\contentsline {paragraph}{n数中的最小安全值}{29}{section*.23}
+\contentsline {paragraph}{频率安全}{30}{section*.24}
+\contentsline {section}{\numberline {4.5}证明SMIN安全性}{32}{section.4.5}
+\contentsline {section}{\numberline {4.6}本章小结}{33}{section.4.6}
+\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}PPkNNONED方案}{34}{chapter.5}
+\contentsline {section}{\numberline {5.1}K近邻安全检索}{37}{section.5.1}
+\contentsline {section}{\numberline {5.2}多数类的安全计算}{39}{section.5.2}
+\contentsline {section}{\numberline {5.3}复杂性分析}{40}{section.5.3}
+\contentsline {section}{\numberline {5.4}本章小结}{40}{section.5.4}
+\contentsline {chapter}{\numberline {第六章\hspace {0.3em}}总结与展望}{41}{chapter.6}
+\contentsline {chapter}{参考文献}{42}{chapter.6}
+\contentsline {chapter}{致谢}{49}{section*.26}
+\contentsline {chapter}{发表论文和科研情况}{51}{section*.28}
 \contentsfinish 

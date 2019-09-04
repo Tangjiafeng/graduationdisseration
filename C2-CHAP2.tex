@@ -1,10 +1,10 @@
 \chapter{预备知识与概念}
 \label{chap1}
-本章介绍基于编码的加密方案涉及到的有限域知识，编码知识等等。有限域理论是编码理论的一个重要数学基础，有限域上的元素性质，多项式性质更好的描述了码字在加解密中的作用，编码知识则是加密算法的基础，选择好性质的码是保证加密算法高效和安全的前提。
+本章介绍基于编码的加密方案涉及到的有限域知识，编码知识等等。有限域理论是编码理论的一个重要数学基础，有限域上的元素，多项式更好的描述了码字在加解密中的计算过程，编码知识则是加密算法的理论依据，能够选择好性质的码是保证加密算法安全和高效的前提。
 
 \section{有限域基础理论}
 \begin{define}[有限域]
-	在有限集合$\mathbf{F}$上定义了两个二元运算：加法 “$+$” 和乘法 “$\bullet$”，如果$(\mathbf{F}, +)$是交换群，$\mathbf{F}$的非零元素对乘法构成交换群，而且乘法对加法满足分配律，则称$(\mathbf{F}, +, \bullet)$是有限域，如果$\mathbf{F}$集合元素的个数为$q$，则记作$\mathbb{F}_q$或者$GF(q)$。
+	在有限集合$\mathbf{F}$上定义了两个二元运算：加法 “$+$” 和乘法 “$\bullet$”，如果$(\mathbf{F}, +)$是交换群，$\mathbf{F}$的非零元素对乘法构成交换群，而且乘法对加法满足分配律，则称$(\mathbf{F}, +, \bullet)$是有限域，如果$\mathbf{F}$集合元素的个数为$q$，则记作$\mathbb{F}_q$或者$GF(q)$。简单起见，我们将二元域记作$\mathbb{F}$。
 \end{define}
 
 \begin{define}[本原元]
@@ -24,21 +24,65 @@
 \end{define}
 
 \section{编码基础知识}
+基于编码的加密方案的设计，需要考虑编码理论的相关定理，码的性质，纠错能力影响因素等，本小节做基本的概念介绍。在本文中介绍编码理论我们集中在二元域$\mathbb{F} = GF(2)$上。
 
-\subsection{汉明重量与汉明距离}
+\begin{define}[汉明重量与汉明距离]
+	一个码字$\textbf{x}$的汉明距离定义为码字本身含有的非零位的个数，并表示为：$wt(\textbf{x})$。汉明距离指的是两个长度相同的码字$\textbf{x}, \textbf{y}$之间，位不同的总数，一般记作：$dist(\textbf{x}, \textbf{y})$。可以看出，$dist(\textbf{x}, \textbf{y}) = wt(\textbf{x} - \textbf{y})$。
+\end{define}
 
-\subsection{线性码}
+\begin{define}[线性码]
+	向量空间$\mathbb{F}^n$上的一个$k$维子空间定义为$[n, k]$线性码，记作：$\mathcal{C}$。另外，线性码$\mathcal{C}$的最小距离指的是，线性码中任意两个不同的码字之间的最小汉明距离，记作$d$。我们可以用$[n, k, d]$来表示最小距离为$d$的线性码$\mathcal{C}$，且最大纠错能力为$\lfloor(d - 1)\rfloor/2$。
+\end{define}
 
-\subsection{生成矩阵与校验矩阵}
+\begin{define}[生成矩阵与校验矩阵]
+	线性码$\mathcal{C}$的生成矩阵是指一个$k \times n$的矩阵$G$，$G$的行可以构成线性码$\mathcal{C}$的基。也就是说由矩阵$G$的行可以线性组合成线性码$\mathcal{C}$中所有的码字。矩阵$G$的系统形式，就是通过矩阵变换的前$k$列组成单位矩阵。线性码$\mathcal{C}$校验矩阵$H$是指生成矩阵的对偶形式，形状即$(n - k) \times n$。	
+\end{define}
 
-\subsection{解码算法}
+\begin{define}[解码算法]
+	在基于编码的加密方案中，当我们选定一种$[n,k,d]$线性码$\mathcal{C}$时，都有一个相应的解码算法$D_{\mathcal{C}}$，完成纠正加入差错向量的码字的工作，也就是说，对任意的$\textbf{e} \in \mathbb{F}^n,~wt(\textbf{e}) < d/2,~\textbf{x} \in \mathcal{C}$，都有
+	
+	\centering $D_{\mathcal{C}}(\textbf{x} + \textbf{e}) = \textbf{x}$。
+\end{define}
 
-\section{常见码的性质}
+\section{常见码的构造}
+编码理论指导我们寻找一些好码，使得信源信息经过编码后的，通过信道传输，在信道接收端可以实现自动纠错和检错。良好的纠错检错能力对基于编码的加密算法的作用是很关键的，应用表现好的码，就能减小方案中的码长，从而缩减公钥尺寸，极大的促进基于编码的加密方案的实行。本小节我们介绍几种常见的码，便于从中发现提升码性质的技术和方向。
 
 \subsection{GRS 码}
+GRS码，即广义Reed-Solomon码，因为其码结构紧凑的优势，在早期作为Goppa码的竞争者应用在基于编码的加密方案中。这是一种特殊的BCH码，BCH码是一种性质良好的循环码，首先循环码的定义是：
+
+\begin{define}[循环码]
+	设线性码$\mathcal{C}$，如果线性码$\mathcal{C}$的任意一个码字的循环移位还是一个码字，即当$a_0a_1···a_{n-1} \in \mathcal{C}$时，$a_{n-1}a_0a_1···a_{n-2} \in \mathcal{C}$，则称$\mathcal{C}$是一个循环码。
+\end{define}
+
+BCH码是由三位学者 (R. C. Bose, D. K. Ray-Chaudhuri, A. Hocquenghem)分别独立提出的，当码长不是很长时，纠错性能非常接近于理论值。BCH码构造方便，且编码和译码过程容易，非常具有研究价值。
+
+\begin{define}[BCH码]
+	设$\mathbb{F}_q$上的一个$r$维向量空间为$\mathbb{F}_{q^r}$，并且$1, \alpha, \alpha ^ 2, ... , \alpha ^ {r - 1}$是$\mathbb{F}_{q^r}$在$\mathbb{F}_q$上的一组基，则$\mathbb{F}_{q^r}$中的任意一个元素都可以唯一地表示为$1, \alpha, \alpha ^ 2, ... , \alpha ^ {r - 1}$的一个线性组合。令
+	
+	\centering $B_q(n, \delta, \alpha)=\{\mathbf{c}=c_0c_1c_2···c_{n-1} | \mathbf{c}H^\mathtt{T}\}$，其中$1 < \delta < n$，且
+	\begin{equation}       %开始数学环境
+	H =
+	\left(                 %左括号
+	\begin{array}{ccccc}   %该矩阵一共3列，每一列都居中放置
+	1 & \alpha & \alpha^2 & ··· & \alpha^{n-1}\\  %第一行元素
+    1 & \alpha^2 & (\alpha^2)^2 & ··· & (\alpha^2)^{n-1}\\  %第二行元素
+    \vdots & \vdots & \vdots & \vdots & \vdots \\
+    1 & \alpha^{\delta - 1} & (\alpha^{\delta - 1})^2 & ··· & (\alpha^{\delta - 1})^{n-1}\\
+	\end{array}
+	\right)                 %右括号
+	\end{equation}
+	\begin{flushleft}
+        我们称$B_q(n, \delta, \alpha)$是码长为$n$并且设计距离为$\delta$的$q$元BCH码。我们对BCH码做一点推广，假设$b \geq 0$是一个非负整数，将矩阵$H$第一行中$\alpha$替换成$\alpha ^ b$，其它按照规律生成，则称$B_q(n, \delta, \alpha, b)$为广义BCH码。
+	\end{flushleft}	
+\end{define}
+
+\begin{define}[RS码]
+	设$q \geq 3$是一个素数的幂次方，码长为$q - 1$并且设计距离为$\delta$的$q$元BCH码$B_q(q - 1, \delta, \alpha)$称为$q$元Reed-Solomon码，简称$q$元RS码，记作$S(q - 1, \delta, \alpha)$，其中$\alpha$是$\mathbb{F}_q$的一个$q - 1$阶元素，即$\alpha$是$\mathbb{F}_q$的一个本原元。在广义BCH码的基础上，广义RS码也就记作$S(q - 1, \delta, \alpha, b)$。
+\end{define}
+
+广义的Reed-Solomon码与广义的BCH码的关系，如同RS码与BCH码的关系。
 
 \subsection{Goppa 码}
 
-\subsection{Gabidulin 码}
 
 \section{本章小结}
