@@ -83,6 +83,25 @@ BCH码是由三位学者 (R. C. Bose, D. K. Ray-Chaudhuri, A. Hocquenghem)分别
 广义的Reed-Solomon码与广义的BCH码的关系，如同RS码与BCH码的关系。
 
 \subsection{Goppa 码}
+Goppa码是McEliece方案的首选线性码，而且到目前为止，没有有效的攻击方法可以对其产生威胁。1982年有学者在【引用】证明Goppa码可以达到Gilbert-Varshamov界，良好的代数几何结构满足了快速解码的要求。1992年，在【引用】中讲到一个长度为$n$，最小距离为$d$的Goppa码，可以在$O(n^3)$的时间复杂度内对含有不超过$d/2$个错误的码字进行解码，在特殊的构造下，时间复杂度可以降到$O(n^{7/3})$。
+
+\begin{define}[Goppa码]
+	假设$\mathbf{g}(z)$是在有限域$\mathbb{F}_{q^m}$上的一个首一多项式，$\mathcal{L}=\{\gamma_0,\gamma_2,...,\gamma_{n-1}\}$是$\mathbb{F}_{q^m}$上含有$n$个元素的集合，当$0 \leq i <n$时，满足$\mathbf{g}(\gamma_i)\neq0$，经典的Goppa码$\Gamma(\mathcal{L},\mathbf{g})$指的是线性空间$\mathbb{F}_q^n$中的所有$(c_0,c_1,...,c_{n-1})$满足：
+	
+    \begin{equation}
+        \sum_{i=0}^{n-1} (z - \gamma_i)^{-1}c_i = 0
+    \end{equation}
+	
+	\begin{flushleft}
+		的码字集合。 其中$(z - \gamma_i)^{-1}$也可以写成$-\mathbf{g}(z)^{-1}f(z)$，而$(z-\gamma)f(z) \equiv 1(mod~\mathbf{g}(z))$，且$deg(f) < def(\mathbf{g})$。
+	\end{flushleft}
+\end{define}
 
 
-\section{本章小结}
+
+
+
+
+
+
+
