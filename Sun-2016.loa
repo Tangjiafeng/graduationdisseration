@@ -1,6 +1,5 @@
-\contentsline {algorithm}{\numberline {1}{\ignorespaces 生成假位置集合\relax }}{18}{algorithm.1}
-\contentsline {algorithm}{\numberline {2}{\ignorespaces $SMIN(u',v')\rightarrow [min(u,v)],E_{pk}(s_{min(u,v)})$ (Part 1)\relax }}{39}{algorithm.2}
-\contentsline {algorithm}{\numberline {3}{\ignorespaces $SMIN_n(([d_1],E_{pk}(s_{d_1})),...,([d_n],E_{pk}(s_{d_n})))\rightarrow ([d_min],E_{pk}(s_{d_{min}}))$\relax }}{44}{algorithm.3}
-\contentsline {algorithm}{\numberline {4}{\ignorespaces $SF(\Lambda ,\Lambda ') \rightarrow \delimiter "426830A E_{pk}(c_1),...,E_{pk}(f(c_w))\delimiter "526930B $\relax }}{45}{algorithm.4}
-\contentsline {algorithm}{\numberline {5}{\ignorespaces $PPKNNONED(D',q) \rightarrow c_q$\relax }}{50}{algorithm.5}
-\contentsline {algorithm}{\numberline {6}{\ignorespaces $SCMC_k(E_{pk}(c'_1),...,E_{pk}(c'_k))\rightarrow c_q$\relax }}{53}{algorithm.6}
+\contentsline {algorithm}{\numberline {1}{\ignorespaces $SMIN(u',v')\rightarrow [min(u,v)],E_{pk}(s_{min(u,v)})$ (Part 1)\relax }}{23}{algorithm.1}
+\contentsline {algorithm}{\numberline {2}{\ignorespaces $SMIN_n(([d_1],E_{pk}(s_{d_1})),...,([d_n],E_{pk}(s_{d_n})))\rightarrow ([d_min],E_{pk}(s_{d_{min}}))$\relax }}{28}{algorithm.2}
+\contentsline {algorithm}{\numberline {3}{\ignorespaces $SF(\Lambda ,\Lambda ') \rightarrow \delimiter "426830A E_{pk}(c_1),...,E_{pk}(f(c_w))\delimiter "526930B $\relax }}{29}{algorithm.3}
+\contentsline {algorithm}{\numberline {4}{\ignorespaces $PPKNNONED(D',q) \rightarrow c_q$\relax }}{34}{algorithm.4}
+\contentsline {algorithm}{\numberline {5}{\ignorespaces $SCMC_k(E_{pk}(c'_1),...,E_{pk}(c'_k))\rightarrow c_q$\relax }}{37}{algorithm.5}
