@@ -69,7 +69,7 @@ BCH码是由三位学者 (R. C. Bose, D. K. Ray-Chaudhuri, A. Hocquenghem)分别
     \vdots & \vdots & \vdots & \vdots & \vdots \\
     1 & \alpha^{\delta - 1} & (\alpha^{\delta - 1})^2 & ··· & (\alpha^{\delta - 1})^{n-1}\\
 	\end{array}
-	\right)                 %右括号
+	\right).                 %右括号
 	\end{equation}
 	\begin{flushleft}
         我们称$B_q(n, \delta, \alpha)$是码长为$n$并且设计距离为$\delta$的$q$元BCH码。我们对BCH码做一点推广，假设$b \geq 0$是一个非负整数，将矩阵$H$第一行中$\alpha$替换成$\alpha ^ b$，其它按照规律生成，则称$B_q(n, \delta, \alpha, b)$为广义BCH码。
@@ -89,7 +89,7 @@ Goppa码是McEliece方案的首选线性码，而且到目前为止，没有有�
 	假设$\mathbf{g}(z)$是在有限域$\mathbb{F}_{q^m}$上的一个首一多项式，$\mathcal{L}=\{\gamma_0,\gamma_2,...,\gamma_{n-1}\}$是$\mathbb{F}_{q^m}$上含有$n$个元素的集合，当$0 \leq i <n$时，满足$\mathbf{g}(\gamma_i)\neq0$，经典的Goppa码$\Gamma(\mathcal{L},\mathbf{g})$指的是线性空间$\mathbb{F}_q^n$中的所有$(c_0,c_1,...,c_{n-1})$满足：
 	
     \begin{equation}
-        \sum_{i=0}^{n-1} (z - \gamma_i)^{-1}c_i = 0
+        \sum_{i=0}^{n-1} (z - \gamma_i)^{-1}c_i = 0.
     \end{equation}
 	
 	\begin{flushleft}
