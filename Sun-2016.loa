@@ -2,8 +2,9 @@
 \contentsline {algorithm}{\numberline {2}McEliece加密算法}{11}{algorithm.2}
 \contentsline {algorithm}{\numberline {3}McEliece解密算法}{11}{algorithm.3}
 \contentsline {algorithm}{\numberline {4}Niederreiter公钥密码体制}{12}{algorithm.4}
-\contentsline {algorithm}{\numberline {5}{\ignorespaces $SMIN(u',v')\rightarrow [min(u,v)],E_{pk}(s_{min(u,v)})$ (Part 1)\relax }}{19}{algorithm.5}
-\contentsline {algorithm}{\numberline {6}{\ignorespaces $SMIN_n(([d_1],E_{pk}(s_{d_1})),...,([d_n],E_{pk}(s_{d_n})))\rightarrow ([d_min],E_{pk}(s_{d_{min}}))$\relax }}{24}{algorithm.6}
-\contentsline {algorithm}{\numberline {7}{\ignorespaces $SF(\Lambda ,\Lambda ') \rightarrow \delimiter "426830A E_{pk}(c_1),...,E_{pk}(f(c_w))\delimiter "526930B $\relax }}{25}{algorithm.7}
-\contentsline {algorithm}{\numberline {8}{\ignorespaces $PPKNNONED(D',q) \rightarrow c_q$\relax }}{30}{algorithm.8}
-\contentsline {algorithm}{\numberline {9}{\ignorespaces $SCMC_k(E_{pk}(c'_1),...,E_{pk}(c'_k))\rightarrow c_q$\relax }}{33}{algorithm.9}
+\contentsline {algorithm}{\numberline {5}BBCRS公钥密码体制}{14}{algorithm.5}
+\contentsline {algorithm}{\numberline {6}{\ignorespaces $SMIN(u',v')\rightarrow [min(u,v)],E_{pk}(s_{min(u,v)})$ (Part 1)\relax }}{20}{algorithm.6}
+\contentsline {algorithm}{\numberline {7}{\ignorespaces $SMIN_n(([d_1],E_{pk}(s_{d_1})),...,([d_n],E_{pk}(s_{d_n})))\rightarrow ([d_min],E_{pk}(s_{d_{min}}))$\relax }}{25}{algorithm.7}
+\contentsline {algorithm}{\numberline {8}{\ignorespaces $SF(\Lambda ,\Lambda ') \rightarrow \delimiter "426830A E_{pk}(c_1),...,E_{pk}(f(c_w))\delimiter "526930B $\relax }}{26}{algorithm.8}
+\contentsline {algorithm}{\numberline {9}{\ignorespaces $PPKNNONED(D',q) \rightarrow c_q$\relax }}{31}{algorithm.9}
+\contentsline {algorithm}{\numberline {10}{\ignorespaces $SCMC_k(E_{pk}(c'_1),...,E_{pk}(c'_k))\rightarrow c_q$\relax }}{34}{algorithm.10}
