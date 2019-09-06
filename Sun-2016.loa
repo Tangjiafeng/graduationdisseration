@@ -4,5 +4,5 @@
 \contentsline {algorithm}{\numberline {4}Niederreiter方案}{12}{algorithm.4}
 \contentsline {algorithm}{\numberline {5}BBCRS公钥密码体制McEliece版本}{14}{algorithm.5}
 \contentsline {algorithm}{\numberline {6}BBCRS公钥密码体制Niederreiter版本}{15}{algorithm.6}
-\contentsline {algorithm}{\numberline {7}{\ignorespaces $PPKNNONED(D',q) \rightarrow c_q$\relax }}{21}{algorithm.7}
-\contentsline {algorithm}{\numberline {8}{\ignorespaces $SCMC_k(E_{pk}(c'_1),...,E_{pk}(c'_k))\rightarrow c_q$\relax }}{24}{algorithm.8}
+\contentsline {algorithm}{\numberline {7}{\ignorespaces $PPKNNONED(D',q) \rightarrow c_q$\relax }}{22}{algorithm.7}
+\contentsline {algorithm}{\numberline {8}{\ignorespaces $SCMC_k(E_{pk}(c'_1),...,E_{pk}(c'_k))\rightarrow c_q$\relax }}{25}{algorithm.8}
