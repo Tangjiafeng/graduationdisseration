@@ -10,7 +10,7 @@
 	\renewcommand{\algorithmicensure}{\textbf{Output:}}
 	\caption{McEliece密钥生成算法}
 	\label{alg:McElieceKeyGen}
-	\begin{algorithmic}[1]		
+	\begin{algorithmic}[1]
 		\Require
 		系统安全参数：$n,t \in N$，其中$t \ll n$。
 		\Ensure
@@ -39,7 +39,7 @@ McEliece在公钥尺寸的表现不够好，但是加密过程十分简单，位
 	\renewcommand{\algorithmicensure}{\textbf{Output:}}
 	\caption{McEliece加密算法}
 	\label{alg:McElieceEn}
-	\begin{algorithmic}[1]		
+	\begin{algorithmic}[1]
 		\Require
 		公钥$(G^{pub},t)$，长度为$k$的明文$\mathbf{m}$。
 		\Ensure
@@ -61,7 +61,7 @@ McEliece在公钥尺寸的表现不够好，但是加密过程十分简单，位
 	\renewcommand{\algorithmicensure}{\textbf{Output:}}
 	\caption{McEliece解密算法}
 	\label{alg:McElieceDe}
-	\begin{algorithmic}[1]		
+	\begin{algorithmic}[1]
 		\Require
 		密文$\mathbf{c}$，私钥$(S,D_\mathcal{C},P)$。
 		\Ensure
@@ -70,7 +70,7 @@ McEliece在公钥尺寸的表现不够好，但是加密过程十分简单，位
 		解密密文$\mathbf{c}$之前，首先计算:
 		\begin{center}
 			$\mathbf{c}P^{-1} = \mathbf{m}SG \oplus\textbf{e}P^{-1}.$
-		\end{center}		
+		\end{center}
 
 		\State
 		然后对其进行译码，因为上一步的计算结果可以看成为是码的一个含有$t$个错误的码字，所以经过译码可以得到：
@@ -89,15 +89,15 @@ McEliece在公钥尺寸的表现不够好，但是加密过程十分简单，位
 McEliece方案在安全性上的表现是有优势的，可以达到INA-CCA安全。在已知的密码分析方法中，比如区分攻击、信息集攻击等，针对McEliece的攻击的工作因子大多在$2^{70}$以上。
 
 \section{Niederreiter方案}
-1986年，Niderreiter对McEliece公钥密码方案做出改进，提出了一种Niederreiter公钥密码体制。该密码体制基于的困难问题也是随机线性码的译码困难问题，只是利用的角度有所不同。Niderreiter密码体制隐藏了Goppa码的校验矩阵，于是在公钥尺寸上有所减少，但是还是没有达到实用的要求。
+1986年，Niderreiter对McEliece公钥密码方案做出改进，提出了一种Niederreiter公钥密码方案。该密码方案基于的困难问题也是随机线性码的译码困难问题，只是利用的角度有所不同。Niderreiter密码方案隐藏了Goppa码的校验矩阵，于是在公钥尺寸上有所减少，但是还是没有达到实用的要求。
 
 \begin{breakablealgorithm}
 	\small
 	\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 	\renewcommand{\algorithmicensure}{\textbf{Output:}}
-	\caption{Niederreiter公钥密码体制}
+	\caption{Niederreiter方案}
 	\label{alg:Niederreiter}
-	\begin{algorithmic}	
+	\begin{algorithmic}
 		\State
 		系统安全参数：$n,t \in N$，其中$t \ll n$。
 		\State
@@ -132,7 +132,7 @@ McEliece方案在安全性上的表现是有优势的，可以达到INA-CCA安�
 	\end{algorithmic}
 \end{breakablealgorithm}
 
-Niederreiter密码体制公钥尺寸更小，而安全性上被认为与McEliece密钥方案一致。但是在将明文映射称错误向量的操作上，会影响加解密的效率。Niederreiter密码体制为了抵抗经典的信息集译码攻击，往往将参数设置的很大，故还不太适合实际应用。
+Niederreiter密码方案公钥尺寸更小，而安全性上被认为与McEliece密钥方案一致。但是在将明文映射称错误向量的操作上，会影响加解密的效率。Niederreiter密码方案为了抵抗经典的信息集译码攻击，往往将参数设置的很大，故还不太适合实际应用。
 
 后续也有大量研究Niederreiter的变形方案，其中Maurich等人提出的混合加密可以达到IND-CCA安全，而且选择QC-LDPC码可以在存储公钥的时候大大减少公钥的尺寸。
 \section{BBCRS方案}
@@ -160,7 +160,7 @@ BBCRS的密钥生成与原始的McEliece有很大的区别，且组成过程些�
 	\small
 	\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 	\renewcommand{\algorithmicensure}{\textbf{Output:}}
-	\caption{BBCRS公钥密码体制}
+	\caption{BBCRS公钥密码体制McEliece版本}
 	\label{alg:BBCRS}
 	\begin{algorithmic}	
 		\State
@@ -198,10 +198,57 @@ BBCRS的密钥生成与原始的McEliece有很大的区别，且组成过程些�
 		\begin{center}
 			\ding{172}$~\mathbf{a}_2 = \mathbf{0},~\mathbf{e}R = 0,$
 			
-			\ding{173}$~\mathbf{b}_2=\mathbf{1} + \mathbf{b}_1,~\mathbf{e}R = \mathbf{e} \cdot \mathbf{a}^\mathtt{T}.$
+			\ding{173}$~\mathbf{b}_2=\mathbf{1} + \mathbf{b}_1,~\mathbf{e}R = \mathbf{e} \cdot \mathbf{a}^\mathtt{T} \cdot \mathbf{1}.$
 		\end{center}
-		当$\mathbf{e}R = 0$时，$\mathbf{e}Q = \mathbf{e}T$，由矩阵$T$的平均行重或列重以及差错向量$\mathbf{e}$的重量范围可知，$\mathbf{e}T$可以被正确译码。而针对$\mathbf{e}R \neq 0$的情况，BBCRS决定在可能值的范围里遍历，直到找到一个值$\lambda = \mathbf{e}R$
+		当$\mathbf{e}R = 0$时，$\mathbf{e}Q = \mathbf{e}T$，由矩阵$T$的平均行重或列重以及差错向量$\mathbf{e}$的重量范围可知，$\mathbf{e}T$可以被正确译码。而针对$\mathbf{e}R \neq 0$的情况，BBCRS决定在可能值的范围里穷举搜索，直到找到一个值$\lambda = \mathbf{e}R$，令$\mathbf{e}(R + T) - \lambda$，从而可以正确译码，并计算出$\mathbf{m}S^{-1} = D_\mathcal{C}(\mathbf{c}Q)$，最后有私钥矩阵$S$右乘，还原明文$\mathbf{m}$。
 	\end{algorithmic}
 \end{breakablealgorithm}
 
+观察BBCRS公钥密码体制的公钥构造可知，矩阵$Q$对私钥进行隐藏和混淆，使得公钥与私钥之间不存在原始McEliece方案中的置换关系，从而防止了利用公私钥之间置换关系进行的区分攻击。BBCRS公钥密码体制在安全性和加解密效率的表现与矩阵$Q$的选择，矩阵$T$的选择息息相关。具体来说就是，如何保证矩阵$Q$对差错向量$\mathbf{e}$的计算作用不会扩散错误的个数，从而导致解码失败。这就涉及矩阵$R$的构造矩阵集合$\mathcal{A}$和$\mathcal{B}$中元素的关系设定，可以使得$\mathbf{e}R = 0$或者在解码过程可以消除$\mathbf{e}R$的影响。这其中还牵涉到对差错向量的一些限制，一方面是其最大重量减小，一方面要满足式 3.1。式 3.1在BBCRS的文章中做了分析，这是存在子码攻击的威胁的，通过计算可知公钥的一部分子码在式 3.1的作用下，矩阵$R$的混淆作用完全消失，也就是说式 3.1可以让公钥的子码与私钥的子码回归到置换相等的关系，这就是方案的私钥秘密优势荡然无存。BBCRS也给出了解决的办法，但是期间涉及一些穷举和猜测，虽然可以避免公私钥子码之间置换的关系，但是加解密的效率和信息利用率不会很高。
 
+矩阵$T$是另一个影响解码成功率的因素，矩阵$T$可以是一个广义的置换矩阵，与此同时为了加密过程中错误向量的错误位数不超过允许的范围内，对随机选取的差错向量的错误个数做了降低。但是当$m$不是整数时，矩阵$T$的平均行重和列重就无法保证$\mathbf{e}T$的错误个数不会超过解码能力。当差错向量的非零位在计算$\mathbf{e}T$过程中集中作用在行重大于$1$的行，计算结果非零位的总和就可能超过码的纠错能力$t$。于是，矩阵$T$的选择下，存在着解码失败的概率。
+
+BBCRS也提出了Niederreiter版本的公钥密码体制。具体流程如下：
+
+\begin{breakablealgorithm}
+	\small
+	\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+	\renewcommand{\algorithmicensure}{\textbf{Output:}}
+	\caption{BBCRS公钥密码体制Niederreiter版本}
+	\label{alg:BBCRS}
+	\begin{algorithmic}	
+		\State
+		系统安全参数：$n \in N, t \in N, m, z \in N, w \in N$，其中$t,m \ll n$。
+		\State
+		\textbf{密钥生成阶段：}
+		
+		\begin{itemize}
+			\item 矩阵 $H$：在有限域$\mathbb{F}$上的信息位数为$k$，最小距离为$d \geq 2t + 1$的Goppa码$\mathcal{C}$的$(n-k) \times n$阶校验矩阵。
+			\item 矩阵 $S$：随机选取的$k \times k$可逆矩阵。
+			\item 矩阵 $Q$：如上文所述，由$R + T$计算得出。
+		\end{itemize}
+		
+		然后计算方案的公钥：$H^{pub} = S^{-1}GQ^\mathtt{T}$，于是公钥为$(H^{pub}, t, m)$，私钥为$(S,D_\mathcal{C},R,T)$，$D_\mathcal{C}$是码的译码算法。
+		
+		\State
+		\textbf{加密阶段：}
+		
+		首先将明文字符串映射成一个错误向量$\mathbf{e}$，满足$wt(\mathbf{e}) \leq \lfloor \frac{t}{m} \rfloor$和式 3.1，加密过程即计算一个伴随式，如下：
+		
+		\begin{center}
+			$\mathbf{c} = H^{pub}\mathbf{e}^\mathtt{T}.$
+		\end{center}
+		
+		加密者向解密者发送密文$\mathbf{c}$。
+		\State
+		\textbf{解密阶段：}
+		
+		为了解密密文，首先利用私钥矩阵$S$计算：
+		\begin{center}
+			$\mathbf{c}' = S \cdot \mathbf{c} = H \cdot Q^\mathtt{T} \cdot \mathbf{e}^\mathtt{T} = H \cdot (\mathbf{e} \cdot Q)^\mathtt{T}.$
+		\end{center}
+		
+		前文提到的矩阵$Q$的特殊参数设定，可以让$\mathbf{e} \cdot Q$简化到$\mathbf{e} \cdot T$。此时解密者获得$H \cdot T^\mathtt{T} \cdot \mathbf{e}^\mathtt{T}$，因为 $T^\mathtt{T} \cdot \mathbf{e}^\mathtt{T}$的重量小于等于码$\mathcal{C}$的纠错能力$t$，接着进行伴随式解码，并利用私钥矩阵$T$还原由明文映射成的错误向量$\mathbf{e}$，再次反映射，得到明文$m$。
+	\end{algorithmic}
+\end{breakablealgorithm}
+该版本的BBCRS密码体制，安全性与McEliece版本等同，在公钥尺寸上可以是公钥矩阵转换成系统形式，从而在真正存储公钥的时候，只存储其中的一部分。具体可以参考BBCRS的描述。
