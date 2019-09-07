@@ -13,10 +13,97 @@ BBCRS公钥密码体制替换原始McEliece加密方案的置换矩阵，不仅�
 \section{改进方向}
 考虑到设计的可行性，本文主要对McEliece版本的BBCRS公钥密码体制进行公钥构造形式上的改进，参考以往McEliece方案的变体，随机非奇异矩阵$S$的作用基本不变，混淆生成矩阵为随机的矩阵，所以在新方案中，我们也保留这一左乘的形式。公钥的构造关键，就是原始McEliece方案的置换矩阵$P$这一部分，明文编码成含有错误码字，在进一步混淆私钥结构的过程中，就要考虑码字错误位数的扩散问题，置换矩阵因为每行每列都只有一个非零位，所以在计算$\mathbf{e}P^{-1}$的时候不会出现错误位数大于$\mathbf{e}$的汉明重量，即仍然可以正确的进行译码。回顾BBCRS公钥密码体制在这部分的考虑，其一是对差错向量有一定的约束，其二是对矩阵$T$在平均行重和列重做了规定，而且分析了解码失败的概率。于是在新公钥构造方式中，如何使约束成本最小化，混淆作用最大化就成了关键。
 
-在BBCRS公钥密码体制的改进方向上，基本上确定矩阵$Q$是安全性和效率的关键部分，如何设计一个陷门，能把在加密过程中加入的混淆作用，在解密的时候消除掉是重中之重。首先我们想到可逆矩阵，可逆矩阵无疑是隐藏私钥矩阵的利器，但是我们不能忽略一个可逆矩阵与差错向量的计算结果，很明显，差错向量对汉明重量的要求，即码的纠错能力将毫无意义，因为可逆矩阵的扩散作用非常难以控制。
+在BBCRS公钥密码体制的改进方向上，基本上确定矩阵$Q$是安全性和效率的关键部分，如何设计一个陷门，能把在加密过程中加入的混淆作用，在解密的时候消除掉是重中之重。首先我们想到可逆矩阵，可逆矩阵无疑是隐藏私钥矩阵的利器，但是我们不能忽略一个可逆矩阵与差错向量的计算结果，也就是说，如果采用可逆矩阵差错向量对汉明重量的要求，即码的纠错能力将毫无意义，因为可逆矩阵的扩散作用非常难以控制。
+
+接下来，虽然可逆矩阵无法直接应用到公钥构造设计中，但是我们可以间接的加入可逆矩阵，也就是可逆矩阵作为参与者，承担一部分的作用。于是，关于替换置换矩阵的部分，就要像BBCRS那样，分为若干个部分。BBCRS中公钥密码体制中，采用的是一个秩固定的密集型矩阵和一个稀疏的广义置换矩阵，通过矩阵相加计算矩阵$Q$，在新公钥构造设计中，设想使一个特殊矩阵和可逆矩阵相加，来替换原始McEliece加密方案的置换矩阵。经过反复的推导，发现特殊矩阵与可逆矩阵相加这种方式，在解码的时候，无论特殊矩阵怎么努力，都无法吸收可逆矩阵在差错向量$\mathbf{e}$的扩散作用。但是，在反复推导中，我们逐渐认识到可逆矩阵不仅可以隐藏私钥结构，也可以隐藏差错向量，或者说任意与之做乘法的向量或矩阵。那么我们是不是可以包装一下可逆矩阵，让其暴露出来一个乘法结果，该乘法结果与差错向量$\mathbf{e}$满足一定的等式关系，从而在解密的时候可以利用这个等式关系，来达到控制差错向量错误位数的目的。
+
+在改进方向上，我们反复斟酌，最终觉得这是可行的实现方法，下一节重点讨论方案的实现。
 
 \section{方案设计}
+在我们讨论的过程中，可逆矩阵基本确定要作为公钥构造设计的一部分，而另外一个特殊矩阵还需详细的分析。在公钥矩阵存储上，低秩矩阵的参与往往可以节约存储空间，但是在安全性上也有所下降，平衡好方案中各因素也是方案可行的关键。首先，密钥生成算法的流程如下：
 
+\begin{breakablealgorithm}
+	\small
+	\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+	\renewcommand{\algorithmicensure}{\textbf{Output:}}
+	\caption{基于BBCRS的改进方案密钥生成算法}
+	\label{alg:NewKeyGen}
+	\begin{algorithmic}[1]
+		\Require
+		系统安全参数：$n,t \in N$，其中$t \ll n$。
+		\Ensure
+		公钥$(G^{pub},U^{-1}V)$，私钥$(S,D_\mathcal{C},U,V)$。
+		\State
+		密钥生成：对于给定的参数$n$和$t$，产生下列矩阵。
+		\begin{itemize}
+			\item 矩阵$G$：在有限域$\mathbb{F}$上的信息位数为$k$，最小距离为$d \geq 2t + 1$的Goppa码$\mathcal{C}$的$k \times n$阶生成矩阵。
+			\item 矩阵$S$：$k \times k$阶的二元随机非奇异矩阵。
+			\item 矩阵$U$：$n \times n$阶的二元随机可逆矩阵。
+			\item 矩阵$V$：$n \times n$阶的二元随机低秩矩阵，秩为$r$。
+		\end{itemize}
+		\State
+		然后计算方案的公钥$G^{pub} = S^{-1}G(U + V)^{-1}U$；接着计算另一公钥矩阵$U^{-1}V$。
+		\begin{itemize}
+			\item 公钥：$(G^{pub},U^{-1}V,t)$。
+			\item 私钥：$(S,D_\mathcal{C},U,V)$，有效译码算法$D_\mathcal{C}$就是所用纠错码方案的陷门。
+		\end{itemize}
+	\end{algorithmic}
+\end{breakablealgorithm}
+
+观察公钥的设计可知，可逆矩阵$U$，与低秩矩阵$V$相加，使得满足可逆，外侧再右乘可逆矩阵$U$，结果必然是一个可逆矩阵。于是我们就达到了以可逆矩阵替换原始McEliece加密方案的置换矩阵，相比较于BBCRS公钥密码体制的$R+T$，一个可逆矩阵显然比其混淆性强，与此同时想要进行密钥恢复攻击几乎是不可能的。在接下来的加解密算法中，我们同BBCRS一样，需要对差错向量做一些预备。
+
+\begin{breakablealgorithm}
+	\small
+	\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+	\renewcommand{\algorithmicensure}{\textbf{Output:}}
+	\caption{基于BBCRS的改进方案加密算法}
+	\label{alg:NeweEn}
+	\begin{algorithmic}[1]
+		\Require
+		公钥$(G^{pub},t)$，长度为$k$的明文$\mathbf{m}$。
+		\Ensure
+		密文$\mathbf{c}$。
+		\State
+		随机选择一个汉明重量为$t$的随机向量$\mathbf{e} \in \mathbb{F}^n$.
+		\State
+		加密，产生密文：
+		
+		\centering $\mathbf{c} = \mathbf{m}G^{pub} + \mathbf{e}.$
+	\end{algorithmic}
+\end{breakablealgorithm}
+
+解密过程要利用到编码的纠检错机制，消除加入的差错向量的影响，进而进行解密操作。
+
+\begin{breakablealgorithm}
+	\small
+	\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+	\renewcommand{\algorithmicensure}{\textbf{Output:}}
+	\caption{基于BBCRS的改进方案解密算法}
+	\label{alg:NewDe}
+	\begin{algorithmic}[1]
+		\Require
+		密文$\mathbf{c}$，私钥$(S,D_\mathcal{C},P)$。
+		\Ensure
+		明文$\mathbf{m}$。
+		\State
+		解密密文$\mathbf{c}$之前，首先计算:
+		\begin{center}
+			$\mathbf{c}P^{-1} = \mathbf{m}SG \oplus\textbf{e}P^{-1}.$
+		\end{center}
+		
+		\State
+		然后对其进行译码，因为上一步的计算结果可以看成为是码的一个含有$t$个错误的码字，所以经过译码可以得到：
+		\begin{center}
+			$\mathbf{m}SG = D_\mathcal{C}(\mathbf{c}P^{-1}).$
+		\end{center}
+		
+		\State
+		最后，令集合$J \subseteq \{0,1,2,...,n\}$，需要通过矩阵变换使$G_j^{pub}$可逆，则进行如下计算可以得到明文。
+		\begin{center}
+			$\mathbf{m} = (\mathbf{m}SG)_j(G_j)^{-1}S^{-1}.$
+		\end{center}		
+	\end{algorithmic}
+\end{breakablealgorithm}
 
 \section{安全性分析}
 

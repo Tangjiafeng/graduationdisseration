@@ -16,17 +16,17 @@
 \contentsline {chapter}{\numberline {第四章\hspace {0.3em}}基于BBCRS公钥密码体制的改进}{17}{chapter.4}
 \contentsline {section}{\numberline {4.1}研究动机}{18}{section.4.1}
 \contentsline {section}{\numberline {4.2}改进方向}{19}{section.4.2}
-\contentsline {section}{\numberline {4.3}方案设计}{19}{section.4.3}
-\contentsline {section}{\numberline {4.4}安全性分析}{19}{section.4.4}
-\contentsline {section}{\numberline {4.5}效率分析}{19}{section.4.5}
-\contentsline {section}{\numberline {4.6}本章小结}{19}{section.4.6}
-\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}PPkNNONED方案}{20}{chapter.5}
-\contentsline {section}{\numberline {5.1}K近邻安全检索}{23}{section.5.1}
-\contentsline {section}{\numberline {5.2}多数类的安全计算}{25}{section.5.2}
-\contentsline {section}{\numberline {5.3}复杂性分析}{26}{section.5.3}
-\contentsline {section}{\numberline {5.4}本章小结}{26}{section.5.4}
-\contentsline {chapter}{\numberline {第六章\hspace {0.3em}}总结与展望}{27}{chapter.6}
-\contentsline {chapter}{参考文献}{28}{chapter.6}
-\contentsline {chapter}{致谢}{35}{section*.8}
-\contentsline {chapter}{发表论文和科研情况}{37}{section*.10}
+\contentsline {section}{\numberline {4.3}方案设计}{20}{section.4.3}
+\contentsline {section}{\numberline {4.4}安全性分析}{21}{section.4.4}
+\contentsline {section}{\numberline {4.5}效率分析}{21}{section.4.5}
+\contentsline {section}{\numberline {4.6}本章小结}{21}{section.4.6}
+\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}PPkNNONED方案}{22}{chapter.5}
+\contentsline {section}{\numberline {5.1}K近邻安全检索}{25}{section.5.1}
+\contentsline {section}{\numberline {5.2}多数类的安全计算}{27}{section.5.2}
+\contentsline {section}{\numberline {5.3}复杂性分析}{28}{section.5.3}
+\contentsline {section}{\numberline {5.4}本章小结}{28}{section.5.4}
+\contentsline {chapter}{\numberline {第六章\hspace {0.3em}}总结与展望}{29}{chapter.6}
+\contentsline {chapter}{参考文献}{30}{chapter.6}
+\contentsline {chapter}{致谢}{37}{section*.8}
+\contentsline {chapter}{发表论文和科研情况}{39}{section*.10}
 \contentsfinish 
