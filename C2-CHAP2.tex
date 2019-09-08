@@ -118,4 +118,19 @@ Goppa码是McEliece方案的首选线性码，而且到目前为止，没有有�
 \subsection{不可区分性的自适应性选择密文攻击}
 假设现在有两个明文$\mathbf{m_0},\mathbf{m_1}$，分别对应密文$\mathbf{c_0},\mathbf{c_1}$，敌手在自适应性选择密文攻击的条件下，对密码系统进行攻击，但是不能直接解密$\mathbf{c_0},\mathbf{c_1}$，最后如果能区分出两个明文与两个密文的对应关系，则攻击成功。如果系统能抵御这种攻击，就说是在自适应选择密文攻击下具有不可区分加密。
 
+\section{困难问题假设}
+
+\begin{define}[随机线性码的译码困难问题]
+	在有限域$\mathbb{F}_q$上，我们假设有攻击算法$\mathcal{A}$，输入有一个整数$t$，矩阵$H \in \mathbb{F}_q^{r \times n}$，及向量$\mathbf{e} \in \mathbb{F}_q^n$，在多项式时间内输出向量$\mathbf{s}$使得$H\mathbf{s}^\mathtt{T} = \mathbf{e}^\mathtt{T}$。
+	如果任意的多项式攻击算法$\mathcal{A}$攻击成功的概率为：
+	\begin{equation}
+		Pr[success]_\mathcal{A} = negl(\lambda).
+	\end{equation}
+	其中$\lambda$为系统安全参数，我们称随机线性码的译码是困难的。
+\end{define}
+
+\begin{define}[Goppa码的不可区分性问题]
+	该困难问题由Courtois等人在2001年提出，称Goppa的不可区分性问题成立当且仅当，一个攻击算法$\mathcal{A}$输入为包含所有Goppa的校验矩阵和随机线性码的校验矩阵集合中的一个矩阵元素$H$，在多项式时间内猜测出校验矩阵$H$属于Goppa码还是随机线性码的正确的概率在安全参数$\lambda$下是可忽略的。
+\end{define}
 \section{本章小结}
+本章介绍了基于编码的公钥密码体制涉及的一些基础理论知识，可以看出基于编码的加密方案与有限域的性质，码的性质息息相关，困难问题假设与常见的攻击模型也是我们研究方案的出发点和安全性衡量目标。
