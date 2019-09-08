@@ -185,5 +185,48 @@ BBCRS公钥密码体制替换原始McEliece加密方案的置换矩阵，不仅�
 
 关于解密过程，我们首先计算$\mathbf{c}U^{-1}$，然后我们进行矩阵乘法$\mathbf{c}U^{-1}(U + V)$。根据经典的安全参数，与McEliece公钥加密方案的变体相比，本方案需要额外$n$长度向量和$n \times n$矩阵之间的基本乘法。我们需要再次考虑适当的$n$值以加速我们的密码系统。接下来，解码工作将按顺序执行。让我们在这里回顾BBCRS公钥密码体制的解决方案，它是在矩阵乘法$\mathbf{c}Q$之后猜测满足$\mathbf{e}R = \lambda$的正确值$\lambda$。随着$z$值的变化，例如$z = 1$增加到$z = n$的过程中，猜测的操作次数将呈指数级增加。假设$q$为有限域$\mathbb{F}_q$中的元素数，每次选择一个可能值$\lambda$时，解密过程都将进行迭代计算，判断能否解码结果，直到解码操作成功为止。显然，迭代计算阶段涉及解码算法和其他操作，这极大地影响了密码体制的速度，接下来我们会统计实验数据来说明方案之间在各方面的差异。
 
+\section{实验结论}
+一方面，参数$n$从不同方面影响着我们提出的新方案，例如公钥的大小，解密的效率等。为了系统可用性，我们做了一些推导实验，以确保从整个公钥密码系统的表现选择合适的参数$n$。 另一方面，参数$r$，即矩阵$V$的秩依然是必不可少的影响成分。上文提到，差错向量的选取空间和随机化效果取决于$r$的值。本推导实验假设采用Goppa码作为私钥，参数的设置如：$q = 2, \mathbb{F}_{2^{10}}, N_c$，$N_c$表示Goppa解码的操作复杂次数，我们可以采用如下的计算方式：
+
+\begin{equation}
+	N_c=n+4(\log_2^2n)t^2+2(\log_2^2n)t+(\log_2^2n)(2t+1)+\frac{(n-k)^2}{2}.
+\end{equation}
+
+我们可以在 和 看到详细的对比。
+
+\begin{table}[h]
+	\begin{center}
+		\caption{BBCRS scheme ($m=1.5,z=1$)}\label{bbcrsScheme}
+		\begin{tabular}{ccccc}
+			\hline
+			$t$ & $n$& $k$ & public key size& decryption operations\\
+			\hline
+			13& 390& 195& 76050& 1.5$N_c$\\
+			19& 570& 285& 162450& 1.5$N_c$\\
+			27& 910& 405& 368550& 1.5$N_c$\\
+			34& 1020& 510& 520200& 1.5$N_c$\\
+			\hline
+		\end{tabular}
+		\label{tab1}
+	\end{center}
+\end{table}
+
+\begin{table}[h]
+	\begin{center}
+		\caption{our scheme}\label{ourScheme}
+		\begin{tabular}{ccccc}
+			\hline
+			$t$ & $n$& $k$ & public key size& decryption operations\\
+			\hline
+			13& 260& 130& 84500& $N_c$\\
+			19& 380& 190& 180500& $N_c$\\
+			27& 540& 270& 364500& $N_c$\\
+			34& 680& 340& 578000& $N_c$\\
+			\hline
+		\end{tabular}
+		\label{tab2}
+	\end{center}
+\end{table}
+
 
 \section{本章小结}

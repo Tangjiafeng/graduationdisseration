@@ -7,5 +7,5 @@
 \contentsline {algorithm}{\numberline {7}基于BBCRS的改进方案密钥生成算法}{22}{algorithm.7}
 \contentsline {algorithm}{\numberline {8}基于BBCRS的改进方案加密算法}{23}{algorithm.8}
 \contentsline {algorithm}{\numberline {9}基于BBCRS的改进方案解密算法}{23}{algorithm.9}
-\contentsline {algorithm}{\numberline {10}{\ignorespaces $PPKNNONED(D',q) \rightarrow c_q$\relax }}{33}{algorithm.10}
-\contentsline {algorithm}{\numberline {11}{\ignorespaces $SCMC_k(E_{pk}(c'_1),...,E_{pk}(c'_k))\rightarrow c_q$\relax }}{36}{algorithm.11}
+\contentsline {algorithm}{\numberline {10}{\ignorespaces $PPKNNONED(D',q) \rightarrow c_q$\relax }}{34}{algorithm.10}
+\contentsline {algorithm}{\numberline {11}{\ignorespaces $SCMC_k(E_{pk}(c'_1),...,E_{pk}(c'_k))\rightarrow c_q$\relax }}{37}{algorithm.11}

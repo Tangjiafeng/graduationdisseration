@@ -31,14 +31,15 @@
 \contentsline {subsection}{\numberline {4.4.2}密钥恢复攻击}{27}{subsection.4.4.2}
 \contentsline {subsection}{\numberline {4.4.3}区分者攻击}{28}{subsection.4.4.3}
 \contentsline {section}{\numberline {4.5}效率分析}{29}{section.4.5}
-\contentsline {section}{\numberline {4.6}本章小结}{30}{section.4.6}
-\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}PPkNNONED方案}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}K近邻安全检索}{34}{section.5.1}
-\contentsline {section}{\numberline {5.2}多数类的安全计算}{36}{section.5.2}
-\contentsline {section}{\numberline {5.3}复杂性分析}{37}{section.5.3}
-\contentsline {section}{\numberline {5.4}本章小结}{37}{section.5.4}
-\contentsline {chapter}{\numberline {第六章\hspace {0.3em}}总结与展望}{38}{chapter.6}
-\contentsline {chapter}{参考文献}{39}{chapter.6}
-\contentsline {chapter}{致谢}{46}{section*.8}
-\contentsline {chapter}{发表论文和科研情况}{48}{section*.10}
+\contentsline {section}{\numberline {4.6}实验结论}{30}{section.4.6}
+\contentsline {section}{\numberline {4.7}本章小结}{31}{section.4.7}
+\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}PPkNNONED方案}{32}{chapter.5}
+\contentsline {section}{\numberline {5.1}K近邻安全检索}{35}{section.5.1}
+\contentsline {section}{\numberline {5.2}多数类的安全计算}{37}{section.5.2}
+\contentsline {section}{\numberline {5.3}复杂性分析}{38}{section.5.3}
+\contentsline {section}{\numberline {5.4}本章小结}{38}{section.5.4}
+\contentsline {chapter}{\numberline {第六章\hspace {0.3em}}总结与展望}{39}{chapter.6}
+\contentsline {chapter}{参考文献}{40}{chapter.6}
+\contentsline {chapter}{致谢}{47}{section*.10}
+\contentsline {chapter}{发表论文和科研情况}{49}{section*.12}
 \contentsfinish 
