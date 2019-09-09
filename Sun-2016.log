@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  8 SEP 2019 15:28
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  9 SEP 2019 22:04
 entering extended mode
 **Sun-2016.tex
 (D:\graduationdissertation\Sun-2016.tex
@@ -2156,20 +2156,20 @@ pt
 
 ])
 \tf@toc=\write6
- [5]
+ [5] [6]
 (D:\graduationdissertation\Sun-2016.lof)
 \tf@lof=\write7
- [6
+ [7
 
 ]
 (D:\graduationdissertation\Sun-2016.lot)
 \tf@lot=\write8
- [7
+ [8
 
 ]
 (D:\graduationdissertation\Sun-2016.loa)
 \tf@loa=\write9
- [8
+ [9
 
 ]
 (D:\graduationdissertation\C1-CHAP1.tex
@@ -2434,25 +2434,32 @@ LaTeX Warning: Command \nobreakspace invalid in math mode on input line 201.
 第四章
 [22
 
-] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34])
-(D:\graduationdissertation\C5-CHAP5.tex [35]
+] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33])
+(D:\graduationdissertation\C5-CHAP5.tex [34] [35]
 第五章
-) (D:\graduationdissertation\C6-CHAP6.tex [36
+[36
 
-]
+] [37] [38] [39]) (D:\graduationdissertation\C6-CHAP6.tex [40] [41]
 第六章
-) [37
+[42
 
-] (D:\graduationdissertation\Sun-2016.bbl [38
-
-
-] [39] [40] [41]
-Underfull \hbox (badness 1152) in paragraph at lines 292--297
-[]\EU1/TimesNewRoman(0)/m/sl/12 LI N, LI T, VENKATASUBRAMANIAN S. t-closeness: 
-Privacy beyond k-
+]) [43] (D:\graduationdissertation\Sun-2016.bbl
+Underfull \hbox (badness 2671) in paragraph at lines 55--58
+[]\EU1/TimesNewRoman(0)/m/sl/12 GROVER L K. Fast quantum mechanical algorithm f
+or database search[C]
  []
 
-[42] [43]) [44] (D:\graduationdissertation\D2-ACHNOWLEDGEMENT.tex
+Invalid UTF-8 byte or sequence at line 80 replaced by U+FFFD.
+Missing character: There is no � in font Times New Roman/ICU:script=latn;lang
+uage=DFLT;mapping=tex-text;!
+[44
+
+
+]
+Invalid UTF-8 byte or sequence at line 120 replaced by U+FFFD.
+Missing character: There is no � in font Times New Roman/ICU:script=latn;lang
+uage=DFLT;mapping=tex-text;!
+) [45] (D:\graduationdissertation\D2-ACHNOWLEDGEMENT.tex
 Requested font "[SIMKAI.TTF]" at 12.0pt
  -> C:/WINDOWS/Fonts/SIMKAI.TTF
 Requested font "[SIMKAI.TTF]/ICU" at 12.0pt
@@ -2473,10 +2480,10 @@ Requested font "[SIMKAI.TTF]/ICU" at 12.0pt
 .................................................
 Requested font "[SIMKAI.TTF]/ICU:mapping=tex-text;" at 12.0pt
  -> C:/WINDOWS/Fonts/SIMKAI.TTF
-) [45
+ [46
 
 
-]
+]) [47]
 (D:\graduationdissertation\D3-MYACHIEVEMENTS.tex
 Requested font "SimSun/I/ICU" at 14.05pt
  -> C:/WINDOWS/Fonts/simsun.ttc
@@ -2513,7 +2520,7 @@ Requested font "SimSun/ICU:script=latn;language=DFLT;mapping=tex-text;embolden=
 (D:\graduationdissertation\Sun-2016.ind)
 \tf@thm=\write10
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 250.
- [46
+ [48
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 250.
@@ -2530,12 +2537,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33168 strings out of 430478
- 623444 string characters out of 3191502
- 654236 words of memory out of 3000000
- 35581 multiletter control sequences out of 15000+200000
+ 33087 strings out of 430478
+ 622043 string characters out of 3191502
+ 654209 words of memory out of 3000000
+ 35500 multiletter control sequences out of 15000+200000
  46354 words of font info for 294 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,12n,92p,1353b,802s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 57i,12n,92p,1353b,801s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Sun-2016.pdf (59 pages).
+Output written on Sun-2016.pdf (62 pages).
