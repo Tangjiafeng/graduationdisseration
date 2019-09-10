@@ -1,4 +1,4 @@
-\chapter{基于编码的改进密钥生成方案}
+\chapter{基于编码的密钥生成改进方案}
 基于编码的加密方案，后续的改进工作主要集中在缩小公钥尺寸，提升解码效率两大方面。BBCRS公钥密码体制在安全性提升的同时，其Niederreiter版本保证了公钥尺寸与原始Niederreiter等同；在安全等级相同的情况下，加解密效率高于基于传统数论的RSA。为了缩小公钥尺寸，相关学者对各种能应用到McEliece加密方案的码进行了大量研究，比如低密度奇偶校验码，但是经过密码分析者的分析工作，这些码应用到McEliece加密方案中是不安全的，特别是改进的信息集解码攻击极易对这么设计产生威胁。但是BBCRS公钥密码体制的公钥设计，在一定程度上可以对码作出妥协，比如可以选择结构更紧凑的GRS码，在安全性上依然与应用Goppa的McEliece加密方案基本等同。
 
 BBCRS公钥密码体制，在公钥的设计上是敢于突破的，不管是McEliece及其变体方案，还是Niederreiter及其变体方案，在公钥的设计上总是类似的，公钥与私钥之间总是保留着置换的相等关系。BBCRS选择直接将置换矩阵替换为其它形式的矩阵，在基于编码的公钥构造上提供了一些思路。本章内容，就是根据这种思路，提供了另一种公钥构造方式，该种方式可以达到BBCRS公钥密码体制中描述的公钥与私钥之间不再是置换相等的关系，从而在安全性上表现突出，在加解密表现上避免了BBCRS公钥密码体制出现的情况，是一种可取的改进方式。
@@ -26,7 +26,7 @@ BBCRS公钥密码体制替换原始McEliece加密方案的置换矩阵，不仅�
 	\small
 	\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 	\renewcommand{\algorithmicensure}{\textbf{Output:}}
-	\caption{改进方案密钥生成算法}
+	\caption{密钥生成改进方案}
 	\label{alg:NewKeyGen}
 	\begin{algorithmic}[1]
 		\Require
@@ -56,7 +56,7 @@ BBCRS公钥密码体制替换原始McEliece加密方案的置换矩阵，不仅�
 	\small
 	\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 	\renewcommand{\algorithmicensure}{\textbf{Output:}}
-	\caption{改进方案加密算法}
+	\caption{密钥生成改进方案加密算法}
 	\label{alg:NeweEn}
 	\begin{algorithmic}[1]
 		\Require
@@ -83,7 +83,7 @@ BBCRS公钥密码体制替换原始McEliece加密方案的置换矩阵，不仅�
 	\small
 	\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 	\renewcommand{\algorithmicensure}{\textbf{Output:}}
-	\caption{改进方案解密算法}
+	\caption{密钥生成改进方案解密算法}
 	\label{alg:NewDe}
 	\begin{algorithmic}[1]
 		\Require

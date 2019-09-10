@@ -23,7 +23,7 @@
 \contentsline {section}{\numberline {3.2}Niederreiter方案}{16}{section.3.2}
 \contentsline {section}{\numberline {3.3}BBCRS方案}{17}{section.3.3}
 \contentsline {section}{\numberline {3.4}本章小结}{20}{section.3.4}
-\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}基于编码的改进密钥生成方案}{22}{chapter.4}
+\contentsline {chapter}{\numberline {第四章\hspace {0.3em}}基于编码的密钥生成改进方案}{22}{chapter.4}
 \contentsline {section}{\numberline {4.1}研究动机}{22}{section.4.1}
 \contentsline {section}{\numberline {4.2}改进方向}{24}{section.4.2}
 \contentsline {section}{\numberline {4.3}方案设计}{25}{section.4.3}
@@ -34,15 +34,15 @@
 \contentsline {section}{\numberline {4.5}效率分析}{32}{section.4.5}
 \contentsline {section}{\numberline {4.6}实验结论}{33}{section.4.6}
 \contentsline {section}{\numberline {4.7}本章小结}{34}{section.4.7}
-\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}改进密钥生成方案的扩展应用}{36}{chapter.5}
+\contentsline {chapter}{\numberline {第五章\hspace {0.3em}}密钥生成改进方案的Niederreiter版本}{36}{chapter.5}
 \contentsline {section}{\numberline {5.1}研究动机}{36}{section.5.1}
 \contentsline {section}{\numberline {5.2}研究方向}{37}{section.5.2}
 \contentsline {section}{\numberline {5.3}方案设计}{37}{section.5.3}
 \contentsline {section}{\numberline {5.4}安全性分析}{39}{section.5.4}
 \contentsline {paragraph}{信息集解码攻击}{39}{section*.11}
-\contentsline {paragraph}{解线性方程组攻击}{39}{section*.12}
+\contentsline {paragraph}{解线性方程组攻击}{40}{section*.12}
 \contentsline {section}{\numberline {5.5}效率分析}{40}{section.5.5}
-\contentsline {section}{\numberline {5.6}本章小结}{40}{section.5.6}
+\contentsline {section}{\numberline {5.6}本章小结}{41}{section.5.6}
 \contentsline {chapter}{\numberline {第六章\hspace {0.3em}}总结与展望}{42}{chapter.6}
 \contentsline {section}{\numberline {6.1}总结}{42}{section.6.1}
 \contentsline {section}{\numberline {6.2}展望}{43}{section.6.2}

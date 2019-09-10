@@ -23,7 +23,7 @@
 \BOOKMARK [1][-]{section.3.2}{Niederreiter方案}{chapter.3}% 23
 \BOOKMARK [1][-]{section.3.3}{BBCRS方案}{chapter.3}% 24
 \BOOKMARK [1][-]{section.3.4}{本章小结}{chapter.3}% 25
-\BOOKMARK [0][-]{chapter.4}{基于编码的改进密钥生成方案}{}% 26
+\BOOKMARK [0][-]{chapter.4}{基于编码的密钥生成改进方案}{}% 26
 \BOOKMARK [1][-]{section.4.1}{研究动机}{chapter.4}% 27
 \BOOKMARK [1][-]{section.4.2}{改进方向}{chapter.4}% 28
 \BOOKMARK [1][-]{section.4.3}{方案设计}{chapter.4}% 29
@@ -34,7 +34,7 @@
 \BOOKMARK [1][-]{section.4.5}{效率分析}{chapter.4}% 34
 \BOOKMARK [1][-]{section.4.6}{实验结论}{chapter.4}% 35
 \BOOKMARK [1][-]{section.4.7}{本章小结}{chapter.4}% 36
-\BOOKMARK [0][-]{chapter.5}{改进密钥生成方案的扩展应用}{}% 37
+\BOOKMARK [0][-]{chapter.5}{密钥生成改进方案的Niederreiter版本}{}% 37
 \BOOKMARK [1][-]{section.5.1}{研究动机}{chapter.5}% 38
 \BOOKMARK [1][-]{section.5.2}{研究方向}{chapter.5}% 39
 \BOOKMARK [1][-]{section.5.3}{方案设计}{chapter.5}% 40

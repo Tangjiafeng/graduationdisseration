@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  9 SEP 2019 22:04
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  10 SEP 2019 23:32
 entering extended mode
 **Sun-2016.tex
 (D:\graduationdissertation\Sun-2016.tex
@@ -2439,7 +2439,7 @@ LaTeX Warning: Command \nobreakspace invalid in math mode on input line 201.
 第五章
 [36
 
-] [37] [38] [39]) (D:\graduationdissertation\C6-CHAP6.tex [40] [41]
+] [37] [38] [39] [40]) (D:\graduationdissertation\C6-CHAP6.tex [41]
 第六章
 [42
 
@@ -2539,10 +2539,10 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  33087 strings out of 430478
  622043 string characters out of 3191502
- 654209 words of memory out of 3000000
+ 655219 words of memory out of 3000000
  35500 multiletter control sequences out of 15000+200000
  46354 words of font info for 294 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,12n,92p,1353b,801s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 57i,12n,92p,1353b,796s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on Sun-2016.pdf (62 pages).
