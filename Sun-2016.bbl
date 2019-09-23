@@ -77,7 +77,7 @@
   }\bibpages{159\thinspace{}\textnormal{--}\thinspace{}166}\@.
 
 \bibitem{Couvreur2013Distinguisher}
-\bibauthor{COUVREUR A\@, GABORIT P\@, GAUTHIER-UMA�A V, et~al}\@.
+\bibauthor{COUVREUR A\@, GABORIT P\@, GAUTHIER-UMA馻 V, et~al}\@.
   \bibtitle{Distinguisher-Based Attacks on Public-Key Cryptosystems Using
   Reed-Solomon Codes}\bibmark{[J]}\@, \bibyear{2013}\@.
 
@@ -116,9 +116,26 @@
   Parity-Check codes}\bibmark{[C]} //\thinspace{}\bibbooktitle{IEEE
   International Symposium on Information Theory}\@. \bibyear{2013}\@.
 
+\bibitem{Xing2005Goppa}
+\bibauthor{XING C}\@. \bibtitle{Goppa geometric codes achieving the
+  Gilbert-Varshamov bound}\bibmark{[J]}\@. \bibjournal{IEEE Transactions on
+  Information Theory}\@, \bibyear{2005}\@,
+  \bibvolume{51}\bibnumber{(1)}\thinspace{}\textnormal{:
+  }\bibpages{259\thinspace{}\textnormal{--}\thinspace{}264}\@.
+
+\bibitem{Garcia1992Goppa}
+\bibauthor{GARCIA A\@, LAX R~F}\@. \bibtitle{Goppa codes and Weierstrass
+  gaps}\bibmark{[C]} //\thinspace{}\bibbooktitle{Vehicular Technology
+  Conference}\@. \bibyear{1992}\@.
+
+\bibitem{冯贵良1983Goppa}
+\bibauthor{冯贵良}\@.
+  \bibtitle{Goppa码的最小距离下限和维数上限的扩张}\bibmark{[J]}\@.
+  \bibjournal{电子学报}\@, \bibyear{1983}\@.
+
 \bibitem{Von2016IND}
-\bibauthor{VON~MAURICH I\@, HEBERLE L\@, G�NEYSU T}\@. \bibtitle{IND-CCA secure
-  hybrid encryption from QC-MDPC Niederreiter.}\bibmark{[C]}
+\bibauthor{VON~MAURICH I\@, HEBERLE L\@, G黱EYSU T}\@. \bibtitle{IND-CCA
+  secure hybrid encryption from QC-MDPC Niederreiter.}\bibmark{[C]}
   //\thinspace{}\bibbooktitle{International Workshop on Post-quantum
   Cryptography}\@. \bibyear{2016}\@.
 

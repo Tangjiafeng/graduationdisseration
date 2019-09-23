@@ -26,6 +26,15 @@
 \section{编码基础知识}
 基于编码的加密方案的设计，需要考虑编码理论的相关定理，码的性质，纠错能力影响因素等，本小节做基本的概念介绍。在本文中介绍编码理论我们集中在二元域$\mathbb{F} = GF(2)$上。
 
+解密过程中，译码的表现是重中之重。编码理论实际上就是对含有噪声的信道上通信的研究，码字经过信道传输后，由于噪声的存在，会发生一定概率的错误，使得发送端和接收端的码字不相等，我们通常在二元对称信道模型上考虑译码情况。
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=12 cm]{fig/binarysymmetricchannel.pdf}
+	\caption{二元对称信道} %\vspace*{-1.0cm}
+	\label{fig:binarysymmetricchannel_pdf}
+\end{figure}
+
 \begin{define}[汉明重量与汉明距离]
 	一个码字$\textbf{x}$的汉明距离定义为码字本身含有的非零位的个数，并表示为：$wt(\textbf{x})$。汉明距离指的是两个长度相同的码字$\textbf{x}, \textbf{y}$之间，位不同的总数，一般记作：$dist(\textbf{x}, \textbf{y})$。可以看出，$dist(\textbf{x}, \textbf{y}) = wt(\textbf{x} - \textbf{y})$。
 \end{define}
@@ -83,7 +92,7 @@ BCH码是由三位学者 (R. C. Bose, D. K. Ray-Chaudhuri, A. Hocquenghem)分别
 广义的Reed-Solomon码与广义的BCH码的关系，如同RS码与BCH码的关系。
 
 \subsection{Goppa 码}
-Goppa码是McEliece方案的首选线性码，而且到目前为止，没有有效的攻击方法可以对其产生威胁。1982年有学者在【引用】证明Goppa码可以达到Gilbert-Varshamov界，良好的代数几何结构满足了快速解码的要求。1992年，在【引用】中讲到一个长度为$n$，最小距离为$d$的Goppa码，可以在$O(n^3)$的时间复杂度内对含有不超过$d/2$个错误的码字进行解码，在特殊的构造下，时间复杂度可以降到$O(n^{7/3})$。
+Goppa码是McEliece方案的首选线性码，而且到目前为止，没有有效的攻击方法可以对其产生威胁。1982年有学者在\cite{Xing2005Goppa}证明Goppa码可以达到Gilbert-Varshamov界，良好的代数几何结构满足了快速解码的要求。1992年，在\cite{Garcia1992Goppa}中讲到一个长度为$n$，最小距离为$d$的Goppa码，可以在$O(n^3)$的时间复杂度内对含有不超过$d/2$个错误的码字进行解码，在特殊的构造下，时间复杂度可以降到$O(n^{7/3})$。
 
 \begin{define}[Goppa码]
 	假设$\mathbf{g}(z)$是在有限域$\mathbb{F}_{q^m}$上的一个首一多项式，$\mathcal{L}=\{\gamma_0,\gamma_2,...,\gamma_{n-1}\}$是$\mathbb{F}_{q^m}$上含有$n$个元素的集合，当$0 \leq i <n$时，满足$\mathbf{g}(\gamma_i)\neq0$，经典的Goppa码$\Gamma(\mathcal{L},\mathbf{g})$指的是线性空间$\mathbb{F}_q^n$中的所有$(c_0,c_1,...,c_{n-1})$满足：
@@ -96,6 +105,32 @@ Goppa码是McEliece方案的首选线性码，而且到目前为止，没有有�
 		的码字集合。 其中$(z - \gamma_i)^{-1}$也可以写成$-\mathbf{g}(z)^{-1}f(z)$，而$(z-\gamma)f(z) \equiv 1(mod~\mathbf{g}(z))$，且$deg(f) < def(\mathbf{g})$。
 	\end{flushleft}
 \end{define}
+
+Goppa码在维数$k$，最小码距$d$满足一定的性质，这可以帮助我们选取合适的参数来发挥码的纠检错以及结构优势。在冯贵良等人的研究\cite{冯贵良1983Goppa}中，Goppa码的最小距离下限和维数上限可以做进一步的扩张。
+
+\begin{theorem}
+	有限域上$\mathbb{F}_{q^m}$的Goppa码$\Gamma(\mathcal{L},\mathbf{g})$，满足：
+	\begin{itemize}
+		\item 码的维数有下界，即$k \geq n - mt$.
+		\item 码的最小码距满足$d \geq t + 1$.
+	\end{itemize}
+\end{theorem}
+
+常用的Goppa码参数之间的关系如下：
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{c|c|c}
+		\hline
+		$n$ & $n - k$ & d\\ \hline
+		$63$ & $\leq 45$ & $\geq 17$\\
+		$62$ & $\leq 60$ & $\geq 21$\\
+		$509$ & $\leq 432$ & $\geq 97$\\
+		$727$ & $\leq 432$ & $\geq 109$\\
+		\hline		
+	\end{tabular}
+	\caption{Goppa参数关系表}\label{GoppaParameters}
+\end{table}
 
 \section{常见的攻击模型}
 不同的攻击模型，攻击成功的难度就有所不同，如果一个密码系统在攻击门槛较低的情况下还能保证数据的完整，可靠与机密性，就说密码系统达到了该攻击模型下的安全等级。首先，我们的安全性是建立在敌手知道我们所使用的密码体制的，其它根据敌手掌握的信息不同，大致分为如下几个攻击模型：
@@ -117,6 +152,24 @@ Goppa码是McEliece方案的首选线性码，而且到目前为止，没有有�
 
 \subsection{不可区分性的自适应性选择密文攻击}
 假设现在有两个明文$\mathbf{m_0},\mathbf{m_1}$，分别对应密文$\mathbf{c_0},\mathbf{c_1}$，敌手在自适应性选择密文攻击的条件下，对密码系统进行攻击，但是不能直接解密$\mathbf{c_0},\mathbf{c_1}$，最后如果能区分出两个明文与两个密文的对应关系，则攻击成功。如果系统能抵御这种攻击，就说是在自适应选择密文攻击下具有不可区分加密。
+
+\section{破译算法类别}
+密码算法的安全性，也就是破译密码算法的难易程度，其中有很多衡量因素，攻击成本，密码算法加密的数据的价值，时效期等。攻击成本如果大于数据加密本身的价值，一般我们认为是安全的，攻击成本可以分为如下三个方面：
+\begin{itemize}
+	\item \textbf{数据复杂性}，指在攻击过程中需要的数据量；
+	\item \textbf{处理复杂度}，完成攻击工作所需要的时间，也称为工作因子；
+	\item \textbf{存储需求}，攻击时需要的存储量。
+\end{itemize}
+
+\begin{flushleft}
+	Lars Knudsen对破译算法分为几个不同的类别，按照安全性递增的顺序为：
+\end{flushleft}
+\begin{enumerate}
+	\item \textbf{信息推导}，指攻击者可以获得部分有关密钥或明文的信息。
+	\item \textbf{实例推导}，攻击者可以从密文中找出明文信息。
+	\item \textbf{全盘推导}，假设明文为$P$，加密后的密文为$C$。攻击者分析加密算法，可以根据其计算性质设计一个解密算法$\mathcal{A}$，使得在不知道密钥$\mathcal{K}$的情况下，实现等价于$D_\mathcal{K}(C) = P$的效果。
+	\item \textbf{完全破译}，攻击者得到密钥$\mathcal{K}$，完全攻破密码系统。
+\end{enumerate}
 
 \section{困难问题假设}
 
