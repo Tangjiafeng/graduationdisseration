@@ -21,7 +21,7 @@
 			\item 矩阵$G$：在有限域$\mathbb{F}$上的信息位数为$k$，最小距离为$d \geq 2t + 1$的Goppa码$\mathcal{C}$的$k \times n$阶生成矩阵。
 			\item 矩阵$S$：$k \times k$阶的二元随机非奇异矩阵。
 			\item 矩阵$P$：$k \times n$阶的二元随机置换矩阵。
-		\end{itemize}	    
+		\end{itemize}
 		\State
 		然后计算方案的公钥$G^{pub} = SGP$。
 		\begin{itemize}
@@ -86,7 +86,25 @@ McEliece在公钥尺寸的表现不够好，但是加密过程十分简单，位
 	\end{algorithmic}
 \end{breakablealgorithm}
 
-McEliece方案在安全性上的表现是有优势的，是目前为止仍未攻破的公钥加密算法。在已知的密码分析方法中，比如区分攻击、信息集攻击等，针对McEliece的攻击的工作因子大多在$2^{70}$以上。
+McEliece方案在安全性上的表现是有优势的，是目前为止仍未被攻破的公钥加密算法。在已知的密码分析方法中，比如区分者攻击、信息集攻击等，针对McEliece的攻击的工作因子大多在$2^{70}$以上。在讨论改进的密码分析方法之前，我们首先来看在一些原始的密码分析方法在原始McEliece方案的工作因子大小。
+
+\begin{table}[H]
+\centering
+\setlength{\tabcolsep}{8mm}{
+	\begin{tabular}{l|c}
+		\hline
+		攻击方法 & 工作因子 \\
+		\hline
+		猜测私钥矩阵 & $\prod_{i=1}^{k - 1}(2^k - 2^i) + n! \approx 8.46 \times 10^{82654} + 1.85 \times 10^{2638}$ \\
+		猜测码字 & $2^k \approx 5.49 \times 10^{157}$ \\
+		伴随式解码攻击 & $\sum_{i=0}^{t}\binom{n}{i} \approx 3.36 \times 10^{85}$ \\
+		信息集攻击 & $k^3(1 - \frac{t}{n})^{-k} \approx 3.55 \times 10^{19}$ \\
+		\hline
+    \end{tabular}
+    }
+\caption{常见攻击工作因子}\label{wf_table}
+\end{table}
+综上可以发现，McEliece方案在推荐参数下，直接攻击方法是无法影响其安全性的。后续的密码分析研究，在以上攻击的基础上进行了改进，使得工作因子尽可能下降，这也间接的导致了McEliece方案加强安全性的设计，本章最后会介绍一种新的加密方案变体。
 
 \section{Niederreiter方案}
 1986年，Niderreiter对McEliece公钥密码方案做出改进，提出了一种Niederreiter公钥密码方案。该密码方案基于的困难问题也是随机线性码的译码困难问题，只是利用的角度有所不同。Niderreiter密码方案隐藏了Goppa码的校验矩阵，于是在公钥尺寸上有所减少，但是还是没有达到实用的要求。

@@ -3,7 +3,7 @@
 \contentsline {algorithm}{\numberline {3}McEliece解密算法}{16}{algorithm.3}
 \contentsline {algorithm}{\numberline {4}Niederreiter方案}{17}{algorithm.4}
 \contentsline {algorithm}{\numberline {5}BBCRS公钥密码体制McEliece版本}{19}{algorithm.5}
-\contentsline {algorithm}{\numberline {6}BBCRS公钥密码体制Niederreiter版本}{20}{algorithm.6}
+\contentsline {algorithm}{\numberline {6}BBCRS公钥密码体制Niederreiter版本}{21}{algorithm.6}
 \contentsline {algorithm}{\numberline {7}密钥生成改进方案}{26}{algorithm.7}
 \contentsline {algorithm}{\numberline {8}密钥生成改进方案加密算法}{27}{algorithm.8}
 \contentsline {algorithm}{\numberline {9}密钥生成改进方案解密算法}{27}{algorithm.9}
