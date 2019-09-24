@@ -56,6 +56,34 @@
   database search}\bibmark{[C]} //\thinspace{}\bibbooktitle{Twenty-eighth Acm
   Symposium on Theory of Computing}\@. \bibyear{1996}\@.
 
+\bibitem{Overbeck2009Code}
+\bibauthor{OVERBECK R\@, SENDRIER N}\@. \bibbooktitle{Code-based
+  cryptography}\bibmark{[M]}\@. \bibyear{2009}\@.
+
+\bibitem{Karpunin2004On}
+\bibauthor{KARPUNIN G~A}\@. \bibtitle{On the McEliece public-key cryptosystem
+  based on Reed-Muller binary codes}\bibmark{[J]}\@. \bibjournal{Diskr Mat}\@,
+  \bibyear{2004}\@, \bibvolume{14}\bibnumber{(3)}\thinspace{}\textnormal{:
+  }\bibpages{79–84}\@.
+
+\bibitem{Faug2016Structural}
+\bibauthor{FAUGèRE J~C\@, OTMANI A\@, PERRET L, et~al}\@. \bibtitle{Structural
+  cryptanalysis of McEliece schemes with compact keys}\bibmark{[J]}\@.
+  \bibjournal{Designs Codes \& Cryptography}\@, \bibyear{2016}\@,
+  \bibvolume{79}\bibnumber{(1)}\thinspace{}\textnormal{:
+  }\bibpages{87\thinspace{}\textnormal{--}\thinspace{}112}\@.
+
+\bibitem{Macwilliams1977The}
+\bibauthor{MACWILLIAMS F~J\@, SLOANE N~J~A}\@. \bibbooktitle{The theory of
+  error-correcting codes}\bibmark{[M]}\@. \bibyear{1977}\@.
+
+\bibitem{郑东2013密码学综述}
+\bibauthor{郑东\@, 赵庆兰\@, 张应辉}\@.
+  \bibtitle{密码学综述}\bibmark{[J]}\@.
+  \bibjournal{西安邮电大学学报}\@, \bibyear{2013}\@,
+  \bibvolume{18}\bibnumber{(6)}\thinspace{}\textnormal{:
+  }\bibpages{1\thinspace{}\textnormal{--}\thinspace{}10}\@.
+
 \bibitem{Berlekamp1978On}
 \bibauthor{BERLEKAMP E~R\@, MCELIECE R~J\@, TILBORG H~C A~V}\@. \bibtitle{On
   the inherent intractability of certain coding problems}\bibmark{[J]}\@.
@@ -69,6 +97,18 @@
   \bibvolume{1}\bibnumber{(2)}\thinspace{}\textnormal{:
   }\bibpages{151\thinspace{}\textnormal{--}\thinspace{}199}\@.
 
+\bibitem{Landais2013An}
+\bibauthor{LANDAIS G\@, TILLICH J~P}\@. \bibtitle{An Efficient Attack of a
+  McEliece Cryptosystem Variant Based on Convolutional Codes}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{International Workshop on Post-quantum
+  Cryptography}\@. \bibyear{2013}\@.
+
+\bibitem{Bernstein2008Attacking}
+\bibauthor{BERNSTEIN D~J\@, LANGE T\@, PETERS C}\@. \bibtitle{Attacking and
+  Defending the McEliece Cryptosystem}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{International Workshop on Post-quantum
+  Cryptography}\@. \bibyear{2008}\@.
+
 \bibitem{Niederreiter1986Knapsack}
 \bibauthor{NIEDERREITER H}\@. \bibtitle{Knapsack-type cryptosystems and
   algebraic coding theory.}\bibmark{[J]}\@. \bibjournal{Prob.control \&
@@ -76,14 +116,81 @@
   \bibvolume{15}\bibnumber{(2)}\thinspace{}\textnormal{:
   }\bibpages{159\thinspace{}\textnormal{--}\thinspace{}166}\@.
 
+\bibitem{Yuan1994On}
+\bibauthor{YUAN X~L\@, DENG R~H\@, WANG X~M}\@. \bibbooktitle{On the
+  equivalence of McEliece's and Niederreiter's public-key
+  cryptosystems}\bibmark{[M]}\@. \bibyear{1994}\@.
+
 \bibitem{Couvreur2013Distinguisher}
-\bibauthor{COUVREUR A\@, GABORIT P\@, GAUTHIER-UMA馻 V, et~al}\@.
+\bibauthor{COUVREUR A\@, GABORIT P\@, GAUTHIER-UMAñA V, et~al}\@.
   \bibtitle{Distinguisher-Based Attacks on Public-Key Cryptosystems Using
   Reed-Solomon Codes}\bibmark{[J]}\@, \bibyear{2013}\@.
+
+\bibitem{Wieschebrink2010Cryptanalysis}
+\bibauthor{WIESCHEBRINK C}\@. \bibtitle{Cryptanalysis of the niederreiter
+  public key scheme based on GRS subcodes}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{International Conference on Post-quantum
+  Cryptography}\@. \bibyear{2010}\@.
 
 \bibitem{Loidreau2017A}
 \bibauthor{LOIDREAU P}\@. \bibtitle{A New Rank Metric Codes Based Encryption
   Scheme}\bibmark{[J]}\@, \bibyear{2017}\@.
+
+\bibitem{Gabidulin2003Reducible}
+\bibauthor{GABIDULIN E~M\@, OURIVSKI A~V\@, HONARY B, et~al}\@.
+  \bibtitle{Reducible rank codes and their applications to
+  cryptography}\bibmark{[J]}\@. \bibjournal{Information Theory IEEE
+  Transactions on}\@, \bibyear{2003}\@,
+  \bibvolume{49}\bibnumber{(12)}\thinspace{}\textnormal{:
+  }\bibpages{3289\thinspace{}\textnormal{--}\thinspace{}3293}\@.
+
+\bibitem{Gabidulin2001Modified}
+\bibauthor{GABIDULIN E~M\@, OURIVSKI A~V}\@. \bibtitle{Modified GPT PKC with
+  Right Scrambler}\bibmark{[J]}\@. \bibjournal{Electronic Notes in Discrete
+  Mathematics}\@, \bibyear{2001}\@,
+  \bibvolume{6}\bibnumber{(04)}\thinspace{}\textnormal{:
+  }\bibpages{168\thinspace{}\textnormal{--}\thinspace{}177}\@.
+
+\bibitem{Berger2004Designing}
+\bibauthor{BERGER T\@, LOIDREAU P}\@. \bibtitle{Designing an Efficient and
+  Secure Public-Key Cryptosystem Based on Reducible Rank Codes}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{International Conference on Progress in
+  Cryptology-indocrypt\thinspace{}\textnormal{: }Vol~3348}\@.
+  \bibyear{2004}\thinspace{}\textnormal{:
+  }\bibpages{218\thinspace{}\textnormal{--}\thinspace{}229}\@.
+
+\bibitem{Ding2014On}
+\bibauthor{DING Y}\@. \bibtitle{On List-decodability of Random Rank Metric
+  Codes}\bibmark{[J]}\@. \bibjournal{IEEE Transactions on Information
+  Theory}\@, \bibyear{2014}\@,
+  \bibvolume{61}\bibnumber{(1)}\thinspace{}\textnormal{:
+  }\bibpages{51\thinspace{}\textnormal{--}\thinspace{}59}\@.
+
+\bibitem{Gaborit2017Identity}
+\bibauthor{GABORIT P\@, HAUTEVILLE A\@, PHAN D~H, et~al}\@.
+  \bibtitle{Identity-Based Encryption from Codes with Rank Metric}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{International Cryptology Conference}\@.
+  \bibyear{2017}\@.
+
+\bibitem{Gibson1995Severely}
+\bibauthor{GIBSON J~K}\@. \bibtitle{Severely denting the Gabidulin version of
+  the McEliece Public Key Cryptosystem}\bibmark{[J]}\@. \bibjournal{Designs
+  Codes \& Cryptography}\@, \bibyear{1995}\@,
+  \bibvolume{6}\bibnumber{(1)}\thinspace{}\textnormal{:
+  }\bibpages{37\thinspace{}\textnormal{--}\thinspace{}45}\@.
+
+\bibitem{Gibson1996The}
+\bibauthor{GIBSON K}\@. \bibtitle{The security of the Gabidulin public key
+  cryptosystem}\bibmark{[C]} //\thinspace{}\bibbooktitle{International
+  Conference on Theory \& Application of Cryptographic Techniques}\@.
+  \bibyear{1996}\@.
+
+\bibitem{Overbeck2008Structural}
+\bibauthor{OVERBECK R}\@. \bibtitle{Structural Attacks for Public Key
+  Cryptosystems based on Gabidulin Codes}\bibmark{[J]}\@. \bibjournal{Journal
+  of Cryptology}\@, \bibyear{2008}\@,
+  \bibvolume{21}\bibnumber{(2)}\thinspace{}\textnormal{:
+  }\bibpages{280\thinspace{}\textnormal{--}\thinspace{}301}\@.
 
 \bibitem{Sidel1994Open}
 \bibauthor{SIDEL?NIKOV V~M}\@. \bibtitle{Open coding based on Reed?Muller
@@ -110,11 +217,33 @@
   //\thinspace{}\bibbooktitle{International Conference on Security \&
   Cryptography for Networks}\@. \bibyear{2008}\@.
 
+\bibitem{Barreto2017CAKE}
+\bibauthor{BARRETO P~S L~M\@, GUERON S\@, GüNEYSU T, et~al}\@. \bibtitle{CAKE:
+  Code-Based Algorithm for Key Encapsulation}\bibmark{[J]}\@, \bibyear{2017}\@.
+
+\bibitem{Baldi2013Optimization}
+\bibauthor{BALDI M\@, BIANCHI M\@, CHIARALUCE F}\@. \bibtitle{Optimization of
+  the parity-check matrix density in QC-LDPC code-based McEliece
+  cryptosystems}\bibmark{[J]}\@, \bibyear{2013}\@.
+
+\bibitem{Otmani2010Cryptanalysis}
+\bibauthor{OTMANI A\@, TILLICH J~P\@, DALLOT L}\@. \bibtitle{Cryptanalysis of
+  Two McEliece Cryptosystems Based on Quasi-Cyclic Codes}\bibmark{[J]}\@.
+  \bibjournal{Mathematics in Computer Science}\@, \bibyear{2010}\@,
+  \bibvolume{3}\bibnumber{(2)}\thinspace{}\textnormal{:
+  }\bibpages{129\thinspace{}\textnormal{--}\thinspace{}140}\@.
+
 \bibitem{Misoczki2013MDPC}
 \bibauthor{MISOCZKI R\@, TILLICH J~P\@, SENDRIER N, et~al}\@.
   \bibtitle{MDPC-McEliece: New McEliece variants from Moderate Density
   Parity-Check codes}\bibmark{[C]} //\thinspace{}\bibbooktitle{IEEE
   International Symposium on Information Theory}\@. \bibyear{2013}\@.
+
+\bibitem{Heyse2013Smaller}
+\bibauthor{HEYSE S\@, MAURICH I~V\@, GüNEYSU T}\@. \bibtitle{Smaller Keys for
+  Code-Based Cryptography: QC-MDPC McEliece Implementations on Embedded
+  Devices}\bibmark{[C]} //\thinspace{}\bibbooktitle{International Conference on
+  Cryptographic Hardware \& Embedded Systems}\@. \bibyear{2013}\@.
 
 \bibitem{Xing2005Goppa}
 \bibauthor{XING C}\@. \bibtitle{Goppa geometric codes achieving the
@@ -133,17 +262,75 @@
   \bibtitle{Goppa码的最小距离下限和维数上限的扩张}\bibmark{[J]}\@.
   \bibjournal{电子学报}\@, \bibyear{1983}\@.
 
-\bibitem{Von2016IND}
-\bibauthor{VON~MAURICH I\@, HEBERLE L\@, G黱EYSU T}\@. \bibtitle{IND-CCA
-  secure hybrid encryption from QC-MDPC Niederreiter.}\bibmark{[C]}
+\bibitem{Misoczki2009Compact}
+\bibauthor{MISOCZKI R\@, BARRETO P~S L~M}\@. \bibbooktitle{Compact McEliece
+  Keys from Goppa Codes}\bibmark{[M]}\@. \bibyear{2009}\@.
+
+\bibitem{Faug2010Algebraic}
+\bibauthor{FAUGèRE J~C\@, OTMANI A\@, PERRET L, et~al}\@. \bibtitle{Algebraic
+  Cryptanalysis of McEliece Variants with Compact Keys}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{International Conference on Theory \&
+  Applications of Cryptographic Techniques}\@. \bibyear{2010}\@.
+
+\bibitem{Faugere2013A}
+\bibauthor{FAUGERE\@, J.-C\@, GAUTHIER-UMANA, et~al}\@. \bibtitle{A
+  Distinguisher for High-Rate McEliece Cryptosystems}\bibmark{[J]}\@.
+  \bibjournal{IEEE Transactions on Information Theory}\@, \bibyear{2013}\@,
+  \bibvolume{59}\bibnumber{(10)}\thinspace{}\textnormal{:
+  }\bibpages{6830\thinspace{}\textnormal{--}\thinspace{}6844}\@.
+
+\bibitem{Moufek2017A}
+\bibauthor{MOUFEK H\@, GUENDA K}\@. \bibtitle{A New variant of the McEliece
+  cryptosystem based on the Smith form of convolutional codes}\bibmark{[J]}\@.
+  \bibjournal{Cryptologia}\@, \bibyear{2017}\thinspace{}\textnormal{:
+  }\bibpages{1\thinspace{}\textnormal{--}\thinspace{}13}\@.
+
+\bibitem{Kobara2003On}
+\bibauthor{KOBARA K\@, IMAI H}\@. \bibtitle{On the one-wayness against
+  chosen-plaintext attacks of the Loidreau's modified McEliece
+  PKC}\bibmark{[J]}\@. \bibjournal{Information Theory IEEE Transactions on}\@,
+  \bibyear{2003}\@, \bibvolume{49}\bibnumber{(12)}\thinspace{}\textnormal{:
+  }\bibpages{3160\thinspace{}\textnormal{--}\thinspace{}3168}\@.
+
+\bibitem{OnTheMc}
+\bibauthor{van TILBURG J}\@. \bibtitle{On the McEliece Public-Key
+  Cryptosystem}\bibmark{[C]} //\thinspace{}\bibeditor{GOLDWASSER S}\@.
+  \bibbooktitle{Advances in Cryptology --- CRYPTO' 88}\@.
+  \bibyear{1990}\thinspace{}\textnormal{:
+  }\bibpages{119\thinspace{}\textnormal{--}\thinspace{}131}\@.
+
+\bibitem{2005纠错码的代数理论}
+\bibauthor{冯克勤}\@.
+  \bibbooktitle{纠错码的代数理论}\bibmark{[M]}\@. \bibyear{2005}\@.
+
+\bibitem{Berger2009Reducing}
+\bibauthor{BERGER T~P\@, CAYREL P~L\@, GABORIT P, et~al}\@. \bibtitle{Reducing
+  Key Length of the McEliece Cryptosystem}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{International Conference on Progress in
+  Cryptology-africacrypt}\@. \bibyear{2009}\@.
+
+\bibitem{李元兴1993关于}
+\bibauthor{李元兴\@, 王新梅}\@.
+  \bibtitle{关于Niederreiter代数码公钥密码体制的安全性及参数优化}\bibmark{[J]}\@.
+  \bibjournal{电子学报}\@,
+  \bibyear{1993}\bibnumber{(7)}\thinspace{}\textnormal{:
+  }\bibpages{33\thinspace{}\textnormal{--}\thinspace{}36}\@.
+
+\bibitem{Maurich2016IND}
+\bibauthor{MAURICH I~V\@, HEBERLE L\@, GüNEYSU T}\@. \bibtitle{IND-CCA Secure
+  Hybrid Encryption from QC-MDPC Niederreiter}\bibmark{[C]}
   //\thinspace{}\bibbooktitle{International Workshop on Post-quantum
   Cryptography}\@. \bibyear{2016}\@.
 
 \bibitem{Couvreur2015A}
-\bibauthor{COUVREUR A\@, OTMANI A\@, TILLICH J~P, et~al}\@. \bibtitle{A
-  Polynomial-Time Attack on the BBCRS Scheme}\bibmark{[J]}\@.
-  \bibjournal{Computer Science}\@, \bibyear{2015}\@,
-  \bibvolume{8441}\thinspace{}\textnormal{:
-  }\bibpages{17\thinspace{}\textnormal{--}\thinspace{}39}\@.
+\bibauthor{COUVREUR A\@, OTMANI A\@, TILLICH J~P, et~al}\@. \bibbooktitle{A
+  Polynomial-Time Attack on the BBCRS Scheme}\bibmark{[M]}\@. \bibyear{2015}\@.
+
+\bibitem{Berger2005How}
+\bibauthor{BERGER T~P\@, LOIDREAU P}\@. \bibtitle{How to Mask the Structure of
+  Codes for a Cryptographic Use}\bibmark{[J]}\@. \bibjournal{Designs Codes \&
+  Cryptography}\@, \bibyear{2005}\@,
+  \bibvolume{35}\bibnumber{(1)}\thinspace{}\textnormal{:
+  }\bibpages{63\thinspace{}\textnormal{--}\thinspace{}79}\@.
 
 \end{thebibliography}

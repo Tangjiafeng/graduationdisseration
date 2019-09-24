@@ -3,4 +3,6 @@ The style file: GBT7714-2005.bst
 Database file #1: bib/tex.bib
 Warning--Require journal: Couvreur2013Distinguisher
 Warning--Require journal: Loidreau2017A
-(There were 2 warnings)
+Warning--Require journal: Barreto2017CAKE
+Warning--Require journal: Baldi2013Optimization
+(There were 4 warnings)

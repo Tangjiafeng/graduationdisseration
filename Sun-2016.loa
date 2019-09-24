@@ -4,9 +4,9 @@
 \contentsline {algorithm}{\numberline {4}Niederreiter方案}{17}{algorithm.4}
 \contentsline {algorithm}{\numberline {5}BBCRS公钥密码体制McEliece版本}{19}{algorithm.5}
 \contentsline {algorithm}{\numberline {6}BBCRS公钥密码体制Niederreiter版本}{21}{algorithm.6}
-\contentsline {algorithm}{\numberline {7}密钥生成改进方案}{26}{algorithm.7}
+\contentsline {algorithm}{\numberline {7}密钥生成改进方案}{27}{algorithm.7}
 \contentsline {algorithm}{\numberline {8}密钥生成改进方案加密算法}{27}{algorithm.8}
-\contentsline {algorithm}{\numberline {9}密钥生成改进方案解密算法}{27}{algorithm.9}
+\contentsline {algorithm}{\numberline {9}密钥生成改进方案解密算法}{28}{algorithm.9}
 \contentsline {algorithm}{\numberline {10}密钥生成改进方案(Niederreiter版本)}{38}{algorithm.10}
 \contentsline {algorithm}{\numberline {11}密钥生成改进方案加密算法(Niederreiter版本)}{39}{algorithm.11}
 \contentsline {algorithm}{\numberline {12}密钥生成改进方案解密算法(Niederreiter版本)}{39}{algorithm.12}
