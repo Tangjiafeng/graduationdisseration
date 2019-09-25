@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  25 SEP 2019 01:00
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  25 SEP 2019 11:15
 entering extended mode
 **Sun-2016.tex
 (D:\graduationdissertation\Sun-2016.tex
@@ -2454,12 +2454,15 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 第五章
 [37
 
-] [38] [39] [40] [41]) (D:\graduationdissertation\C6-CHAP6.tex [42]
+]
+File: fig/keygenmethodN.pdf Graphic file (type QTm)
+ <use  "fig/keygenmethodN.pdf" > [38] [39] [40] [41])
+(D:\graduationdissertation\C6-CHAP6.tex [42]
 第六章
 [43
 
 ]) [44] (D:\graduationdissertation\Sun-2016.bbl
-Underfull \hbox (badness 2671) in paragraph at lines 55--58
+Underfull \hbox (badness 2671) in paragraph at lines 61--64
 []\EU1/TimesNewRoman(0)/m/sl/12 GROVER L K. Fast quantum mechanical algorithm f
 or database search[C]
  []
@@ -2468,31 +2471,31 @@ or database search[C]
 
 
 ] [46]
-Underfull \hbox (badness 10000) in paragraph at lines 183--187
+Underfull \hbox (badness 10000) in paragraph at lines 189--193
 []\EU1/TimesNewRoman(0)/m/sl/12 GIBSON K. The security of the Gabidulin public 
 key cryptosystem[C]
  []
 
 
-Underfull \hbox (badness 1990) in paragraph at lines 183--187
+Underfull \hbox (badness 1990) in paragraph at lines 189--193
 \EU1/TimesNewRoman(0)/m/sl/12 //International Conference on Theory & Applicatio
 n of Cryptographic Tech-
  []
 
 
-Underfull \hbox (badness 2401) in paragraph at lines 189--194
+Underfull \hbox (badness 2401) in paragraph at lines 195--200
 []\EU1/TimesNewRoman(0)/m/sl/12 OVERBECK R. Structural Attacks for Public Key C
 ryptosystems based on
  []
 
 [47]
-Underfull \hbox (badness 3312) in paragraph at lines 243--247
+Underfull \hbox (badness 3312) in paragraph at lines 249--253
 []\EU1/TimesNewRoman(0)/m/sl/12 HEYSE S, MAURICH I V, GüNEYSU T. Smaller Keys 
 for Code-Based
  []
 
 [48]
-Underfull \hbox (badness 1281) in paragraph at lines 266--268
+Underfull \hbox (badness 1281) in paragraph at lines 272--274
 []\EU1/TimesNewRoman(0)/m/sl/12 MISOCZKI R, BARRETO P S L M. Compact McEliece K
 eys from Goppa
  []
@@ -2575,10 +2578,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33189 strings out of 430478
- 624483 string characters out of 3191502
- 657997 words of memory out of 3000000
- 35600 multiletter control sequences out of 15000+200000
+ 33192 strings out of 430478
+ 624544 string characters out of 3191502
+ 658040 words of memory out of 3000000
+ 35602 multiletter control sequences out of 15000+200000
  46354 words of font info for 294 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  57i,12n,92p,1363b,798s stack positions out of 5000i,500n,10000p,200000b,50000s

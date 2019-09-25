@@ -37,6 +37,12 @@
   \bibvolume{47}\bibnumber{(3)}\thinspace{}\textnormal{:
   }\bibpages{1207\thinspace{}\textnormal{--}\thinspace{}1211}\@.
 
+\bibitem{Berger2009Reducing}
+\bibauthor{BERGER T~P\@, CAYREL P~L\@, GABORIT P, et~al}\@. \bibtitle{Reducing
+  Key Length of the McEliece Cryptosystem}\bibmark{[C]}
+  //\thinspace{}\bibbooktitle{International Conference on Progress in
+  Cryptology-africacrypt}\@. \bibyear{2009}\@.
+
 \bibitem{Baldi2011EnhancedPK}
 \bibauthor{BALDI M\@, BIANCHI M\@, CHIARALUCE F, et~al}\@. \bibtitle{Enhanced
   Public Key Security for the McEliece Cryptosystem}\bibmark{[J]}\@.
@@ -302,12 +308,6 @@
 \bibitem{2005纠错码的代数理论}
 \bibauthor{冯克勤}\@.
   \bibbooktitle{纠错码的代数理论}\bibmark{[M]}\@. \bibyear{2005}\@.
-
-\bibitem{Berger2009Reducing}
-\bibauthor{BERGER T~P\@, CAYREL P~L\@, GABORIT P, et~al}\@. \bibtitle{Reducing
-  Key Length of the McEliece Cryptosystem}\bibmark{[C]}
-  //\thinspace{}\bibbooktitle{International Conference on Progress in
-  Cryptology-africacrypt}\@. \bibyear{2009}\@.
 
 \bibitem{李元兴1993关于}
 \bibauthor{李元兴\@, 王新梅}\@.
