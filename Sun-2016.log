@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  25 SEP 2019 11:54
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  8 OCT 2019 17:26
 entering extended mode
 **Sun-2016.tex
 (D:\graduationdissertation\Sun-2016.tex
@@ -2462,7 +2462,7 @@ File: fig/keygenmethodN.pdf Graphic file (type QTm)
 [43
 
 ]) [44] (D:\graduationdissertation\Sun-2016.bbl
-Underfull \hbox (badness 2671) in paragraph at lines 61--64
+Underfull \hbox (badness 2671) in paragraph at lines 62--66
 []\EU1/TimesNewRoman(0)/m/sl/12 GROVER L K. Fast quantum mechanical algorithm f
 or database search[C]
  []
@@ -2470,37 +2470,37 @@ or database search[C]
 [45
 
 
-] [46]
-Underfull \hbox (badness 10000) in paragraph at lines 189--193
-[]\EU1/TimesNewRoman(0)/m/sl/12 GIBSON K. The security of the Gabidulin public 
-key cryptosystem[C]
- []
-
-
-Underfull \hbox (badness 1990) in paragraph at lines 189--193
-\EU1/TimesNewRoman(0)/m/sl/12 //International Conference on Theory & Applicatio
-n of Cryptographic Tech-
- []
-
-
-Underfull \hbox (badness 2401) in paragraph at lines 195--200
+] [46] [47]
+Underfull \hbox (badness 2401) in paragraph at lines 217--222
 []\EU1/TimesNewRoman(0)/m/sl/12 OVERBECK R. Structural Attacks for Public Key C
 ryptosystems based on
  []
 
-[47]
-Underfull \hbox (badness 3312) in paragraph at lines 249--253
+[48]
+Underfull \hbox (badness 3312) in paragraph at lines 281--286
 []\EU1/TimesNewRoman(0)/m/sl/12 HEYSE S, MAURICH I V, GüNEYSU T. Smaller Keys 
 for Code-Based
  []
 
-[48]
-Underfull \hbox (badness 1281) in paragraph at lines 272--274
+
+Underfull \hbox (badness 1281) in paragraph at lines 308--312
 []\EU1/TimesNewRoman(0)/m/sl/12 MISOCZKI R, BARRETO P S L M. Compact McEliece K
 eys from Goppa
  []
 
-[49]) [50] (D:\graduationdissertation\D2-ACHNOWLEDGEMENT.tex
+[49]
+Underfull \hbox (badness 10000) in paragraph at lines 366--371
+[]\EU1/TimesNewRoman(0)/m/sl/12 BALDI M. Post-Quantum Cryptographic Schemes Bas
+ed on Codes[C]
+ []
+
+
+Underfull \hbox (badness 4859) in paragraph at lines 366--371
+\EU1/TimesNewRoman(0)/m/sl/12 //International Conference on High Performance Co
+mputing & Simulation.
+ []
+
+) [50] (D:\graduationdissertation\D2-ACHNOWLEDGEMENT.tex
 Requested font "[SIMKAI.TTF]" at 12.0pt
  -> C:/WINDOWS/Fonts/SIMKAI.TTF
 Requested font "[SIMKAI.TTF]/ICU" at 12.0pt
@@ -2578,12 +2578,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33187 strings out of 430478
- 624426 string characters out of 3191502
- 658040 words of memory out of 3000000
- 35597 multiletter control sequences out of 15000+200000
+ 33199 strings out of 430478
+ 624756 string characters out of 3191502
+ 658104 words of memory out of 3000000
+ 35609 multiletter control sequences out of 15000+200000
  46354 words of font info for 294 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 57i,12n,92p,1363b,798s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 57i,12n,92p,1435b,796s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on Sun-2016.pdf (67 pages).

@@ -1,8 +1,13 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: Sun-2016.aux
 The style file: GBT7714-2005.bst
 Database file #1: bib/tex.bib
+I was expecting a `,' or a `}'---line 335 of file bib/tex.bib
+ :  pages={212-223}
+ :                 .
+I'm skipping whatever remains of this entry
 Warning--Require journal: Couvreur2013Distinguisher
 Warning--Require journal: Loidreau2017A
+Warning--Require booktitle: Baldi2007Cryptanalysis
 Warning--Require journal: Barreto2017CAKE
-Warning--Require journal: Baldi2013Optimization
-(There were 4 warnings)
+Warning--Require booktitle: Misoczki2013MDPC
+(There was 1 error message)

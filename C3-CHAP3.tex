@@ -155,7 +155,7 @@ Niederreiter密码方案公钥尺寸更小，而安全性上被认为与McEliece
 
 后续也有大量研究Niederreiter的变形方案，其中Maurich等人提出的混合加密\cite{Maurich2016IND}可以达到IND-CCA安全，而且选择QC-LDPC码可以在存储公钥的时候大大减少公钥的尺寸。
 \section{BBCRS方案}
-2014年，Marco Baldi、Marco Bianchi、France Chiaraluce、Joachim Rosenthal、Davide Schipani等人设计了一种提升和加强McEliece安全性的方案，简称“BBCRS方案”。之前及后续的McEliece方案变体的核心工作，就是更好的隐藏密钥结构，但是其纠错检错能力又不会大打折扣，如此就可以更好的避免被攻击成功的概率。BBCRS方案，从原始McEliece方案的置换矩阵入手，考虑到置换矩阵暴露的安全性问题，采用一种由两个矩阵相加的形式代替置换矩阵，让多种经典的攻击手法找不到合适的入口，简言之，就是使得私钥结构与公开信息之间不具备置换转化的关系。BBCRS方案的设计主要贡献在于密钥的生成，私钥结构隐藏更好就可以换取结构性更强的码，以带来公钥的紧凑，尺寸减小的优势。BBCRS增加了一些系统参数，可以根据实际情况调整，以适应安全性，加解密效率，存储效率的平衡。
+2014年，Marco Baldi、Marco Bianchi、France Chiaraluce、Joachim Rosenthal、Davide Schipani等人设计了一种提升和加强McEliece安全性的方案，简称“BBCRS方案”。之前及后续的McEliece方案变体的核心工作，就是更好的隐藏密钥结构，但是其纠错检错能力又不会大打折扣，如此就可以更好的避免被攻击成功的概率\cite{Baldi2017Post}。BBCRS方案，从原始McEliece方案的置换矩阵入手，考虑到置换矩阵暴露的安全性问题，采用一种由两个矩阵相加的形式代替置换矩阵，让多种经典的攻击手法找不到合适的入口，简言之，就是使得私钥结构与公开信息之间不具备置换转化的关系。BBCRS方案的设计主要贡献在于密钥的生成，私钥结构隐藏更好就可以换取结构性更强的码，以带来公钥的紧凑，尺寸减小的优势。BBCRS增加了一些系统参数，可以根据实际情况调整，以适应安全性，加解密效率，存储效率的平衡。
 
 BBCRS的密钥生成与原始的McEliece有很大的区别，且组成过程些许复杂。假设两个包含$w$个矩阵元素的集合$\mathcal{A}$和$\mathcal{B}$，内部元素都是随机选择并且保密的$z \times n, z \leq n$矩阵，而矩阵元素都在有限域$\mathbb{F}_q$上。
 \begin{center}
