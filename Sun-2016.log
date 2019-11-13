@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  13 NOV 2019 11:44
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  13 NOV 2019 15:09
 entering extended mode
 **Sun-2016.tex
 (D:\graduationdissertation\Sun-2016.tex
@@ -1893,11 +1893,16 @@ Overfull \hbox (3.14195pt too wide) in paragraph at lines 18--20
  []
 
 Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
-t;+smcp;" at 12.0pt
+t;" at 15.39993pt
  -> C:/WINDOWS/Fonts/timesbd.ttf
 Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
-t;+smcp;" at 24.88pt
+t;" at 11.0pt
  -> C:/WINDOWS/Fonts/timesbd.ttf
+
+Overfull \hbox (0.37892pt too wide) in paragraph at lines 26--27
+ []   $[]$ 
+ []
+
 Requested font "Times New Roman/ICU:script=latn;language=DFLT;mapping=tex-text;
 " at 7.0pt
  -> C:/WINDOWS/Fonts/times.ttf
@@ -1947,7 +1952,7 @@ Requested font "lasyb10" at 14.4pt
 Requested font "lasyb10" at 10.0pt
  -> lasyb10
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 30.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 35.
 Requested font "msam10" at 14.4pt
  -> msam10
 Requested font "msam10" at 10.0pt
@@ -2588,9 +2593,9 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33205 strings out of 430478
- 625046 string characters out of 3191502
- 658112 words of memory out of 3000000
+ 33204 strings out of 430478
+ 624982 string characters out of 3191502
+ 657112 words of memory out of 3000000
  35612 multiletter control sequences out of 15000+200000
  46378 words of font info for 297 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
