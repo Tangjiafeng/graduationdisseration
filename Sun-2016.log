@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  12 NOV 2019 10:16
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  13 NOV 2019 11:44
 entering extended mode
 **Sun-2016.tex
 (D:\graduationdissertation\Sun-2016.tex
@@ -1878,9 +1878,18 @@ Requested font "cmr17" at 20.74pt
  -> cmr17
 Requested font "cmr17" at 17.28pt
  -> cmr17
+Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
+t;" at 24.88pt
+ -> C:/WINDOWS/Fonts/timesbd.ttf
+Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
+t;" at 20.74pt
+ -> C:/WINDOWS/Fonts/timesbd.ttf
+Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
+t;" at 17.28pt
+ -> C:/WINDOWS/Fonts/timesbd.ttf
 
-Overfull \hbox (3.08089pt too wide) in paragraph at lines 12--14
- [] [] [] []$ 
+Overfull \hbox (3.14195pt too wide) in paragraph at lines 18--20
+ [][] [] [] []$ 
  []
 
 Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
@@ -1912,6 +1921,15 @@ Requested font "cmbx10" at 10.0pt
  -> cmbx10
 Requested font "cmbx7" at 7.0pt
  -> cmbx7
+Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
+t;" at 14.4pt
+ -> C:/WINDOWS/Fonts/timesbd.ttf
+Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
+t;" at 10.0pt
+ -> C:/WINDOWS/Fonts/timesbd.ttf
+Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
+t;" at 7.0pt
+ -> C:/WINDOWS/Fonts/timesbd.ttf
 Requested font "cmmib10" at 14.4pt
  -> cmmib10
 Requested font "cmmib10" at 10.0pt
@@ -1929,7 +1947,7 @@ Requested font "lasyb10" at 14.4pt
 Requested font "lasyb10" at 10.0pt
  -> lasyb10
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 24.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 30.
 Requested font "msam10" at 14.4pt
  -> msam10
 Requested font "msam10" at 10.0pt
@@ -1945,9 +1963,6 @@ Requested font "msbm7" at 7.0pt
 Requested font "cmr12" at 14.4pt
  -> cmr12
 ) (D:\graduationdissertation\A3-COPYRIGHT.tex [2]
-Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
-t;" at 17.28pt
- -> C:/WINDOWS/Fonts/timesbd.ttf
 Requested font "SimSun" at 17.28pt
  -> C:/WINDOWS/Fonts/simsun.ttc
 Requested font "SimSun/ICU" at 17.28pt
@@ -1978,6 +1993,12 @@ Requested font "SimSun/ICU" at 12.0pt
 Requested font "SimSun/ICU:script=latn;language=DFLT;mapping=tex-text;" at 12.0
 pt
  -> C:/WINDOWS/Fonts/simsun.ttc
+Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
+t;" at 8.0pt
+ -> C:/WINDOWS/Fonts/timesbd.ttf
+Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
+t;" at 6.0pt
+ -> C:/WINDOWS/Fonts/timesbd.ttf
 
 Overfull \hbox (24.0pt too wide) in paragraph at lines 35--36
 []$[]$ 
@@ -2074,9 +2095,6 @@ pt
  -> C:/WINDOWS/Fonts/simsun.ttc
 ) [5]
 (D:\graduationdissertation\B1-ABSTRACT.tex
-Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
-t;" at 24.88pt
- -> C:/WINDOWS/Fonts/timesbd.ttf
 Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
 t;" at 22.08pt
  -> C:/WINDOWS/Fonts/timesbd.ttf
@@ -2269,12 +2287,6 @@ Package hyperref Info: bookmark level for unknown define defaults to 0 on input
 Requested font "[SIMKAI.TTF]/ICU:script=latn;language=DFLT;mapping=tex-text;" a
 t 12.0pt
  -> C:/WINDOWS/Fonts/SIMKAI.TTF
-Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
-t;" at 8.0pt
- -> C:/WINDOWS/Fonts/timesbd.ttf
-Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
-t;" at 6.0pt
- -> C:/WINDOWS/Fonts/timesbd.ttf
 
 LaTeX Warning: Command \nobreakspace invalid in math mode on input line 11.
 
@@ -2305,9 +2317,6 @@ LaTeX Warning: Command \nobreakspace invalid in math mode on input line 51.
 
 LaTeX Warning: Command \nobreakspace invalid in math mode on input line 51.
 
-Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
-t;" at 14.4pt
- -> C:/WINDOWS/Fonts/timesbd.ttf
 Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
 t;" at 12.05pt
  -> C:/WINDOWS/Fonts/timesbd.ttf
@@ -2579,11 +2588,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 33199 strings out of 430478
- 624756 string characters out of 3191502
- 657112 words of memory out of 3000000
- 35609 multiletter control sequences out of 15000+200000
- 46354 words of font info for 294 fonts, out of 3000000 for 9000
+ 33205 strings out of 430478
+ 625046 string characters out of 3191502
+ 658112 words of memory out of 3000000
+ 35612 multiletter control sequences out of 15000+200000
+ 46378 words of font info for 297 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  57i,12n,92p,1435b,796s stack positions out of 5000i,500n,10000p,200000b,50000s
 
