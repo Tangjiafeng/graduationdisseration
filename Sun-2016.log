@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  13 NOV 2019 15:09
+This is XeTeX, Version 3.1415926-2.3-0.9997.5 (MiKTeX 2.9) (preloaded format=xelatex 2019.8.31)  14 NOV 2019 18:36
 entering extended mode
 **Sun-2016.tex
 (D:\graduationdissertation\Sun-2016.tex
@@ -1804,6 +1804,61 @@ File: se-ascii-print.def 2010/03/01 v1.8 stringenc: Printable ASCII characters
 
 ]
 Requested font "Times New Roman/ICU:script=latn;language=DFLT;mapping=tex-text;
+" at 7.0pt
+ -> C:/WINDOWS/Fonts/times.ttf
+Requested font "cmmi12" at 14.4pt
+ -> cmmi12
+Requested font "cmsy10" at 14.4pt
+ -> cmsy10
+Requested font "cmex10" at 14.4pt
+ -> cmex10
+Requested font "cmex7" at 7.0pt
+ -> cmex7
+Requested font "lasy10" at 14.4pt
+ -> lasy10
+Requested font "lasy10" at 10.0pt
+ -> lasy10
+Requested font "lasy7" at 7.0pt
+ -> lasy7
+Requested font "cmbx12" at 14.4pt
+ -> cmbx12
+Requested font "cmbx10" at 10.0pt
+ -> cmbx10
+Requested font "cmbx7" at 7.0pt
+ -> cmbx7
+Requested font "cmmib10" at 14.4pt
+ -> cmmib10
+Requested font "cmmib10" at 10.0pt
+ -> cmmib10
+Requested font "cmmib7" at 7.0pt
+ -> cmmib7
+Requested font "cmbsy10" at 14.4pt
+ -> cmbsy10
+Requested font "cmbsy10" at 10.0pt
+ -> cmbsy10
+Requested font "cmbsy7" at 7.0pt
+ -> cmbsy7
+Requested font "lasyb10" at 14.4pt
+ -> lasyb10
+Requested font "lasyb10" at 10.0pt
+ -> lasyb10
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 7.
+Requested font "msam10" at 14.4pt
+ -> msam10
+Requested font "msam10" at 10.0pt
+ -> msam10
+Requested font "msam7" at 7.0pt
+ -> msam7
+Requested font "msbm10" at 14.4pt
+ -> msbm10
+Requested font "msbm10" at 10.0pt
+ -> msbm10
+Requested font "msbm7" at 7.0pt
+ -> msbm7
+Requested font "cmr12" at 14.4pt
+ -> cmr12
+Requested font "Times New Roman/ICU:script=latn;language=DFLT;mapping=tex-text;
 " at 24.88pt
  -> C:/WINDOWS/Fonts/times.ttf
 Requested font "Times New Roman/ICU:script=latn;language=DFLT;mapping=tex-text;
@@ -1903,29 +1958,6 @@ Overfull \hbox (0.37892pt too wide) in paragraph at lines 26--27
  []   $[]$ 
  []
 
-Requested font "Times New Roman/ICU:script=latn;language=DFLT;mapping=tex-text;
-" at 7.0pt
- -> C:/WINDOWS/Fonts/times.ttf
-Requested font "cmmi12" at 14.4pt
- -> cmmi12
-Requested font "cmsy10" at 14.4pt
- -> cmsy10
-Requested font "cmex10" at 14.4pt
- -> cmex10
-Requested font "cmex7" at 7.0pt
- -> cmex7
-Requested font "lasy10" at 14.4pt
- -> lasy10
-Requested font "lasy10" at 10.0pt
- -> lasy10
-Requested font "lasy7" at 7.0pt
- -> lasy7
-Requested font "cmbx12" at 14.4pt
- -> cmbx12
-Requested font "cmbx10" at 10.0pt
- -> cmbx10
-Requested font "cmbx7" at 7.0pt
- -> cmbx7
 Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
 t;" at 14.4pt
  -> C:/WINDOWS/Fonts/timesbd.ttf
@@ -1935,38 +1967,6 @@ t;" at 10.0pt
 Requested font "Times New Roman/B/ICU:script=latn;language=DFLT;mapping=tex-tex
 t;" at 7.0pt
  -> C:/WINDOWS/Fonts/timesbd.ttf
-Requested font "cmmib10" at 14.4pt
- -> cmmib10
-Requested font "cmmib10" at 10.0pt
- -> cmmib10
-Requested font "cmmib7" at 7.0pt
- -> cmmib7
-Requested font "cmbsy10" at 14.4pt
- -> cmbsy10
-Requested font "cmbsy10" at 10.0pt
- -> cmbsy10
-Requested font "cmbsy7" at 7.0pt
- -> cmbsy7
-Requested font "lasyb10" at 14.4pt
- -> lasyb10
-Requested font "lasyb10" at 10.0pt
- -> lasyb10
-LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 35.
-Requested font "msam10" at 14.4pt
- -> msam10
-Requested font "msam10" at 10.0pt
- -> msam10
-Requested font "msam7" at 7.0pt
- -> msam7
-Requested font "msbm10" at 14.4pt
- -> msbm10
-Requested font "msbm10" at 10.0pt
- -> msbm10
-Requested font "msbm7" at 7.0pt
- -> msbm7
-Requested font "cmr12" at 14.4pt
- -> cmr12
 ) (D:\graduationdissertation\A3-COPYRIGHT.tex [2]
 Requested font "SimSun" at 17.28pt
  -> C:/WINDOWS/Fonts/simsun.ttc
