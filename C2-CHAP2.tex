@@ -12,7 +12,7 @@
 \end{define}
 
 \begin{define}[不可约多项式]
-	有限域$\mathbb{F}$上定义的多项式集合$F[x]=\{f(x)|f(x)=a_nx^n + ... + a_1x + a_0,a_i \in \mathbb{F}, a_n \neq 0, n \geq 0\}$，$F[x]$中次数大于1的多项式$f(x)$不能写成两个低次多项式的乘积，称$f[x]$是$\mathbf{F}$上不可约多项式。
+	有限域$\mathbb{F}$上定义的多项式集合$F[x]=\{f(x)|f(x)=a_nx^n + ... + a_1x + a_0,a_i \in \mathbb{F}, a_n \neq 0, n \geq 0\}$，$F[x]$中次数大于1的多项式$f(x)$不能写成两个低次多项式的乘积，称$f[x]$是$\mathbb{F}$上不可约多项式。
 \end{define}
 
 \begin{define}[极小多项式]
@@ -20,7 +20,7 @@
 \end{define}
 
 \begin{define}[本原多项式]
-	设$\mathbb{F}_(q^n)$是一个含有$q^n$个元素的有限域，$\mathbb{F}_q$是$\mathbb{F}_(q^n)$的一个含有$q$个元素的子域。设$\alpha \in \mathbb{F}_(q^n)$为$\mathbb{F}_(q^n)$的一个本原元。$\alpha$在$\mathbb{F}_q$上的极小多项式称为$\mathbb{F}_q$上的一个本原多项式。
+	设$\mathbb{F}_{q^n}$是一个含有$q^n$个元素的有限域，$\mathbb{F}_q$是$\mathbb{F}_{q^n}$的一个含有$q$个元素的子域。设$\alpha \in \mathbb{F}_{q^n}$为$\mathbb{F}_{q^n}$的一个本原元。$\alpha$在$\mathbb{F}_q$上的极小多项式称为$\mathbb{F}_q$上的一个本原多项式。
 \end{define}
 
 \section{编码基础知识}
@@ -68,7 +68,7 @@ BCH码是由三位学者 (R. C. Bose, D. K. Ray-Chaudhuri, A. Hocquenghem)分别
 \begin{define}[BCH码]
 	设$\mathbb{F}_q$上的一个$r$维向量空间为$\mathbb{F}_{q^r}$，并且$1, \alpha, \alpha ^ 2, ... , \alpha ^ {r - 1}$是$\mathbb{F}_{q^r}$在$\mathbb{F}_q$上的一组基，则$\mathbb{F}_{q^r}$中的任意一个元素都可以唯一地表示为$1, \alpha, \alpha ^ 2, ... , \alpha ^ {r - 1}$的一个线性组合。令
 	
-	\centering $B_q(n, \delta, \alpha)=\{\mathbf{c}=c_0c_1c_2···c_{n-1} | \mathbf{c}H^\mathtt{T}\}$，其中$1 < \delta < n$，且
+	\centering $B_q(n, \delta, \alpha)=\{\mathbf{c}=c_0c_1c_2···c_{n-1} | \mathbf{c}H^\mathtt{T} = 0\}$，其中$1 < \delta < n$，且
 	\begin{equation}       %开始数学环境
 	H =
 	\left(                 %左括号
